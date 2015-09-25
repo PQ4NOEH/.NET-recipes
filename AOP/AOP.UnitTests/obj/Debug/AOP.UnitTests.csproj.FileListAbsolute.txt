@@ -1,0 +1,17 @@
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.abstractions.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.runner.utility.desktop.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.execution.desktop.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\AOP.UnitTests.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\AOP.UnitTests.pdb
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\Castle.Core.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.assert.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.core.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\Castle.Core.xml
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.assert.pdb
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.assert.xml
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.core.pdb
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\bin\Debug\xunit.core.xml
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\obj\Debug\AOP.UnitTests.dll
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\obj\Debug\AOP.UnitTests.pdb
+C:\proj\git\.NET-recipes\AOP\AOP.UnitTests\obj\Debug\AOP.UnitTests.csprojResolveAssemblyReference.cache
