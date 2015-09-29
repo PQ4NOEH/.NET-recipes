@@ -1,7 +1,7 @@
-C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\TypeValidation.dll
-C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\TypeValidation.pdb
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\TypeValidation.dll
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\TypeValidation.pdb
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\TypeValidation.dll
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\TypeValidation.pdb
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\FluentValidation.dll
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\FluentValidation.pdb
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\FluentValidation.xml
@@ -19,3 +19,8 @@ C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\pt\FluentValida
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\ru\FluentValidation.resources.dll
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\sv\FluentValidation.resources.dll
 C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\bin\Debug\tr\FluentValidation.resources.dll
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\TypeValidation.csprojResolveAssemblyReference.cache
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\TypeValidation.rewritten
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\Decl\TypeValidation.dll
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\Decl\TypeValidation.pdb
+C:\proj\git\.NET-recipes\TypeValidation\TypeValidation\obj\Debug\CodeContractAnalysisRun.log

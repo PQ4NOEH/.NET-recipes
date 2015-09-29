@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeContracts\CitizenSpec.cs" />
     <Compile Include="DataAnotations\CitizenSpec.cs" />
     <Compile Include="FluentValidation\CitizenSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

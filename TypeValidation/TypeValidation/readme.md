@@ -32,7 +32,10 @@ We have a plain Data structure Citizen whith the following properties and rules
 
 
 # conclusions to the implementation
-Designbycontract have some benefits: 
++ Code contracts: This scenario is not really suitable for code contract there main focus is on finding code bugs not on data structures validation
++ Data Anotation: I couldn't make them work
++ Fluent API: really Easy and flexible but not part of the framework and the validation is out of the data structure.
++ modeling: 
 
 # refs
 + [DataAnnotations extensions](https://www.nuget.org/packages/DataAnnotationsExtensions)
