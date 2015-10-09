@@ -1,0 +1,7 @@
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\bin\Debug\Report.Repository.dll
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\bin\Debug\Report.Repository.pdb
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\bin\Debug\Report.Domain.dll
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\bin\Debug\Report.Domain.pdb
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\obj\Debug\Report.Repository.csprojResolveAssemblyReference.cache
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\obj\Debug\Report.Repository.dll
+C:\proj\git\.NET-recipes\ComposableWebAPI\Report.Repository\obj\Debug\Report.Repository.pdb

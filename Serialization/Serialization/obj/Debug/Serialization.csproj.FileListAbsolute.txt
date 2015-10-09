@@ -1,0 +1,12 @@
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Serialization.dll
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Serialization.pdb
+C:\proj\git\.NET-recipes\Serialization\Serialization\obj\Debug\Serialization.csprojResolveAssemblyReference.cache
+C:\proj\git\.NET-recipes\Serialization\Serialization\obj\Debug\Serialization.dll
+C:\proj\git\.NET-recipes\Serialization\Serialization\obj\Debug\Serialization.pdb
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Serialization.dll.config
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Microsoft.Hadoop.Avro.dll
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Newtonsoft.Json.dll
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Microsoft.Hadoop.Avro.xml
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\Newtonsoft.Json.xml
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\MongoDB.Bson.dll
+C:\proj\git\.NET-recipes\Serialization\Serialization\bin\Debug\MongoDB.Bson.xml
