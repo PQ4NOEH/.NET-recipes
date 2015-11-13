@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Intro angular</title>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.6/rx.all.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      Rx.Observable.timer(10,5).timestamp().subscribe(function(x){
+        console.log(x.value + ' : ' + x.timestamp);
+      });
+
+    </script>
+    <script type="text/javascript">
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: { emitDecoratorMetadata: true }
+    });
+    System.import('./app.ts');
+    </script>
+  </head>
+  <body>
+    <app>loading...</app>
+  </body>
+</html>
