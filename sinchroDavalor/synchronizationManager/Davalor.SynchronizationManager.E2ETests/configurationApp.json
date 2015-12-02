@@ -1,0 +1,99 @@
+﻿{
+    "kafkaConfiguration": {
+        "TopicsToListen": [ "one", "two", "all" ],
+        "Address": [ "http://webmail.contigotic.com/", "https://www.google.es/" ],
+        "ConsumerGroup": "aConsumer"
+    },
+    "MessagesHandlers": [
+        {
+            "MessageHandlerName": "CountryMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "CurrencyMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "DocumentTypeMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "FreeSessionReasonMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "PrinterMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "RegionMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "TaxMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "TitleMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "AuditLogonMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "SessionMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "ServiceMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "DeviceMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "MachineMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "MediaMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "PartnerMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "PatientMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "LocationMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "PaymentGatewayMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "AnswerMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "PayableMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "DisclaimerMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "DisclaimerSignatureMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        }
+    ],
+    "HostPasswordFilePath": "HostPasswords.json"
+}
+

@@ -1,0 +1,4 @@
+USE [master]
+
+/****** Object:  Database [VisionLocalIntegrationTests]    Script Date: 16/10/2015 10:50:27 ******/
+DROP DATABASE [VisionLocalIntegrationTests]

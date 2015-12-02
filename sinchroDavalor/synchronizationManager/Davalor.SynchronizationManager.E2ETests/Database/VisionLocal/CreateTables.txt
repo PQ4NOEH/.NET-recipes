@@ -1,0 +1,1051 @@
+﻿USE [VisionLocalIntegrationTests]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Country'))
+BEGIN
+	DROP TABLE [dbo].[Country]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Currency'))
+BEGIN
+	DROP TABLE [dbo].[Currency]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DocumentType'))
+BEGIN
+	DROP TABLE [dbo].[DocumentType]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'FreeSessionReason'))
+BEGIN
+	DROP TABLE [dbo].[FreeSessionReason]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Printer'))
+BEGIN
+	DROP TABLE [dbo].[Printer]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Region'))
+BEGIN
+	DROP TABLE [dbo].[Region]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Tax'))
+BEGIN
+	DROP TABLE [dbo].[Tax]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Title'))
+BEGIN
+	DROP TABLE [dbo].[Title]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'AuditLogon'))
+BEGIN
+	DROP TABLE [dbo].[AuditLogon]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Appointment'))
+BEGIN
+	DROP TABLE [dbo].[Appointment]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Diagnosis'))
+BEGIN
+	DROP TABLE [dbo].[Diagnosis]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SessionDevice'))
+BEGIN
+	DROP TABLE [dbo].[SessionDevice]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Session'))
+BEGIN
+	DROP TABLE [dbo].[Session]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'ServicePrice'))
+BEGIN
+	DROP TABLE [dbo].[ServicePrice]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'ServiceLevel'))
+BEGIN
+	DROP TABLE [dbo].[ServiceLevel]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Service'))
+BEGIN
+	DROP TABLE [dbo].[Service]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'ServiceType'))
+BEGIN
+	DROP TABLE [dbo].[ServiceType]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Device'))
+BEGIN
+	DROP TABLE [dbo].[Device]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DeviceGroup'))
+BEGIN
+	DROP TABLE [dbo].[DeviceGroup]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DeviceType'))
+BEGIN
+	DROP TABLE [dbo].[DeviceType]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'MachinePrinter'))
+BEGIN
+	ALTER TABLE [dbo].[MachinePrinter] DROP CONSTRAINT [FK_dbo.MachinePrinter_dbo.Machine_MachineId]
+	DROP TABLE [dbo].[MachinePrinter]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Machine'))
+BEGIN
+	ALTER TABLE [dbo].[Machine] DROP CONSTRAINT [FK_dbo.Machine_dbo.MachineGroup_MachineGroupId]
+	DROP TABLE [dbo].[Machine]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'MachineGroup'))
+BEGIN
+	DROP TABLE [dbo].[MachineGroup]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'MediaDeviceGroup'))
+BEGIN
+	ALTER TABLE [dbo].[MediaDeviceGroup] DROP CONSTRAINT [FK_dbo.MediaDeviceGroup_dbo.Media_MediaId]
+	DROP TABLE [dbo].[MediaDeviceGroup]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'MediaMachine'))
+BEGIN
+	ALTER TABLE [dbo].[MediaMachine] DROP CONSTRAINT [FK_dbo.MediaMachine_dbo.Media_MediaId]
+	DROP TABLE [dbo].[MediaMachine]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'MediaServiceLevel'))
+BEGIN
+	ALTER TABLE [dbo].[MediaServiceLevel] DROP CONSTRAINT [FK_dbo.MediaServiceLevel_dbo.Media_MediaId]
+	DROP TABLE [dbo].[MediaServiceLevel]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Media'))
+BEGIN
+	DROP TABLE [dbo].[Media]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Country'))
+BEGIN
+	DROP TABLE [dbo].[Country]
+END
+
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Partner'))
+BEGIN
+	--ALTER TABLE [dbo].[Partner] DROP CONSTRAINT [FK_dbo.Partner_dbo.PartnerChain_PartnerChainId]
+	DROP TABLE [dbo].[Partner]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'PartnerChain'))
+BEGIN
+	DROP TABLE [dbo].[PartnerChain]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'PersonLocation'))
+BEGIN
+	ALTER TABLE [dbo].[PersonLocation] DROP CONSTRAINT [FK_dbo.PersonLocation_dbo.Person_PersonId]
+	DROP TABLE [dbo].[PersonLocation]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Patient'))
+BEGIN
+	ALTER TABLE [dbo].[Patient] DROP CONSTRAINT [FK_dbo.Patient_dbo.User_UserId]
+	ALTER TABLE [dbo].[Patient] DROP CONSTRAINT [FK_dbo.Patient_dbo.Person_PersonId]
+	DROP TABLE [dbo].[Patient]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Person'))
+BEGIN
+	DROP TABLE [dbo].[Person]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'User'))
+BEGIN
+	DROP TABLE [dbo].[User]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Location'))
+BEGIN
+	DROP TABLE [dbo].[Location]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'GatewayByCountry'))
+BEGIN
+	ALTER TABLE [dbo].[GatewayByCountry] DROP CONSTRAINT [FK_dbo.GatewayByCountry_dbo.Gateway_GatewayId]
+	DROP TABLE [dbo].[GatewayByCountry]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Gateway'))
+BEGIN
+	DROP TABLE [dbo].[Gateway]	
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'AnswerValues'))
+BEGIN
+	ALTER TABLE [dbo].[AnswerValues] DROP CONSTRAINT [FK_dbo.AnswerValues_dbo.Answer_AnswerId]
+	DROP TABLE [dbo].[AnswerValues]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Answer'))
+BEGIN
+	DROP TABLE [dbo].[Answer]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'PaymentMpos'))
+BEGIN
+	ALTER TABLE [dbo].[PaymentMpos] DROP CONSTRAINT [FK_dbo.PaymentMpos_dbo.Payment_Id]
+	DROP TABLE [dbo].[PaymentMpos]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'PaymentTaxTransaction'))
+BEGIN
+	ALTER TABLE [dbo].[PaymentTaxTransaction] DROP CONSTRAINT [FK_dbo.PaymentTaxTransaction_dbo.PaymentTransaction_PaymentTransactionId]
+	DROP TABLE [dbo].[PaymentTaxTransaction]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'PaymentTransaction'))
+BEGIN
+	ALTER TABLE [dbo].[PaymentTransaction] DROP CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payment_PaymentId]
+	ALTER TABLE [dbo].[PaymentTransaction] DROP CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payable_PayableId]
+	DROP TABLE [dbo].[PaymentTransaction]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Payment'))
+BEGIN
+	DROP TABLE [dbo].[Payment]
+END
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Payable'))
+BEGIN
+	DROP TABLE [dbo].[Payable]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Disclaimer'))
+BEGIN
+	DROP TABLE [dbo].[Disclaimer]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DavalorDisclaimer'))
+BEGIN
+	ALTER TABLE [dbo].[DavalorDisclaimer] DROP CONSTRAINT [FK_dbo.DavalorDisclaimer_dbo.Signature_SignatureId]
+	DROP TABLE [dbo].[DavalorDisclaimer]
+END
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Signature'))
+BEGIN
+	DROP TABLE [dbo].[Signature]
+END
+
+/****** Object:  Table [dbo].[VisionLocalIntegrationTests]    Script Date: 16/10/2015 10:55:43 ******/
+SET ANSI_NULLS ON
+
+SET QUOTED_IDENTIFIER ON
+
+CREATE TABLE [dbo].[Country](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](2) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Country] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Currency'))
+BEGIN
+	DROP TABLE [dbo].[Currency]
+END
+CREATE TABLE [dbo].[Currency](
+	[Id] [uniqueidentifier] NOT NULL,
+	[IsoCodeChar] [nvarchar](3) NOT NULL,
+	[IsoCodeNum] [nvarchar](3) NOT NULL,
+	[Decimals] [int] NOT NULL,
+	[SapCode] [nvarchar](5) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Currency] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DocumentType'))
+BEGIN
+	DROP TABLE [dbo].[DocumentType]
+END
+CREATE TABLE [dbo].[DocumentType](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](500) NULL,
+	[CountryId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](2) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.DocumentType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'FreeSessionReason'))
+BEGIN
+	DROP TABLE [dbo].[FreeSessionReason]
+END
+CREATE TABLE [dbo].[FreeSessionReason](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](50) NOT NULL,
+	[SapCode] [nvarchar](3) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.FreeSessionReason] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Printer'))
+BEGIN
+	DROP TABLE [dbo].[Printer]
+END
+CREATE TABLE [dbo].[Printer](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Code] [nvarchar](200) NOT NULL,
+	[PartnerId] [uniqueidentifier] NULL,
+	[POSPrint] [bit] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Printer] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Region'))
+BEGIN
+	DROP TABLE [dbo].[Region]
+END
+CREATE TABLE [dbo].[Region](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[CountryId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](5) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Region] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Tax'))
+BEGIN
+	DROP TABLE [dbo].[Tax]
+END
+CREATE TABLE [dbo].[Tax](
+	[Id] [uniqueidentifier] NOT NULL,
+	[CountryId] [uniqueidentifier] NOT NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[TaxClassPartner] [nvarchar](1) NOT NULL,
+	[TaxClassServicePrice] [nvarchar](1) NOT NULL,
+	[BeginPeriod] [datetimeoffset](6) NOT NULL,
+	[EndPeriod] [datetimeoffset](6) NOT NULL,
+	[Rule] [nvarchar](1) NOT NULL,
+	[Amount] [decimal](11, 2) NULL,
+	[BaseAmount] [decimal](11, 2) NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[SapCode] [nvarchar](12) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Tax] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Title'))
+BEGIN
+	DROP TABLE [dbo].[Title]
+END
+CREATE TABLE [dbo].[Title](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[Deleted] [int] NOT NULL,
+	[SapCode] [nvarchar](4) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Title] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'AuditLogon'))
+BEGIN
+	DROP TABLE [dbo].[AuditLogon]
+END
+CREATE TABLE [dbo].[AuditLogon](
+	[Id] [uniqueidentifier] NOT NULL,
+	[UserName] [nvarchar](50) NULL,
+	[Ip] [nvarchar](50) NULL,
+	[Access] [nvarchar](50) NULL,
+	[AccessDate] [datetimeoffset](6) NULL,
+	[PartnerId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.AuditLogon] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Appointment](
+	[Id] [uniqueidentifier] NOT NULL,
+	[InitialTime] [datetime] NOT NULL,
+	[FinalTime] [datetime] NOT NULL,
+	[StatusType] [int] NOT NULL,
+	[TimeZoneId] [uniqueidentifier] NOT NULL,
+	[ServiceTypeId] [uniqueidentifier] NOT NULL,
+	[ServiceLevelId] [uniqueidentifier] NOT NULL,
+	[ServiceId] [uniqueidentifier] NOT NULL,
+	[MediaId] [uniqueidentifier] NOT NULL,
+	[PatientId] [uniqueidentifier] NOT NULL,
+	[MachineId] [uniqueidentifier] NOT NULL,
+	[PayableId] [uniqueidentifier] NOT NULL,
+	[SessionId] [uniqueidentifier] NULL,
+	[PartnerId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Appointment] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Diagnosis](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Appraisal] [nvarchar](max) NULL,
+	[SessionId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Diagnosis] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+CREATE TABLE [dbo].[Session](
+	[Id] [uniqueidentifier] NOT NULL,
+	[InitialTime] [datetimeoffset](6) NULL,
+	[EndTime] [datetimeoffset](6) NULL,
+	[InvoiceId] [uniqueidentifier] NULL,
+	[InvoiceRequired] [int] NOT NULL,
+	[InterpretationDone] [bit] NOT NULL,
+	[SignedDate] [datetimeoffset](6) NULL,
+	[GuardianId] [uniqueidentifier] NULL,
+	[PartnerId] [uniqueidentifier] NOT NULL,
+	[PatientId] [uniqueidentifier] NOT NULL,
+	[ServiceLevelId] [uniqueidentifier] NOT NULL,
+	[ServiceId] [uniqueidentifier] NOT NULL,
+	[MediaId] [uniqueidentifier] NOT NULL,
+	[MachineId] [uniqueidentifier] NOT NULL,
+	[PayableId] [uniqueidentifier] NULL,
+	[CommissionId] [uniqueidentifier] NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Session] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[SessionDevice](
+	[Id] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](36) NULL,
+	[SerialNumber] [nvarchar](18) NULL,
+	[DeviceGroup] [nvarchar](26) NULL,
+	[DeviceId] [uniqueidentifier] NULL,
+	[SessionId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.SessionDevice] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[Appointment]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Appointment_dbo.Session_SessionId] FOREIGN KEY([SessionId])
+REFERENCES [dbo].[Session] ([Id])
+ALTER TABLE [dbo].[Appointment] CHECK CONSTRAINT [FK_dbo.Appointment_dbo.Session_SessionId]
+
+ALTER TABLE [dbo].[Diagnosis]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Diagnosis_dbo.Session_SessionId] FOREIGN KEY([SessionId])
+REFERENCES [dbo].[Session] ([Id])
+ALTER TABLE [dbo].[Diagnosis] CHECK CONSTRAINT [FK_dbo.Diagnosis_dbo.Session_SessionId]
+
+ALTER TABLE [dbo].[SessionDevice]  WITH CHECK ADD  CONSTRAINT [FK_dbo.SessionDevice_dbo.Session_SessionId] FOREIGN KEY([SessionId])
+REFERENCES [dbo].[Session] ([Id])
+ALTER TABLE [dbo].[SessionDevice] CHECK CONSTRAINT [FK_dbo.SessionDevice_dbo.Session_SessionId]
+
+CREATE TABLE [dbo].[Service](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[LongDescriptionKeyId] [nvarchar](100) NOT NULL,
+	[Cover] [varbinary](max) NULL,
+	[CoverType] [nvarchar](5) NULL,
+	[Deleted] [int] NOT NULL,
+	[ServiceTypeId] [uniqueidentifier] NOT NULL,
+	[DecisionTreeId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](18) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Service] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+CREATE TABLE [dbo].[ServiceLevel](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[LongDescriptionKeyId] [nvarchar](100) NOT NULL,
+	[Deleted] [int] NOT NULL,
+	[ServiceId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](18) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.ServiceLevel] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[ServicePrice](
+	[Id] [uniqueidentifier] NOT NULL,
+	[BeginPeriod] [datetime] NOT NULL,
+	[EndPeriod] [datetime] NOT NULL,
+	[Price] [real] NOT NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[ServiceLevelId] [uniqueidentifier] NOT NULL,
+	[CountryId] [uniqueidentifier] NOT NULL,
+	[TaxClass] [nvarchar](1) NOT NULL,
+	[SapCode] [nvarchar](100) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.ServicePrice] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[ServiceType](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[LongDescriptionKeyId] [nvarchar](100) NOT NULL,
+	[Length] [int] NOT NULL,
+	[Type] [int] NULL,
+	[Deleted] [int] NOT NULL,
+	[SapCode] [nvarchar](20) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.ServiceType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Service]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Service_dbo.ServiceType_ServiceTypeId] FOREIGN KEY([ServiceTypeId])
+REFERENCES [dbo].[ServiceType] ([Id])
+ALTER TABLE [dbo].[Service] CHECK CONSTRAINT [FK_dbo.Service_dbo.ServiceType_ServiceTypeId]
+
+ALTER TABLE [dbo].[ServiceLevel]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ServiceLevel_dbo.Service_ServiceId] FOREIGN KEY([ServiceId])
+REFERENCES [dbo].[Service] ([Id])
+ALTER TABLE [dbo].[ServiceLevel] CHECK CONSTRAINT [FK_dbo.ServiceLevel_dbo.Service_ServiceId]
+
+ALTER TABLE [dbo].[ServicePrice]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ServicePrice_dbo.ServiceLevel_ServiceLevelId] FOREIGN KEY([ServiceLevelId])
+REFERENCES [dbo].[ServiceLevel] ([Id])
+ALTER TABLE [dbo].[ServicePrice] CHECK CONSTRAINT [FK_dbo.ServicePrice_dbo.ServiceLevel_ServiceLevelId]
+
+CREATE TABLE [dbo].[Device](
+	[Id] [uniqueidentifier] NOT NULL,
+	[DescriptionKeyId] [nvarchar](100) NULL,
+	[SerialNumber] [nvarchar](18) NOT NULL,
+	[Deleted] [int] NOT NULL,
+	[DeviceGroupId] [uniqueidentifier] NOT NULL,
+	[MachineId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](36) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Device] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[DeviceGroup](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[DeviceTypeId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](26) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.DeviceGroup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[DeviceType](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[SapCode] [nvarchar](18) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.DeviceType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Device]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Device_dbo.DeviceGroup_DeviceGroupId] FOREIGN KEY([DeviceGroupId])
+REFERENCES [dbo].[DeviceGroup] ([Id])
+ALTER TABLE [dbo].[Device] CHECK CONSTRAINT [FK_dbo.Device_dbo.DeviceGroup_DeviceGroupId]
+
+ALTER TABLE [dbo].[DeviceGroup]  WITH CHECK ADD  CONSTRAINT [FK_dbo.DeviceGroup_dbo.DeviceType_DeviceTypeId] FOREIGN KEY([DeviceTypeId])
+REFERENCES [dbo].[DeviceType] ([Id])
+ALTER TABLE [dbo].[DeviceGroup] CHECK CONSTRAINT [FK_dbo.DeviceGroup_dbo.DeviceType_DeviceTypeId]
+
+CREATE TABLE [dbo].[Machine](
+	[Id] [uniqueidentifier] NOT NULL,
+	[SerialNumber] [nvarchar](18) NOT NULL,
+	[DeviceIdentifier] [nvarchar](50) NOT NULL,
+	[UserFriendlyName] [nvarchar](50) NULL,
+	[DescriptionKeyId] [nvarchar](100) NOT NULL,
+	[Ip] [nvarchar](30) NULL,
+	[Port] [int] NOT NULL,
+	[PortState] [int] NOT NULL,
+	[StreamingPort] [int] NOT NULL,
+	[SortOrder] [int] NOT NULL,
+	[Deleted] [int] NOT NULL,
+	[PartnerId] [uniqueidentifier] NOT NULL,
+	[MachineGroupId] [uniqueidentifier] NOT NULL,
+	[SapCode] [nvarchar](36) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Machine] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[MachineGroup](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[Deleted] [int] NOT NULL,
+	[SapCode] [nvarchar](50) NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.MachineGroup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[MachinePrinter](
+	[Id] [uniqueidentifier] NOT NULL,
+	[MachineId] [uniqueidentifier] NOT NULL,
+	[PrinterId] [uniqueidentifier] NOT NULL,
+	[Function] [int] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.MachinePrinter] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Machine]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Machine_dbo.MachineGroup_MachineGroupId] FOREIGN KEY([MachineGroupId])
+REFERENCES [dbo].[MachineGroup] ([Id])
+ALTER TABLE [dbo].[Machine] CHECK CONSTRAINT [FK_dbo.Machine_dbo.MachineGroup_MachineGroupId]
+
+ALTER TABLE [dbo].[MachinePrinter]  WITH CHECK ADD  CONSTRAINT [FK_dbo.MachinePrinter_dbo.Machine_MachineId] FOREIGN KEY([MachineId])
+REFERENCES [dbo].[Machine] ([Id])
+ALTER TABLE [dbo].[MachinePrinter] CHECK CONSTRAINT [FK_dbo.MachinePrinter_dbo.Machine_MachineId]
+
+
+CREATE TABLE [dbo].[Media](
+	[Id] [uniqueidentifier] NOT NULL,
+	[ShortName] [nvarchar](30) NULL,
+	[NameKeyId] [nvarchar](100) NOT NULL,
+	[LongDescriptionKeyId] [nvarchar](100) NOT NULL,
+	[Cover] [varbinary](max) NULL,
+	[CoverType] [nvarchar](5) NULL,
+	[Trailer] [varbinary](max) NULL,
+	[TrailerType] [nvarchar](5) NULL,
+	[Deleted] [int] NOT NULL,
+	[NeedsInitialization] [bit] NOT NULL,
+	[SapCode] [nvarchar](18) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Media] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[MediaDeviceGroup](
+	[Id] [uniqueidentifier] NOT NULL,
+	[DeviceGroupId] [uniqueidentifier] NOT NULL,
+	[Deleted] [int] NOT NULL,
+	[MediaId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.MediaDeviceGroup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[MediaMachine](
+	[Id] [uniqueidentifier] NOT NULL,
+	[MachineId] [uniqueidentifier] NOT NULL,
+	[MediaId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.MediaMachine] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[MediaServiceLevel](
+	[Id] [uniqueidentifier] NOT NULL,
+	[ServiceLevelId] [uniqueidentifier] NOT NULL,
+	[MediaId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.MediaServiceLevel] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[MediaDeviceGroup]  WITH CHECK ADD  CONSTRAINT [FK_dbo.MediaDeviceGroup_dbo.Media_MediaId] FOREIGN KEY([MediaId])
+REFERENCES [dbo].[Media] ([Id])
+ALTER TABLE [dbo].[MediaDeviceGroup] CHECK CONSTRAINT [FK_dbo.MediaDeviceGroup_dbo.Media_MediaId]
+
+ALTER TABLE [dbo].[MediaMachine]  WITH CHECK ADD  CONSTRAINT [FK_dbo.MediaMachine_dbo.Media_MediaId] FOREIGN KEY([MediaId])
+REFERENCES [dbo].[Media] ([Id])
+ALTER TABLE [dbo].[MediaMachine] CHECK CONSTRAINT [FK_dbo.MediaMachine_dbo.Media_MediaId]
+
+ALTER TABLE [dbo].[MediaServiceLevel]  WITH CHECK ADD  CONSTRAINT [FK_dbo.MediaServiceLevel_dbo.Media_MediaId] FOREIGN KEY([MediaId])
+REFERENCES [dbo].[Media] ([Id])
+ALTER TABLE [dbo].[MediaServiceLevel] CHECK CONSTRAINT [FK_dbo.MediaServiceLevel_dbo.Media_MediaId]
+
+CREATE TABLE [dbo].[Location](
+	[Id] [uniqueidentifier] NOT NULL,
+	[City] [nvarchar](40) NULL,
+	[Street] [nvarchar](100) NULL,
+	[PostalCode] [nvarchar](10) NULL,
+	[Longitude] [float] NULL,
+	[Latitude] [float] NULL,
+	[CountryId] [uniqueidentifier] NULL,
+	[RegionId] [uniqueidentifier] NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Location] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+CREATE TABLE [dbo].[Partner](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](40) NOT NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Email] [nvarchar](241) NULL,
+	[Url] [nvarchar](2048) NULL,
+	[Deleted] [int] NOT NULL,
+	[TimeZoneId] [uniqueidentifier] NOT NULL,
+	[LanguageId] [uniqueidentifier] NOT NULL,
+	[LocationId] [uniqueidentifier] NOT NULL,
+	[PartnerChainId] [uniqueidentifier] NULL,
+	[CurrencyId] [uniqueidentifier] NULL,
+	[TaxClass] [nvarchar](1) NOT NULL,
+	[SapCode] [nvarchar](30) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Partner] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[PartnerChain](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](40) NOT NULL,
+	[SapCode] [nvarchar](30) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.PartnerChain] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[Partner]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Partner_dbo.PartnerChain_PartnerChainId] FOREIGN KEY([PartnerChainId])
+REFERENCES [dbo].[PartnerChain] ([Id])
+ALTER TABLE [dbo].[Partner] CHECK CONSTRAINT [FK_dbo.Partner_dbo.PartnerChain_PartnerChainId]
+
+CREATE TABLE [dbo].[Patient](
+	[Id] [uniqueidentifier] NOT NULL,
+	[PersonId] [uniqueidentifier] NOT NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[SapCode] [nvarchar](10) NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Patient] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Person](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](35) NULL,
+	[Surname1] [nvarchar](35) NULL,
+	[Surname2] [nvarchar](35) NULL,
+	[Gender] [int] NULL,
+	[BirthDate] [datetime] NULL,
+	[Email] [nvarchar](100) NULL,
+	[Phone1] [nvarchar](30) NULL,
+	[Phone2] [nvarchar](30) NULL,
+	[DocumentTypeId] [uniqueidentifier] NULL,
+	[DocumentIdentifier] [nvarchar](16) NULL,
+	[NationalityId] [uniqueidentifier] NULL,
+	[TitleId] [uniqueidentifier] NULL,
+	[LanguageId] [uniqueidentifier] NULL,
+	[CurrencyId] [uniqueidentifier] NULL,
+	[Deleted] [int] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Person] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[PersonLocation](
+	[Id] [uniqueidentifier] NOT NULL,
+	[PersonId] [uniqueidentifier] NOT NULL,
+	[LocationId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.PersonLocation] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[User](
+	[Id] [uniqueidentifier] NOT NULL,
+	[UserName] [nvarchar](100) NOT NULL,
+	[Hash] [nvarchar](128) NOT NULL,
+	[TokenHash] [nvarchar](200) NULL,
+	[RetryCount] [int] NOT NULL,
+	[Active] [int] NOT NULL,
+	[Locked] [int] NOT NULL,
+	[RecordDeleted] [int] NOT NULL,
+	[RecordDeletedDate] [datetimeoffset](6) NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[NewEmail] [nvarchar](100) NULL,
+	[NewEmailCode] [nvarchar](128) NULL,
+	[NewEmailRequest] [datetimeoffset](6) NULL,
+	[ForgotPasswordCode] [nvarchar](128) NULL,
+	[ForgotPasswordRequest] [datetimeoffset](6) NULL,
+	[LastChangePassword] [datetimeoffset](6) NOT NULL,
+	[LastLogon] [datetimeoffset](6) NULL,
+	[RegistrationCode] [nvarchar](100) NULL,
+	[RegistrationDate] [datetimeoffset](6) NOT NULL,
+	[LanguageId] [uniqueidentifier] NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.User] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[Patient]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Patient_dbo.Person_PersonId] FOREIGN KEY([PersonId])
+REFERENCES [dbo].[Person] ([Id])
+ALTER TABLE [dbo].[Patient] CHECK CONSTRAINT [FK_dbo.Patient_dbo.Person_PersonId]
+
+ALTER TABLE [dbo].[Patient]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Patient_dbo.User_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+ALTER TABLE [dbo].[Patient] CHECK CONSTRAINT [FK_dbo.Patient_dbo.User_UserId]
+
+ALTER TABLE [dbo].[PersonLocation]  WITH CHECK ADD  CONSTRAINT [FK_dbo.PersonLocation_dbo.Person_PersonId] FOREIGN KEY([PersonId])
+REFERENCES [dbo].[Person] ([Id])
+ALTER TABLE [dbo].[PersonLocation] CHECK CONSTRAINT [FK_dbo.PersonLocation_dbo.Person_PersonId]
+
+CREATE TABLE [dbo].[Gateway](
+	[Id] [uniqueidentifier] NOT NULL,
+	[GatewayType] [int] NOT NULL,
+	[GatewayPlatformType] [int] NOT NULL,
+	[GatewayTypeName] [nvarchar](1000) NULL,
+	[GatewayDescription] [nvarchar](1000) NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Gateway] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[GatewayByCountry](
+	[Id] [uniqueidentifier] NOT NULL,
+	[GatewayId] [uniqueidentifier] NOT NULL,
+	[CountryId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.GatewayByCountry] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[GatewayByCountry]  WITH CHECK ADD  CONSTRAINT [FK_dbo.GatewayByCountry_dbo.Gateway_GatewayId] FOREIGN KEY([GatewayId])
+REFERENCES [dbo].[Gateway] ([Id])
+ALTER TABLE [dbo].[GatewayByCountry] CHECK CONSTRAINT [FK_dbo.GatewayByCountry_dbo.Gateway_GatewayId]
+
+CREATE TABLE [dbo].[Answer](
+	[Id] [uniqueidentifier] NOT NULL,
+	[PersonId] [uniqueidentifier] NOT NULL,
+	[SessionId] [uniqueidentifier] NULL,
+	[AppointmentId] [uniqueidentifier] NULL,
+	[Type] [int] NOT NULL,
+	[QuestionId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Answer] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[AnswerValues](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Type] [int] NOT NULL,
+	[ValueNumber] [nvarchar](2048) NULL,
+	[ValueDecimal] [nvarchar](2048) NULL,
+	[ValueBoolean] [nvarchar](2048) NULL,
+	[AnswerId] [uniqueidentifier] NOT NULL,
+	[ValueCatalogItemId] [uniqueidentifier] NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.AnswerValues] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[AnswerValues]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AnswerValues_dbo.Answer_AnswerId] FOREIGN KEY([AnswerId])
+REFERENCES [dbo].[Answer] ([Id])
+ALTER TABLE [dbo].[AnswerValues] CHECK CONSTRAINT [FK_dbo.AnswerValues_dbo.Answer_AnswerId]
+
+CREATE TABLE [dbo].[Payable](
+	[Id] [uniqueidentifier] NOT NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[PaymentStatus] [int] NOT NULL,
+	[Price] [real] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Payable] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Payment](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Amount] [decimal](11, 2) NOT NULL,
+	[PaymentDate] [datetime] NOT NULL,
+	[RequestDate] [datetime] NULL,
+	[OperationType] [int] NOT NULL,
+	[ProcessingState] [int] NOT NULL,
+	[PaymentType] [int] NOT NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[GatewayId] [uniqueidentifier] NOT NULL,
+	[PatientId] [uniqueidentifier] NOT NULL,
+	[FreeSessionReasonId] [uniqueidentifier] NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Payment] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[PaymentMpos](
+	[Id] [uniqueidentifier] NOT NULL,
+	[BankingNumber] [nvarchar](50) NULL,
+	[AuthNumber] [nvarchar](50) NULL,
+	[OperationNumber] [nvarchar](50) NULL,
+	[Sequence] [nvarchar](8) NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.PaymentMpos] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[PaymentTaxTransaction](
+	[Id] [uniqueidentifier] NOT NULL,
+	[PaymentTransactionId] [uniqueidentifier] NOT NULL,
+	[TaxId] [uniqueidentifier] NOT NULL,
+	[Amount] [decimal](18, 2) NOT NULL,
+	[NameKeyId] [nvarchar](100) NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.PaymentTaxTransaction] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[PaymentTransaction](
+	[Id] [uniqueidentifier] NOT NULL,
+	[CurrencyId] [uniqueidentifier] NOT NULL,
+	[PayableId] [uniqueidentifier] NOT NULL,
+	[PaymentId] [uniqueidentifier] NOT NULL,
+	[PartnerId] [uniqueidentifier] NOT NULL,
+	[Amount] [decimal](11, 2) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.PaymentTransaction] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[PaymentMpos]  WITH CHECK ADD  CONSTRAINT [FK_dbo.PaymentMpos_dbo.Payment_Id] FOREIGN KEY([Id])
+REFERENCES [dbo].[Payment] ([Id])
+ALTER TABLE [dbo].[PaymentMpos] CHECK CONSTRAINT [FK_dbo.PaymentMpos_dbo.Payment_Id]
+
+ALTER TABLE [dbo].[PaymentTaxTransaction]  WITH CHECK ADD  CONSTRAINT [FK_dbo.PaymentTaxTransaction_dbo.PaymentTransaction_PaymentTransactionId] FOREIGN KEY([PaymentTransactionId])
+REFERENCES [dbo].[PaymentTransaction] ([Id])
+ALTER TABLE [dbo].[PaymentTaxTransaction] CHECK CONSTRAINT [FK_dbo.PaymentTaxTransaction_dbo.PaymentTransaction_PaymentTransactionId]
+
+
+ALTER TABLE [dbo].[PaymentTransaction]  WITH CHECK ADD  CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payable_PayableId] FOREIGN KEY([PayableId])
+REFERENCES [dbo].[Payable] ([Id])
+ALTER TABLE [dbo].[PaymentTransaction] CHECK CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payable_PayableId]
+
+ALTER TABLE [dbo].[PaymentTransaction]  WITH CHECK ADD  CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payment_PaymentId] FOREIGN KEY([PaymentId])
+REFERENCES [dbo].[Payment] ([Id])
+ALTER TABLE [dbo].[PaymentTransaction] CHECK CONSTRAINT [FK_dbo.PaymentTransaction_dbo.Payment_PaymentId]
+
+CREATE TABLE [dbo].[Disclaimer](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Version] [int] NOT NULL,
+	[Code] [nvarchar](20) NOT NULL,
+	[LinkKeyId] [nvarchar](100) NOT NULL,
+	[TextKeyId] [nvarchar](100) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Disclaimer] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[DavalorDisclaimer](
+	[Id] [uniqueidentifier] NOT NULL,
+	[State] [int] NOT NULL,
+	[SignedDate] [datetimeoffset](6) NOT NULL,
+	[SignatureId] [uniqueidentifier] NULL,
+	[PatientId] [uniqueidentifier] NOT NULL,
+	[DisclaimerId] [uniqueidentifier] NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.DavalorDisclaimer] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Signature](
+	[Id] [uniqueidentifier] NOT NULL,
+	[SafekeepingIdentifier] [nvarchar](8) NOT NULL,
+	[TimeStamp] [datetimeoffset](6) NOT NULL,
+ CONSTRAINT [PK_dbo.Signature] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[DavalorDisclaimer]  WITH CHECK ADD  CONSTRAINT [FK_dbo.DavalorDisclaimer_dbo.Signature_SignatureId] FOREIGN KEY([SignatureId])
+REFERENCES [dbo].[Signature] ([Id])
+ALTER TABLE [dbo].[DavalorDisclaimer] CHECK CONSTRAINT [FK_dbo.DavalorDisclaimer_dbo.Signature_SignatureId]

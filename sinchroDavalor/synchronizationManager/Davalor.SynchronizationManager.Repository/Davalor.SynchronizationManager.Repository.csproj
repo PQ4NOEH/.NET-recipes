@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Davalor.SynchronizationManager.Repository</RootNamespace>
+    <AssemblyName>Davalor.SynchronizationManager.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Davalor.Base.Contract.Library, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Contract.Library.2.0.1511.146\lib\net451\Davalor.Base.Contract.Library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Library, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Library.2.0.1511.146\lib\net451\Davalor.Base.Library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Messaging.Contracts, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Messaging.Contracts.2.0.1511.146\lib\net451\Davalor.Base.Messaging.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Security.Contracts, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Messaging.Contracts.2.0.1511.146\lib\net451\Davalor.Base.Security.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Hadoop.Avro, Version=1.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Hadoop.Avro.1.5.6\lib\net45\Microsoft.Hadoop.Avro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Answer\PortalPacienteAnswerContext.cs" />
+    <Compile Include="Answer\VisionLocalAnswerContext.cs" />
+    <Compile Include="Answer\AnswerRepository.cs" />
+    <Compile Include="AuditLogon\PortalPacienteAuditLogonContext.cs" />
+    <Compile Include="AuditLogon\AuditLogonRepository.cs" />
+    <Compile Include="DisclaimerSignature\DisclaimerSignatureRepository.cs" />
+    <Compile Include="DisclaimerSignature\PortalPacienteDisclaimerSignatureContext.cs" />
+    <Compile Include="DisclaimerSignature\VisionLocalDisclaimerSignatureContext.cs" />
+    <Compile Include="Country\VisionLocalCountryContext.cs" />
+    <Compile Include="Country\PortalPacienteCountryContext.cs" />
+    <Compile Include="Country\CountryRepository.cs" />
+    <Compile Include="Currency\VisionLocalCurrencyContext.cs" />
+    <Compile Include="Currency\PortalPacienteCurrencyContext.cs" />
+    <Compile Include="Currency\CurrencyRepository.cs" />
+    <Compile Include="Device\VisionLocalDeviceContext.cs" />
+    <Compile Include="Device\PortalPacienteDeviceContext.cs" />
+    <Compile Include="Device\DeviceRepository.cs" />
+    <Compile Include="Disclaimer\DisclaimerRepository.cs" />
+    <Compile Include="Disclaimer\VisionLocalDisclaimerContext.cs" />
+    <Compile Include="DocumentType\VisionLocalDocumentTypeContext .cs" />
+    <Compile Include="DocumentType\PortalPacienteDocumentTypeContext.cs" />
+    <Compile Include="DocumentType\DocumentTypeRepository.cs" />
+    <Compile Include="FreeSessionReason\VisionLocalFreeSessionReasonContext.cs" />
+    <Compile Include="FreeSessionReason\PortalPacienteFreeSessionReasonContext.cs" />
+    <Compile Include="FreeSessionReason\FreeSessionReasonRepository.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="Location\LocationRepository.cs" />
+    <Compile Include="Location\PortalPacienteLocationContext.cs" />
+    <Compile Include="Location\VisionLocalMediaContext.cs" />
+    <Compile Include="Machine\VisionLocalMachineContext.cs" />
+    <Compile Include="Machine\PortalPacienteMachineContext.cs" />
+    <Compile Include="Machine\MachineRepository.cs" />
+    <Compile Include="Media\VisionLocalMediaContext.cs" />
+    <Compile Include="Media\PortalPacienteMediaContext.cs" />
+    <Compile Include="Media\MediaRepository.cs" />
+    <Compile Include="Partner\VisionLocalPartnerContext.cs" />
+    <Compile Include="Partner\PortalPacientePartnerContext.cs" />
+    <Compile Include="Partner\PartnerRepository.cs" />
+    <Compile Include="Patient\VisionLocalPatientContext.cs" />
+    <Compile Include="Patient\PortalPacientePatientContext.cs" />
+    <Compile Include="Patient\PatientRepository.cs" />
+    <Compile Include="Payable\VisionLocalPayableContext.cs" />
+    <Compile Include="Payable\PortalPacientePayableContext.cs" />
+    <Compile Include="Payable\PayableRepository.cs" />
+    <Compile Include="PaymentGateway\VisionLocalPaymentGatewayContext.cs" />
+    <Compile Include="PaymentGateway\PortalPacientePaymentGatewayContext.cs" />
+    <Compile Include="PaymentGateway\PaymentGatewayRepository.cs" />
+    <Compile Include="Printer\VisionLocalPrinterContext.cs" />
+    <Compile Include="Printer\PortalPacientePrinterContext.cs" />
+    <Compile Include="Printer\PrinterRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questionnaire\VisionLocalQuestionnaireContext.cs" />
+    <Compile Include="Questionnaire\PortalPacienteQuestionnaireContext.cs" />
+    <Compile Include="Questionnaire\QuestionnaireRepository.cs" />
+    <Compile Include="Region\VisionLocalRegionContext.cs" />
+    <Compile Include="Region\PortalPacienteRegionContext.cs" />
+    <Compile Include="Region\RegionRepository.cs" />
+    <Compile Include="Service\VisionLocalServiceContext.cs" />
+    <Compile Include="Service\PortalPacienteServiceContext.cs" />
+    <Compile Include="Service\ServiceRepository.cs" />
+    <Compile Include="Session\VisionLocalSessionContext.cs" />
+    <Compile Include="Session\PortalPacienteSessionContext.cs" />
+    <Compile Include="Session\SessionRepository.cs" />
+    <Compile Include="SynchroRepositoryFactory.cs" />
+    <Compile Include="Tax\VisionLocalTaxContext.cs" />
+    <Compile Include="Tax\PortalPacienteTaxContext.cs" />
+    <Compile Include="Tax\TaxRepository.cs" />
+    <Compile Include="Title\VisionLocalTitleContext.cs" />
+    <Compile Include="Title\PortalPacienteTitleContext.cs" />
+    <Compile Include="Title\TitleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Davalor.PortalPaciente.Messages\Davalor.PortalPaciente.Messages.csproj">
+      <Project>{c1213d20-f4a2-43e0-8b6b-6de768c25f1e}</Project>
+      <Name>Davalor.PortalPaciente.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SAP.Messages\Davalor.SAP.Messages.csproj">
+      <Project>{8dd81148-62d5-4d19-9a82-6bd9348853f6}</Project>
+      <Name>Davalor.SAP.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Domain\Davalor.SynchronizationManager.Domain.csproj">
+      <Project>{3f78cc60-a06d-45bc-b8d5-bc54adb883e1}</Project>
+      <Name>Davalor.SynchronizationManager.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.VisionLocal.Messages\Davalor.VisionLocal.Messages.csproj">
+      <Project>{81e7e1d3-5af5-4377-af61-6a4a9d1c82f2}</Project>
+      <Name>Davalor.VisionLocal.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,8 @@
+﻿{
+    "KafkaTopicsToListen": [ "ATopic" ],
+    "kafkaConfiguration": {
+        "Address": [ "net.tcp://srv101004013.davalor.corp:9092" ]
+    },
+    "VisionLocalConnectionString": "connectionstring",
+    "PortalPacienteConnectionString": "connectionstring"
+}

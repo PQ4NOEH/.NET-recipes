@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Davalor.SynchronizationManager.E2ETests</RootNamespace>
+    <AssemblyName>Davalor.SynchronizationManager.E2ETests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>b00f15be</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Contract.Library, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Contract.Library.2.0.1511.146\lib\net451\Davalor.Base.Contract.Library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Library, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Library.2.0.1511.146\lib\net451\Davalor.Base.Library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Messaging.Contracts, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Messaging.Contracts.2.0.1511.146\lib\net451\Davalor.Base.Messaging.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Security, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Security.2.0.1511.146\lib\net451\Davalor.Base.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Base.Security.Contracts, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Base.Security.2.0.1511.146\lib\net451\Davalor.Base.Security.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Davalor.Toolkit, Version=2.0.1511.146, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Davalor.Toolkit.2.0.1511.146\lib\net451\Davalor.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Hadoop.Avro, Version=1.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Hadoop.Avro.1.5.6\lib\net45\Microsoft.Hadoop.Avro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.0.0.2929, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.assert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.0.0.2929, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnswerMessagesTests.cs" />
+    <Compile Include="DisclaimerSignatureTests.cs" />
+    <Compile Include="Database\DisclaimerSignatureRepository.cs" />
+    <Compile Include="DisclaimerMessagesTests.cs" />
+    <Compile Include="Database\DisclaimerRepository.cs" />
+    <Compile Include="PayableMessagesTests.cs" />
+    <Compile Include="Database\AnswerRepository.cs" />
+    <Compile Include="Database\PayableRepository.cs" />
+    <Compile Include="PaymentGatewayMessagesTests.cs" />
+    <Compile Include="Database\PaymentGatewayRepository.cs" />
+    <Compile Include="LocationMessagesTests.cs" />
+    <Compile Include="Database\AuditLogonRepository.cs" />
+    <Compile Include="Database\LocationRepository.cs" />
+    <Compile Include="Database\PatientRepository.cs" />
+    <Compile Include="Database\PartnerRepository.cs" />
+    <Compile Include="Database\MediaRepository.cs" />
+    <Compile Include="Database\MachineRepository.cs" />
+    <Compile Include="Database\PortalPacienteDBHelper.cs" />
+    <Compile Include="Database\DeviceRepository.cs" />
+    <Compile Include="Database\ServiceRepository.cs" />
+    <Compile Include="Database\SessionRepository.cs" />
+    <Compile Include="Database\TitleRepository.cs" />
+    <Compile Include="Database\TaxRepository.cs" />
+    <Compile Include="Database\RegionRepository.cs" />
+    <Compile Include="Database\PrinterRepository.cs" />
+    <Compile Include="Database\FreeSessionReasonRepository.cs" />
+    <Compile Include="HostPasswordConfigFake.cs" />
+    <Compile Include="PatientMessagesTests.cs" />
+    <Compile Include="PartnerMessagesTests.cs" />
+    <Compile Include="MediaMessagesTests.cs" />
+    <Compile Include="MachineMessagesTests.cs" />
+    <Compile Include="E2ETestsCollectionDefinition.cs" />
+    <Compile Include="AuditLogonMessagesTest.cs" />
+    <Compile Include="oracleHelperTest.cs" />
+    <Compile Include="DeviceMessagesTests.cs" />
+    <Compile Include="ServiceMessagesTests.cs" />
+    <Compile Include="SessionMessagesTest.cs" />
+    <Compile Include="TitleMessagesTest.cs" />
+    <Compile Include="TaxMessagesTest.cs" />
+    <Compile Include="RegionMessagesTest.cs" />
+    <Compile Include="PrinterMessagesTest.cs" />
+    <Compile Include="FreeSessionReasonMessagesTest.cs" />
+    <Compile Include="DocumentTypeMessagesTests.cs" />
+    <Compile Include="CurrencyMessagesTests.cs" />
+    <Compile Include="CountryMessagesTests.cs" />
+    <Compile Include="Database\BaseRepository.cs" />
+    <Compile Include="Database\DocumentTypeRepository.cs" />
+    <Compile Include="Database\CurrencyRepository.cs" />
+    <Compile Include="Database\CountryRepository.cs" />
+    <Compile Include="Database\VisionLocalDBHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHostConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\PortalPaciente\CreateDatabase.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\PortalPaciente\CreateTables.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\PortalPaciente\DropDataBase.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\VisionLocal\CreateTables.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\VisionLocal\DropTables.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="configurationApp.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="HostPasswords.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Database\VisionLocal\CreateDatabase.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\VisionLocal\DropDatabase.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Davalor.PortalPaciente.Messages\Davalor.PortalPaciente.Messages.csproj">
+      <Project>{c1213d20-f4a2-43e0-8b6b-6de768c25f1e}</Project>
+      <Name>Davalor.PortalPaciente.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SAP.Messages\Davalor.SAP.Messages.csproj">
+      <Project>{8dd81148-62d5-4d19-9a82-6bd9348853f6}</Project>
+      <Name>Davalor.SAP.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Cryptography\Davalor.SynchronizationManager.Cryptography.csproj">
+      <Project>{e738e40b-f940-4338-a25d-5f2451a2fc47}</Project>
+      <Name>Davalor.SynchronizationManager.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Domain\Davalor.SynchronizationManager.Domain.csproj">
+      <Project>{3f78cc60-a06d-45bc-b8d5-bc54adb883e1}</Project>
+      <Name>Davalor.SynchronizationManager.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Host\Davalor.SynchronizationManager.Host.csproj">
+      <Project>{0049d525-8c84-4bf6-b703-c01ad5f8ac9f}</Project>
+      <Name>Davalor.SynchronizationManager.Host</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Listener\Davalor.SynchronizationManager.Listener.csproj">
+      <Project>{441a9616-5e9f-4435-95bf-e9d8413163da}</Project>
+      <Name>Davalor.SynchronizationManager.Listener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.MessageHandlers\Davalor.SynchronizationManager.MessageHandlers.csproj">
+      <Project>{7d838201-364b-4e5e-8ad9-fad458b23110}</Project>
+      <Name>Davalor.SynchronizationManager.MessageHandlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.SynchronizationManager.Repository\Davalor.SynchronizationManager.Repository.csproj">
+      <Project>{36c911f2-f1f0-4d5b-8636-6cce30fce3b9}</Project>
+      <Name>Davalor.SynchronizationManager.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Davalor.VisionLocal.Messages\Davalor.VisionLocal.Messages.csproj">
+      <Project>{81e7e1d3-5af5-4377-af61-6a4a9d1c82f2}</Project>
+      <Name>Davalor.VisionLocal.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props'))" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,111 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.ConsoleHost", "Davalor.MomProxy\Davalor.MomProxy.ConsoleHost.csproj", "{21A70C4B-3033-4A59-B630-4C9DD67AAD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Repository", "Davalor.MomProxy.Repository\Davalor.MomProxy.Repository.csproj", "{1A9D8ADC-D8B4-4B46-8EED-453C305025F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Domain", "Davalor.MomProxy.Contracts\Davalor.MomProxy.Domain.csproj", "{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Repository.UnitTests", "Davalor.MomProxy.Repository.UnitTests\Davalor.MomProxy.Repository.UnitTests.csproj", "{529EF6BC-C2BC-46C5-B88B-87ABAF272D72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{31FF3CE8-5763-4E57-A98F-CF9775A22B11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2AC3D132-DD5C-48B3-A7EE-1A17F6AFF497}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{A67E83C3-36DD-4594-BCB9-E788C3E0F5D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Services", "Davalor.MomProxy.Services\Davalor.MomProxy.Services.csproj", "{0422AD91-A845-4132-AA32-10F6C2F64063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Domain.UnitTests", "Davalor.MomProxy.Contracts.UnitTests\Davalor.MomProxy.Domain.UnitTests.csproj", "{94D5D95A-6B03-4CAA-9244-645781BB8777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Services.UnitTests", "Davalor.MomProxy.Services.UnitTests\Davalor.MomProxy.Services.UnitTests.csproj", "{EFB8308F-3230-43C7-9C15-8F2B1F812D64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Host", "Davalor.MomProxy.Host\Davalor.MomProxy.Host.csproj", "{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.Host.UnitTests", "Davalor.MomProxy.Host.UnitTests\Davalor.MomProxy.Host.UnitTests.csproj", "{55727272-1097-45F3-983B-94D1D8AF3B54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{199B4160-7765-46BD-BE61-7B4DC4A0CA90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.MomProxy.IntegrationTests", "Davalor.MomProxy.IntegrationTests\Davalor.MomProxy.IntegrationTests.csproj", "{6B0F9D46-7239-4C37-8729-069827575291}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{65AB86D9-88E0-4A91-8B05-BE3FAEB33BD4}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\GUIA desarrolladores.docx = Documentation\GUIA desarrolladores.docx
+		Documentation\Manual de explotación MomProxy.docx = Documentation\Manual de explotación MomProxy.docx
+		Documentation\MomProxy.png = Documentation\MomProxy.png
+		Documentation\MomProxy.xml = Documentation\MomProxy.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C4C3F961-B3E0-432C-AF57-2D39A374DB60}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21A70C4B-3033-4A59-B630-4C9DD67AAD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A70C4B-3033-4A59-B630-4C9DD67AAD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A70C4B-3033-4A59-B630-4C9DD67AAD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A70C4B-3033-4A59-B630-4C9DD67AAD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A9D8ADC-D8B4-4B46-8EED-453C305025F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9D8ADC-D8B4-4B46-8EED-453C305025F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9D8ADC-D8B4-4B46-8EED-453C305025F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9D8ADC-D8B4-4B46-8EED-453C305025F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529EF6BC-C2BC-46C5-B88B-87ABAF272D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529EF6BC-C2BC-46C5-B88B-87ABAF272D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529EF6BC-C2BC-46C5-B88B-87ABAF272D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529EF6BC-C2BC-46C5-B88B-87ABAF272D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0422AD91-A845-4132-AA32-10F6C2F64063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0422AD91-A845-4132-AA32-10F6C2F64063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0422AD91-A845-4132-AA32-10F6C2F64063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0422AD91-A845-4132-AA32-10F6C2F64063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D5D95A-6B03-4CAA-9244-645781BB8777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D5D95A-6B03-4CAA-9244-645781BB8777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D5D95A-6B03-4CAA-9244-645781BB8777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D5D95A-6B03-4CAA-9244-645781BB8777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB8308F-3230-43C7-9C15-8F2B1F812D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB8308F-3230-43C7-9C15-8F2B1F812D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB8308F-3230-43C7-9C15-8F2B1F812D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB8308F-3230-43C7-9C15-8F2B1F812D64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55727272-1097-45F3-983B-94D1D8AF3B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55727272-1097-45F3-983B-94D1D8AF3B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55727272-1097-45F3-983B-94D1D8AF3B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55727272-1097-45F3-983B-94D1D8AF3B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B0F9D46-7239-4C37-8729-069827575291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0F9D46-7239-4C37-8729-069827575291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0F9D46-7239-4C37-8729-069827575291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0F9D46-7239-4C37-8729-069827575291}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{21A70C4B-3033-4A59-B630-4C9DD67AAD09} = {31FF3CE8-5763-4E57-A98F-CF9775A22B11}
+		{1A9D8ADC-D8B4-4B46-8EED-453C305025F3} = {A67E83C3-36DD-4594-BCB9-E788C3E0F5D6}
+		{D5A2B39E-E13F-4030-A1DE-35F3D5F536D7} = {2AC3D132-DD5C-48B3-A7EE-1A17F6AFF497}
+		{529EF6BC-C2BC-46C5-B88B-87ABAF272D72} = {A67E83C3-36DD-4594-BCB9-E788C3E0F5D6}
+		{0422AD91-A845-4132-AA32-10F6C2F64063} = {2AC3D132-DD5C-48B3-A7EE-1A17F6AFF497}
+		{94D5D95A-6B03-4CAA-9244-645781BB8777} = {2AC3D132-DD5C-48B3-A7EE-1A17F6AFF497}
+		{EFB8308F-3230-43C7-9C15-8F2B1F812D64} = {2AC3D132-DD5C-48B3-A7EE-1A17F6AFF497}
+		{3EE3D2BD-F3FA-4354-B4B5-E0EF799255D4} = {31FF3CE8-5763-4E57-A98F-CF9775A22B11}
+		{55727272-1097-45F3-983B-94D1D8AF3B54} = {31FF3CE8-5763-4E57-A98F-CF9775A22B11}
+		{6B0F9D46-7239-4C37-8729-069827575291} = {199B4160-7765-46BD-BE61-7B4DC4A0CA90}
+	EndGlobalSection
+EndGlobal

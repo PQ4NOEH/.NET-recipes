@@ -1,0 +1,2 @@
+﻿DROP USER portalPacienteTest CASCADE
+DROP TABLESPACE portalPacienteTest

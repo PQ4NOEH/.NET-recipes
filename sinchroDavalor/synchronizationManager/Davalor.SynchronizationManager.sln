@@ -1,0 +1,147 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Host", "Davalor.SynchronizationManager.Host\Davalor.SynchronizationManager.Host.csproj", "{0049D525-8C84-4BF6-B703-C01AD5F8AC9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{ED4100A5-7338-4C92-80DB-F17C74D3EC6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.PortalPaciente.Messages", "Davalor.PortalPaciente.Messages\Davalor.PortalPaciente.Messages.csproj", "{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SAP.Messages", "Davalor.SAP.Messages\Davalor.SAP.Messages.csproj", "{8DD81148-62D5-4D19-9A82-6BD9348853F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.VisionLocal.Messages", "Davalor.VisionLocal.Messages\Davalor.VisionLocal.Messages.csproj", "{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B9479C90-0FBC-4F7C-AE35-ECF99430F1BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Domain", "Davalor.SynchronizationManager.Domain\Davalor.SynchronizationManager.Domain.csproj", "{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{874C312F-85EE-4CCC-B246-7C91CF792137}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.MessageHandlers.UnitTests", "Davalor.SynchronizationManager.VisionLocalMessageHandlers.UnitTests\Davalor.SynchronizationManager.MessageHandlers.UnitTests.csproj", "{22AE4C74-FF2B-4B13-BEC0-C522A96889EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Repository", "Davalor.SynchronizationManager.Repository\Davalor.SynchronizationManager.Repository.csproj", "{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{EB73136A-1396-4014-8ADE-80BA34797EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Listener", "Davalor.SynchronizationManager.Listener\Davalor.SynchronizationManager.Listener.csproj", "{441A9616-5E9F-4435-95BF-E9D8413163DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.ConsoleHost", "Davalor.SynchronizationManager.ConsoleHost\Davalor.SynchronizationManager.ConsoleHost.csproj", "{FF9B17E6-7319-43FD-88CB-3E8B48A864C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF4FC78E-AE8C-47AB-B89D-9A75BC992643}"
+	ProjectSection(SolutionItems) = preProject
+		Documentacion\GUIA desarrolladores.docx = Documentacion\GUIA desarrolladores.docx
+		Documentacion\Manual de explotación SynchronizationManager.docx = Documentacion\Manual de explotación SynchronizationManager.docx
+		todo.md = todo.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Domain.UnitTests", "Davalor.SynchronizationManager.Domain.UnitTests\Davalor.SynchronizationManager.Domain.UnitTests.csproj", "{3DBD5A83-136B-4105-9E1E-E067F19828E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Listener.UnitTests", "Davalor.SynchronizationManager.Listener.UnitTests\Davalor.SynchronizationManager.Listener.UnitTests.csproj", "{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Repository.UnitTests", "Davalor.SynchronizationManager.Repository.UnitTests\Davalor.SynchronizationManager.Repository.UnitTests.csproj", "{7E3ADF7F-59F2-49EA-B61C-599CC927565E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.MessageHandlers", "Davalor.SynchronizationManager.MessageHandlers\Davalor.SynchronizationManager.MessageHandlers.csproj", "{7D838201-364B-4E5E-8AD9-FAD458B23110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Cryptography", "Davalor.SynchronizationManager.Cryptography\Davalor.SynchronizationManager.Cryptography.csproj", "{E738E40B-F940-4338-A25D-5F2451A2FC47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "E2ETests", "E2ETests", "{C954F2B7-C23D-475D-9146-21C0DE1F2585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.E2ETests", "Davalor.SynchronizationManager.E2ETests\Davalor.SynchronizationManager.E2ETests.csproj", "{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Davalor.SynchronizationManager.Host.UnitTests", "Davalor.SynchronizationManager.Host.UnitTests\Davalor.SynchronizationManager.Host.UnitTests.csproj", "{8FCE007C-107E-4614-BE77-0D437DC3DD71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0049D525-8C84-4BF6-B703-C01AD5F8AC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0049D525-8C84-4BF6-B703-C01AD5F8AC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0049D525-8C84-4BF6-B703-C01AD5F8AC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0049D525-8C84-4BF6-B703-C01AD5F8AC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD81148-62D5-4D19-9A82-6BD9348853F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD81148-62D5-4D19-9A82-6BD9348853F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD81148-62D5-4D19-9A82-6BD9348853F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD81148-62D5-4D19-9A82-6BD9348853F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22AE4C74-FF2B-4B13-BEC0-C522A96889EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AE4C74-FF2B-4B13-BEC0-C522A96889EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AE4C74-FF2B-4B13-BEC0-C522A96889EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AE4C74-FF2B-4B13-BEC0-C522A96889EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441A9616-5E9F-4435-95BF-E9D8413163DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441A9616-5E9F-4435-95BF-E9D8413163DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441A9616-5E9F-4435-95BF-E9D8413163DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441A9616-5E9F-4435-95BF-E9D8413163DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9B17E6-7319-43FD-88CB-3E8B48A864C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9B17E6-7319-43FD-88CB-3E8B48A864C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9B17E6-7319-43FD-88CB-3E8B48A864C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9B17E6-7319-43FD-88CB-3E8B48A864C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBD5A83-136B-4105-9E1E-E067F19828E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBD5A83-136B-4105-9E1E-E067F19828E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBD5A83-136B-4105-9E1E-E067F19828E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBD5A83-136B-4105-9E1E-E067F19828E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3ADF7F-59F2-49EA-B61C-599CC927565E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3ADF7F-59F2-49EA-B61C-599CC927565E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3ADF7F-59F2-49EA-B61C-599CC927565E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3ADF7F-59F2-49EA-B61C-599CC927565E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D838201-364B-4E5E-8AD9-FAD458B23110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D838201-364B-4E5E-8AD9-FAD458B23110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D838201-364B-4E5E-8AD9-FAD458B23110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D838201-364B-4E5E-8AD9-FAD458B23110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E738E40B-F940-4338-A25D-5F2451A2FC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E738E40B-F940-4338-A25D-5F2451A2FC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E738E40B-F940-4338-A25D-5F2451A2FC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E738E40B-F940-4338-A25D-5F2451A2FC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FCE007C-107E-4614-BE77-0D437DC3DD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FCE007C-107E-4614-BE77-0D437DC3DD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FCE007C-107E-4614-BE77-0D437DC3DD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FCE007C-107E-4614-BE77-0D437DC3DD71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0049D525-8C84-4BF6-B703-C01AD5F8AC9F} = {EB73136A-1396-4014-8ADE-80BA34797EFD}
+		{C1213D20-F4A2-43E0-8B6B-6DE768C25F1E} = {ED4100A5-7338-4C92-80DB-F17C74D3EC6D}
+		{8DD81148-62D5-4D19-9A82-6BD9348853F6} = {ED4100A5-7338-4C92-80DB-F17C74D3EC6D}
+		{81E7E1D3-5AF5-4377-AF61-6A4A9D1C82F2} = {ED4100A5-7338-4C92-80DB-F17C74D3EC6D}
+		{3F78CC60-A06D-45BC-B8D5-BC54ADB883E1} = {B9479C90-0FBC-4F7C-AE35-ECF99430F1BA}
+		{22AE4C74-FF2B-4B13-BEC0-C522A96889EA} = {B9479C90-0FBC-4F7C-AE35-ECF99430F1BA}
+		{36C911F2-F1F0-4D5B-8636-6CCE30FCE3B9} = {874C312F-85EE-4CCC-B246-7C91CF792137}
+		{441A9616-5E9F-4435-95BF-E9D8413163DA} = {874C312F-85EE-4CCC-B246-7C91CF792137}
+		{FF9B17E6-7319-43FD-88CB-3E8B48A864C8} = {EB73136A-1396-4014-8ADE-80BA34797EFD}
+		{3DBD5A83-136B-4105-9E1E-E067F19828E2} = {B9479C90-0FBC-4F7C-AE35-ECF99430F1BA}
+		{40C97C54-AC4C-4975-AB2D-E537F7E9A5A5} = {874C312F-85EE-4CCC-B246-7C91CF792137}
+		{7E3ADF7F-59F2-49EA-B61C-599CC927565E} = {874C312F-85EE-4CCC-B246-7C91CF792137}
+		{7D838201-364B-4E5E-8AD9-FAD458B23110} = {B9479C90-0FBC-4F7C-AE35-ECF99430F1BA}
+		{E738E40B-F940-4338-A25D-5F2451A2FC47} = {874C312F-85EE-4CCC-B246-7C91CF792137}
+		{A2E1BA02-9FD6-4CBF-BD17-B1CA4BD9BE39} = {C954F2B7-C23D-475D-9146-21C0DE1F2585}
+		{8FCE007C-107E-4614-BE77-0D437DC3DD71} = {EB73136A-1396-4014-8ADE-80BA34797EFD}
+	EndGlobalSection
+EndGlobal

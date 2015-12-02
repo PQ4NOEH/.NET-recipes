@@ -1,0 +1,23 @@
+﻿{
+    "kafkaConfiguration": {
+        "TopicsToListen": [ "one", "two", "all" ],
+        "Address": [ "http://webmail.contigotic.com/", "https://www.google.es/" ],
+        "ConsumerGroup": "aConsumer"
+    },
+    "MessagesHandlers": [
+        {
+            "MessageHandlerName": "firstMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal", "PortalPaciente" ]
+        },
+        {
+            "MessageHandlerName": "secondMessageHandler",
+            "SystemToSynchronize": [ "VisionLocal" ]
+        },
+        {
+            "MessageHandlerName": "theLast",
+            "SystemToSynchronize": [ ]
+        }
+    ],
+    "PortalPacienteConnectionString": "PortalPacienteConnectionString_string",
+    "VisionLocalConnectionString":  "VisionLocalConnectionString_string"
+}
