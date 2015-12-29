@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F227A882-8929-4D2B-A7CE-A6AADE07E25A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22C0E846-9FA9-4753-A249-BE1B1662ECC1}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TutorialVnext", "src\TutorialVnext\TutorialVnext.xproj", "{E03DB22B-7C0D-4206-9527-76F9285D5429}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portal", "Portal", "{E3DBC19E-E77B-4160-AA57-0EA2346F5920}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FBA441A0-3960-4EB3-A55B-BD77A4515607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Portal.Contracts", "AlteaLabs.Portal.Contracts\AlteaLabs.Portal.Contracts.csproj", "{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Portal.Services", "AlteaLabs.Portal.Services\AlteaLabs.Portal.Services.csproj", "{350995AF-2585-4F6A-B302-7164B60EC14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Portal.Persitence", "AlteaLabs.Portal.Persitence\AlteaLabs.Portal.Persitence.csproj", "{982F05C5-BA9C-4556-9406-E63EEA48E5EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Core", "AlteaLabs.Core\AlteaLabs.Core.csproj", "{8EC934AD-455D-4128-947A-3A317DA04B05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Portal.Services.Tests", "AlteaLabs.Portal.Services.Tests\AlteaLabs.Portal.Services.Tests.csproj", "{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Portal.Persitence.Tests", "AlteaLabs.Portal.Persitence.Tests\AlteaLabs.Portal.Persitence.Tests.csproj", "{BEF3A8BA-1009-4527-A789-35A4DE1EF079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlteaLabs.Core.Tests", "AlteaLabs.Core.Tests\AlteaLabs.Core.Tests.csproj", "{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E03DB22B-7C0D-4206-9527-76F9285D5429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E03DB22B-7C0D-4206-9527-76F9285D5429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E03DB22B-7C0D-4206-9527-76F9285D5429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E03DB22B-7C0D-4206-9527-76F9285D5429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350995AF-2585-4F6A-B302-7164B60EC14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350995AF-2585-4F6A-B302-7164B60EC14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350995AF-2585-4F6A-B302-7164B60EC14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350995AF-2585-4F6A-B302-7164B60EC14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982F05C5-BA9C-4556-9406-E63EEA48E5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982F05C5-BA9C-4556-9406-E63EEA48E5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982F05C5-BA9C-4556-9406-E63EEA48E5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982F05C5-BA9C-4556-9406-E63EEA48E5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC934AD-455D-4128-947A-3A317DA04B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC934AD-455D-4128-947A-3A317DA04B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC934AD-455D-4128-947A-3A317DA04B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC934AD-455D-4128-947A-3A317DA04B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF3A8BA-1009-4527-A789-35A4DE1EF079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF3A8BA-1009-4527-A789-35A4DE1EF079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF3A8BA-1009-4527-A789-35A4DE1EF079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF3A8BA-1009-4527-A789-35A4DE1EF079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E03DB22B-7C0D-4206-9527-76F9285D5429} = {F227A882-8929-4D2B-A7CE-A6AADE07E25A}
+		{53CE1A0B-F635-40C5-9D96-ADD4BE35F8A4} = {E3DBC19E-E77B-4160-AA57-0EA2346F5920}
+		{350995AF-2585-4F6A-B302-7164B60EC14E} = {E3DBC19E-E77B-4160-AA57-0EA2346F5920}
+		{982F05C5-BA9C-4556-9406-E63EEA48E5EF} = {E3DBC19E-E77B-4160-AA57-0EA2346F5920}
+		{8EC934AD-455D-4128-947A-3A317DA04B05} = {FBA441A0-3960-4EB3-A55B-BD77A4515607}
+		{C7F36D49-644B-4D1C-BDCD-9F0F2DA38C5A} = {E3DBC19E-E77B-4160-AA57-0EA2346F5920}
+		{BEF3A8BA-1009-4527-A789-35A4DE1EF079} = {E3DBC19E-E77B-4160-AA57-0EA2346F5920}
+		{4BFDC8F0-FC6E-47C5-A675-91712A2E4E3C} = {FBA441A0-3960-4EB3-A55B-BD77A4515607}
+	EndGlobalSection
+EndGlobal
