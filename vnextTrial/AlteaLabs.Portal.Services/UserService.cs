@@ -31,7 +31,7 @@ namespace AlteaLabs.Portal.Services
             var validation = _credentialValidator.Validate(credentials);
             if(validation.IsValid)
             {
-                var user = _userRepository.LoadUser(credentials.Value.UserNameOrUserMail);
+                var user = _userRepository.LoadUser(credentials.Value.UserMail);
                 if(user.Password.Equals(_hashGenerator.GenerateHash(credentials.Value.Password)))
                 {
                     result = new ServiceResult<User>(user);

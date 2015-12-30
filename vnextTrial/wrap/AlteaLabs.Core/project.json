@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../AlteaLabs.Core/bin/Debug/AlteaLabs.Core.dll",
+        "pdb": "../../AlteaLabs.Core/bin/Debug/AlteaLabs.Core.pdb"
+      }
+    }
+  }
+}

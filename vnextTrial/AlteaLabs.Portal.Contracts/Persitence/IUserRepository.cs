@@ -10,7 +10,7 @@ namespace AlteaLabs.Portal.Contracts.Persitence
 {
     public interface IUserRepository
     {
-        User LoadUser(NotNulllEmptyOrWhiteSpaceString userNameOrMail);
+        User LoadUser(NotNulllEmptyOrWhiteSpaceString userMail);
         User LoadUser(Guid userId);
 
     }

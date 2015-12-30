@@ -7,31 +7,26 @@ using System.Threading.Tasks;
 
 namespace AlteaLabs.Portal.Services.UserCredentialsErrors
 {
-    public class UserNameOrUserMailEmpty : ServiceError
+    public class UserMailEmpty : ServiceError
     {
-        public UserNameOrUserMailEmpty() 
+        public UserMailEmpty() 
             :  base(Guid.Parse("{6329EC7C-847D-41F7-9149-C163B6A6158D}"), "UserNameOrUserMail must be provided")
         { }
     }
 
-    public class UserNameOrUserMailInvalidLength : ServiceError
+    public class UserMailInvalid : ServiceError
     {
-        public UserNameOrUserMailInvalidLength() 
-            : base(Guid.Parse("{02F738E8-8A51-4A18-BBB3-C2D8B35085E1}"), "User / email must have a minimum of three characters and a maximum of fifty")
+        public UserMailInvalid() 
+            : base(Guid.Parse("{02F738E8-8A51-4A18-BBB3-C2D8B35085E1}"), "The email is not a valid Email.")
         { }
     }
 
-    public class UserNameOrUserMailInvalidCharacters : ServiceError
-    {
-        public UserNameOrUserMailInvalidCharacters()
-            : base(Guid.Parse("{5BEABB1C-1D1A-466F-B8AF-AED33AACF658}"), "Only allowed alphanumeric, underscores, dot and @,  characters")
-        { }
-    }
+    
 
     public class PasswordEmpty : ServiceError
     {
         public PasswordEmpty()
-            : base(Guid.Parse("{5989C4C2-0DC4-4E00-A2CF-3E7B557D7A68}"), "Password must be provided")
+            : base(Guid.Parse("{5989C4C2-0DC4-4E00-A2CF-3E7B557D7A68}"), "Password must be provided.")
         { }
     }
 
@@ -45,7 +40,7 @@ namespace AlteaLabs.Portal.Services.UserCredentialsErrors
     public class UserOrPasswordDoesNotMatch : ServiceError
     {
         public UserOrPasswordDoesNotMatch()
-            : base(Guid.Parse("{AB05EA7E-3690-4D04-8C9B-A0B70C7E8BE7}"), "The user/email and password does not match")
+            : base(Guid.Parse("{AB05EA7E-3690-4D04-8C9B-A0B70C7E8BE7}"), "The email and password does not match")
         { }
     }
 }

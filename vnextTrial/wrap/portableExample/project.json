@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+wpa81": {
+      "wrappedProject": "../../portableExample/portableExample.csproj",
+      "bin": {
+        "assembly": "../../portableExample/obj/{configuration}/portableExample.dll",
+        "pdb": "../../portableExample/obj/{configuration}/portableExample.pdb"
+      }
+    }
+  }
+}
