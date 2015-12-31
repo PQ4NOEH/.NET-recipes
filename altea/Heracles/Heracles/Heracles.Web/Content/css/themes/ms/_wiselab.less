@@ -1,0 +1,582 @@
+﻿@import '_ms.less';
+
+/*** FOOTER BAR ***/
+#wl-ft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: @grey10;
+    border-top: 1px solid @grey25;
+    z-index: 80000;
+}
+
+.wl-ft-ct {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 33.33%;
+    height: 100%;
+    z-index: 1;
+}
+
+.wl-ft-ct-vs {
+    display: block;
+}
+
+.wl-ft-ct-ps {
+    display: none !important;
+}
+
+#wl-ft-ct-sp {
+    left: 0;
+}
+
+#wl-ft-ct-wh {
+    left: 33.33%;
+}
+
+.wl-ft-nv-it {
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.618em;
+    line-height: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: @saturateddarkblue;
+    background: @grey10;
+    border-top: 1px solid @grey25;
+    z-index: 2;
+    cursor: pointer;
+    .unselectable();
+
+    .wl-ft-ct-as & {
+        color: @orange;
+    }
+}
+
+.wl-ft-ct-bx {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 0px;
+    min-height: 48px;
+    max-height: 436px;
+    padding: 15px 9px 25px;
+    overflow: hidden;
+    z-index: 1;
+    flex-direction: column;
+    
+    &::after {
+        content: '\0a0000';
+        display: block;
+        background-color: fadeout(@grey25, 50);
+        border: 1px solid #ffffff;
+        border-top: 0;
+        border-bottom: 0;
+        flex-grow: 1;
+    }
+}
+
+.wl-ft-ct-bx-arr {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 36px;
+    height: 18px;
+    margin-left: -18px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 2;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &::after {
+        content: '\0a0000';
+        display: block;
+        position: absolute;
+        top: -18px;
+        width: 0;
+        height: 0;
+        border: 18px solid;
+        border-color: transparent transparent @blue transparent;
+    }
+}
+
+.wl-ft-ct-ac .wl-ft-ct-bx-arr::after {
+    top: 0px;
+    border-color: @blue transparent transparent transparent;
+}
+
+.wl-ft-ct-bx-ctn {
+    position: relative;
+    width: 100%;
+    min-height: 5px;
+    padding: 16px 16px 8px;
+    background-color: fadeout(@grey25, 50);
+    border: 1px solid #ffffff;
+    border-bottom: none;
+    z-index: 1;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.wl-ct-arr {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    width: 18px;
+    height: 10px;
+    overflow: hidden;
+    z-index: 2;
+    cursor: pointer;
+
+    &::before {
+        content: '\0a0000';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 9px 9px 9px;
+        border-color: transparent transparent @blue transparent;
+    }
+
+    &::after {
+        content: '\0a0000';
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 9px 9px 9px;
+        border-color: transparent transparent #ffffff transparent;
+    }
+
+    &.down {
+        &::before {
+            border-width: 9px 9px 0 9px;
+            border-color: @blue transparent transparent transparent;
+        }
+
+        &::after {
+            top: -3px;
+            border-width: 9px 9px 0 9px;
+            border-color: #ffffff transparent transparent transparent;
+        }
+    }
+}
+
+.wr-dn-btw {
+    margin-top: 0.5em;
+}
+
+#wr-wh-dn {
+    display: flex;
+}
+
+#wl-wh-whc {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 16px;
+    line-height: 34px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: @blue;
+    padding: 0 10px;
+    background-color: #ffffff;
+    border: 1px solid @inputgrey;
+    border-radius: 2px;
+}
+
+#wl-wh-whc-s {
+    margin: 0 0.125em;
+}
+
+#wl-sp-liw,
+#wl-wh-khw,
+#wl-wh-ehw {
+    position: relative;
+    min-height: 3.5em;
+    max-height: 289px;
+    padding: 14px 10px 10px;
+    line-height: 1em;
+    background: white;
+    border: 1px solid @inputgrey;
+    border-radius: 2px;
+
+    .wl-ct-arr {
+        position: absolute;
+        top: 2px;
+        right: 10px;
+    }
+}
+
+#wl-sp-liw:not(.maximized) .mCSB_scrollTools {
+    display: none;
+}
+
+#wl-wh-khw,
+#wl-wh-ehw,
+#wl-wh-whw {
+    display: none;
+}
+
+#wl-wh-whw {
+    position: relative;
+    height: 10em;
+    max-height: 289px;
+    line-height: 2em;
+    background: white;
+    border: 1px solid @inputgrey;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#wl-ft-ct-wh {
+    &[data-status="2"] {
+        #wl-wh-kh {
+            text-align: center;
+
+            li {
+                display: inline-block;
+                margin: 0 0.5em;
+            }
+        }
+    }
+
+    &[data-status="8"] {
+        #wl-wh-khw {
+            position: absolute;
+            padding: 10px;
+
+            li {
+                margin-top: 0.25em;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+#wl-sp-sr {
+    position: relative;
+    margin-top: 0.5em;
+    z-index: 2;
+}
+
+#wl-sp-li,
+#wl-wh-kh,
+#wl-wh-eh {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        margin-top: 1em;
+        padding: 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+#wl-wh-kh,
+#wl-wh-eh {
+    margin: 0;
+}
+
+#wl-wh-kh li {
+    color: @green;
+}
+
+#wl-wh-wh {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    padding: 10px;
+    line-height: 1.2em;
+
+}
+
+/*** ***/
+.wn-dl {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    cursor: default;
+
+    li {
+        margin-top: 1em;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.wn-dll {
+    margin-bottom: 5px;
+    padding: 0;
+    font-weight: 400;
+}
+
+.wn-dll-ins,
+.wn-dll-pl {
+    height: 14px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 1.6em;
+    color: @lightblue;
+}
+
+.wn-dll-pl {
+    margin-left: 5px;
+}
+
+.wn-dll-md {
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.2em;
+    cursor: pointer;
+}
+
+.wn-dll-mdt-1,
+.wn-dll-mdtw-0 { // Search
+    color: @blue;
+}
+
+.wn-dll-mdt-2,
+.wn-dll-mdtw-1 { // Vocabulary from Lists
+    color: @purple;
+}
+
+.wn-dll-mdt-3,
+.wn-dll-mdtw-2 { // Grammar Stacks
+
+}
+
+.wn-dll-mdt-4,
+.wn-dll-mdtw-3 { // Term Defi Stacks
+    color: @darkred;
+}
+
+.wn-dll-mdt-5,  // WiseNet
+.wn-dll-mdt-6,
+.wn-dll-mdtw-4 { // WiseNet Search
+    color: @green;
+}
+
+.wn-dll-mdt-7,   // Desks Index
+.wn-dll-mdt-8,   // Desks Index Grammar
+.wn-dll-mdt-9,   // Desks Index Tests
+.wn-dll-mdt-10,  // Desks Exams
+.wn-dll-mdt-11,  // Desks Exams Info
+.wn-dll-mdt-12,  // Desks Extra
+.wn-dll-mdt-13,
+.wn-dll-mdtw-6,
+.wn-dll-mdtw-7,
+.wn-dll-mdtw-8,
+.wn-dll-mdtw-9,
+.wn-dll-mdtw-10,
+.wn-dll-mdtw-11,
+.wn-dll-mdtw-12 { // Desks Extra Full WiseLab
+    color: @orange;
+}
+
+.wn-dll-mdt-14,
+.wn-dll-mdtw-5 { // WiseReader
+    color: @violet;
+}
+
+.wn-dll-sdw,
+.wn-dll-sd {
+    display: inline-block;
+}
+
+.wn-dll-ms {
+    position: relative;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    font-weight: 600;
+    font-style: oblique;
+    color: @red;
+
+    &.wn-dll-msc {
+        cursor: pointer;
+
+        &.selected {
+            font-style: oblique;
+            text-align: center;
+            color: darken(@red, 25);
+            
+            &::after {
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                content: '\0a0000';
+                display: block;
+                width: 100%;
+                height: 0;
+                border-top: 1px dashed darken(@red, 25);
+            }
+        }
+
+        &.done {
+            cursor: default;
+            background-color: @lightyellow;
+        }
+    }
+}
+
+.wn-dll-da {
+    margin-top: 0.2em;
+    font-size: 1.4em;
+    line-height: 1.3em;
+    color: @blue;
+}
+
+.wn-dll-ds {
+    padding: 0 0 0 16px;
+    margin-top: 0.125em;
+
+    &:first-child {
+        margin-top: 0.0625em;
+    }
+
+    &.scrollHeight {
+        height: 1.25em;
+        overflow: hidden;
+
+        &::before {
+              position: absolute;
+              left: 3px;
+              content: '+';
+              font-weight: bold;
+        }
+
+        &.noOverflow::before {
+            left: 5px;
+            content: '-';
+        }
+    }
+}
+
+.wn-dll-dst {
+    margin-right: 4px;
+    cursor: default;
+    font-size: 0.8em;
+    color: #fff;
+    padding: 0 3px;
+    vertical-align: middle;
+}
+
+.wn-dll-dst-1, // Suggested
+.wn-dll-dst-2, // Unknown
+.wn-dll-dst-6, // Article
+.wn-dll-dst-8, // Interjection
+.wn-dll-dst-10, // Abbreviation
+.wn-dll-dst-12, // Prefix
+.wn-dll-dst-14, // Suffix
+.wn-dll-dst-15 { // Phrase
+    background-color: @grey40;
+}
+
+.wn-dll-dst-3 { // Noun
+    background-color: @lightblue;
+}
+
+.wn-dll-dst-4 { // Adjective
+    background-color: @green;
+}
+
+.wn-dll-dst-5 { // Adverb
+    background-color: @orange;
+}
+
+.wn-dll-dst-7 { // Verb
+    background-color: @red;
+}
+
+.wn-dll-dst-9 { // Preposition
+    background-color: @lightorange;
+}
+
+.wn-dll-dst-11 { // Pronoun
+    background-color: @violet;
+}
+
+.wn-dll-dst-13 { // Conjunction
+    background-color: @purple;
+}
+
+.wn-dll-sh {
+    height: 1em;
+    padding-left: 16px;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+.wn-dll-dt {
+    margin-right: 5px;
+    padding: 0 2px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    vertical-align: bottom;
+}
+
+.wn-dll-dd {
+    position: relative;
+
+    &.wn-dll-ddc {
+        cursor: pointer;
+
+        &.selected {
+            font-style: oblique;
+            text-align: center;
+            color: @darkblue;
+
+            &::after {
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                content: '\0a0000';
+                display: block;
+                width: 100%;
+                height: 0;
+                border-top: 1px dashed @darkblue;
+            }
+        }
+
+        &.done {
+            cursor: default;
+            background-color: @lightyellow;
+        }
+    }
+}
+
+#wn-dn-wr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: fadeOut(#000000, 25%);
+    z-index: 9999999;
+}

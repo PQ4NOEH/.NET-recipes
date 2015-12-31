@@ -1,0 +1,42 @@
+﻿@using Heracles.Web.Areas.WiseReader.Resources
+
+@{
+    ViewBag.Title = RoleNames.MODULE_WISEREADER;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@{
+    AlteaRoleProvider roleProvider = (AlteaRoleProvider)Roles.Provider;
+    bool hasTextEditor = roleProvider.IsUserInPermission(AlteaUser.Name, "WiseReader", "Text Editor", IsLocal);
+}
+
+<div id="wr-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+<div id="wr-fld">
+    <div id="wr-fld-btn">
+        @if (hasTextEditor)
+        {
+            @Html.Button(WiseReaderResources.Create, new { id = "wr-fld-btn-nw", @class = "input input-bl" })
+        }
+        
+        @Html.Button(WiseReaderResources.Upload, new { id = "wr-fld-btn-up", @class = "input input-bl" + (!hasTextEditor ? " wr-fld-btn-dbl" : string.Empty) })
+    </div>
+    <div id="wr-fld-ctn">
+        <div id="wr-fld-ctn-dc" class="ctn"></div>
+    </div>
+</div>
+<div id="wr-fls">
+    <div id="wr-fls-ctn" class="ctn">
+        <div id="wr-fls-spn" class="app-spinner app-spinner-large"></div>
+        <div id="wr-fls-d" class="unselectable"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        window.model = {
+            hasTextEditor: @Html.Raw(hasTextEditor.ToJson())
+        };
+    </script>
+    @Scripts.Render("~/Areas/WiseReader/Content/js/wisereader")
+}

@@ -1,0 +1,133 @@
+﻿<#@   include file="Include.ttinclude"
+#><#@ include file="$(SolutionDir)\Alba.Framework\Alba.Framework.CodeGeneration\T4\Common.ttinclude"
+#><#+
+    string sArg = @"(?:[^,()]|(?<b>\()|(?<-b>\)))+(?(b)(?!))";
+    string sArgs = @"(?:[^()]|(?<b>\()|(?<-b>\)))+(?(b)(?!))";
+    string sBlock = @"(?:[^{}]|(?<b>{)|(?<-b>}))+(?(b)(?!))";
+    string[] CommonDefs = { "MOZ_FLEXBOX" };
+    ISet<string> CSharpKeywords = new[] {
+        "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const",
+        "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern", "false",
+        "finally", "fixed", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface",
+        "internal", "is", "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override",
+        "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "stackalloc",
+        "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked",
+        "unsafe", "ushort", "using", "virtual", "void", "volatile", "while",
+    }.ToSet();
+    IDictionary<string, string> TypeRenames = new SortedList<string, string> {
+        { "nsCSSKeyword", "CssKeyword" },
+        { "nsCSSToken", "CssToken" },
+        { "nsCSSTokenType", "CssTokenType" },
+        { "nsCSSScanner", "CssScanner" },
+        { "nsCSSProperty", "CssProperty" },
+        { "nsCSSPseudoClass", "CssPseudoClass" },
+        { "nsCSSPseudoElement", "CssPseudoElement" },
+        { "nsCSSUnit", "CssUnit" },
+        { "nsAttrFunc", "CssAttrFunction" },
+        { "nsMediaFeature", "CssMediaFeature" },
+        { "nsMediaExpression", "CssMediaExpression" },
+        { "nsMediaQuery", "CssMediaQuery" },
+        { "URLValue", "CssUriValue" },
+        { "nsCSSRect", "CssRect" },
+        { "nsCSSValueGradientStop", "CssValueGradientStop" },
+        { "nsCSSValueGradient", "CssValueGradient" },
+        { "nsCSSValueTriplet", "CssValueTriplet" },
+        { "nsCSSValuePair", "CssValuePair" },
+        { "nsCSSValueList", "CssValueList" },
+        { "nsCSSValuePairList", "CssValuePairList" },
+        { "nsCSSValue", "CssValue" },
+        { "Rule", "CssRule" },
+        { "CharsetRule", "CssCharsetRule" },
+        { "CSSSupportsRule", "CssSupportsRule" },
+        { "DocumentRule", "CssDocumentRule" },
+        { "GroupRule", "CssGroupRule" },
+        { "ImportRule", "CssImportRule" },
+        { "MediaRule", "CssMediaRule" },
+        { "NameSpaceRule", "CssNamespaceRule" },
+        { "nsCSSFontFaceRule", "CssFontFaceRule" },
+        { "nsCSSKeyframeRule", "CssKeyframeRule" },
+        { "nsCSSKeyframesRule", "CssKeyframesRule" },
+        { "nsCSSPageRule", "CssPageRule" },
+        { "StyleRule", "CssStyleRule" },
+        { "nsCSSSelector", "CssSelector" },
+        { "nsCSSSelectorList", "CssSelectorGroup" },
+        { "nsCSSStyleSheet", "CssStyleSheet" },
+        { "nsCSSFontFaceStyleDecl", "CssFontFace" },
+        { "nsAttrSelector", "CssAttrSelector" },
+        { "nsPseudoClassList", "CssPseudoClassSelector" },
+        { "nsCSSParser", "CssParser" },
+        { "Declaration", "CssDeclaration" },
+        { "RuleKind", "CssRuleKind" },
+        { "nscolor", "CssColor" },
+    };
+
+    string ToId (string name)
+    {
+        return CSharpKeywords.Contains(name) ? "@" + name : name;
+    }
+
+    string ToPascalId (string name, string countPrefix = null)
+    {
+        var sb = new StringBuilder(name.Length);
+
+        if (name == "COUNT") {
+            return countPrefix == null ? "Count" : countPrefix + "Count";
+        }
+        else if (name.StartsWith("COUNT_")) {
+            sb.Append(countPrefix == null ? "Count" : countPrefix + "Count");
+            name = name.Substring(6);
+        }
+
+        if (name.StartsWith("_moz")) {
+            sb.Append("Moz");
+            name = name.Substring(4);
+        }
+        else if (name.StartsWith("moz")) {
+            sb.Append("Moz");
+            name = name.Substring(3);
+        }
+
+        bool isNextUpper = true, isPrevLower = false;
+        foreach (var c in name) {
+            if (c == '_') {
+                isNextUpper = true;
+            }
+            else {
+                sb.Append(isNextUpper ? char.ToUpper(c) : isPrevLower ? c : char.ToLower(c));
+                isNextUpper = false;
+                isPrevLower = char.IsLower(c);
+            }
+        }
+        return ToId(sb.ToString());
+    }
+
+    string ToPascalId (Match m)
+    {
+        return ToPascalId(m.Get());
+    }
+
+    void WriteTypeRenames (params string[] types)
+    {
+        foreach (var rename in TypeRenames.Where(t => types.Length == 0 || types.Contains(t.Key))) {
+#>
+    using <#=rename.Key#> = <#=rename.Value#>;
+<#+     }
+    }
+
+    string Refactor (string source)
+    {
+        return source
+            .ReReplace(@"(?nx)\b(?<Enum>
+                            nsCSS(?<CountPrefix>Keyword) |
+                            nsCSS(?<CountPrefix>Property) |
+                            nsCSS(?<CountPrefix>PseudoClass) |
+                            nsCSS(?<CountPrefix>PseudoElement) |
+                            nsCSSUnit |
+                            nsAttrFunc
+                        ) \. (?<Value>\w+)",
+                        m => "{0}.{1}".Fmt(
+                            m.Get("Enum"),
+                            ToPascalId(m.Get("Value"), countPrefix: m.Get("CountPrefix")).Replace("match", "Match"))) // "match" case for nsAttrFunc
+            ;
+    }
+#>

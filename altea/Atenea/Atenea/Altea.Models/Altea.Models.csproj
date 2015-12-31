@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Altea.Models</RootNamespace>
+    <AssemblyName>Altea.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\AlteaRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\AlteaRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\AlteaRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\AlteaRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\RegisterModel.cs" />
+    <Compile Include="Admin\AdminSetMemberLevelsModel.cs" />
+    <Compile Include="Desks\DesksAssignExtraModel.cs" />
+    <Compile Include="Desks\DesksAssignExamModel.cs" />
+    <Compile Include="Desks\DesksAssignExamTestModel.cs" />
+    <Compile Include="Desks\DesksAssignIndexModel.cs" />
+    <Compile Include="Desks\DesksAutoUnblockModel.cs" />
+    <Compile Include="Desks\DesksCheckExamTestModel.cs" />
+    <Compile Include="Desks\DesksCheckExamModel.cs" />
+    <Compile Include="Desks\DesksCheckIndexModel.cs" />
+    <Compile Include="Desks\DesksCheckLastBlockModel.cs" />
+    <Compile Include="Desks\DesksExamModel.cs" />
+    <Compile Include="Desks\DesksFinishExamTestModel.cs" />
+    <Compile Include="Desks\DesksFinishExamModel.cs" />
+    <Compile Include="Desks\DesksFinishIndexModel.cs" />
+    <Compile Include="Desks\DesksIndexModel.cs" />
+    <Compile Include="Desks\DesksReportExamModel.cs" />
+    <Compile Include="Desks\DesksReportIndexModel.cs" />
+    <Compile Include="Dictionary\DictionaryInsertSpeechModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stations\StationModel.cs" />
+    <Compile Include="Stations\StationReservationModel.cs" />
+    <Compile Include="Stax\StackInboxDataModel.cs" />
+    <Compile Include="Stax\StackDeleteInboxDataModel.cs" />
+    <Compile Include="Stax\StackAcceptInboxDataModel.cs" />
+    <Compile Include="Stax\StackNewInboxDataModel.cs" />
+    <Compile Include="Stax\StaxCheckModel.cs" />
+    <Compile Include="Stax\StackSaveExerciseDataModel.cs" />
+    <Compile Include="UserDataBasicModel.cs" />
+    <Compile Include="User\CreateUserModel.cs" />
+    <Compile Include="WiseLab\WiseLabArticleDataModel.cs" />
+    <Compile Include="WiseLab\WiseLabHuntDataModel.cs" />
+    <Compile Include="WiseLab\WiseLabWisdomHunterModel.cs" />
+    <Compile Include="WiseNet\WiseNetCreateModel.cs" />
+    <Compile Include="WiseReader\WiseReaderFolderNameModel.cs" />
+    <Compile Include="WiseReader\WiseReaderFolderModel.cs" />
+    <Compile Include="WiseReader\WiseReaderQueueProcessFileModel.cs" />
+    <Compile Include="WiseReader\WiseReaderReferenceFileModel.cs" />
+    <Compile Include="WiseTank\WiseTankAddTimelineColumnModel.cs" />
+    <Compile Include="WiseTank\WiseTankAddTimelineUserModel.cs" />
+    <Compile Include="WiseTank\WiseTankBoxRefreshRateModel.cs" />
+    <Compile Include="WiseTank\WiseTankCreateBoxModel.cs" />
+    <Compile Include="WiseTank\WiseTankEditTimelineModel.cs" />
+    <Compile Include="WiseTank\WiseTankCreateTimelineModel.cs" />
+    <Compile Include="WiseTank\WiseTankCreateArticleModel.cs" />
+    <Compile Include="WiseTank\WiseTankKarmaModel.cs" />
+    <Compile Include="WiseTank\WiseTankSetTimelineAreaModel.cs" />
+    <Compile Include="WiseTank\WiseTankVoteModel.cs" />
+    <Compile Include="WiseTank\WiseTankRepositionBoxModel.cs" />
+    <Compile Include="WiseTank\WiseTankBoxModel.cs" />
+    <Compile Include="WiseTank\WiseTankStreamModel.cs" />
+    <Compile Include="WiseTank\WiseTankRepositionStreamModel.cs" />
+    <Compile Include="WiseTank\WiseTankEditStreamModel.cs" />
+    <Compile Include="WiseTank\WiseTankCreateModel.cs" />
+    <Compile Include="WiseTank\WiseTankModel.cs" />
+    <Compile Include="WiseTank\WiseTankBoxWidthModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Altea.Classes\Altea.Classes.csproj">
+      <Project>{62e3c9d0-347a-43e2-beb9-29f1139f0aa9}</Project>
+      <Name>Altea.Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Altea.Common.Classes\Altea.Common.Classes.csproj">
+      <Project>{407ccb4a-e78d-4639-8368-5da3e1c3a35c}</Project>
+      <Name>Altea.Common.Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,313 @@
+﻿@using System.Linq
+@using Altea.Classes.Lists
+@using Heracles.Web.Areas.Dean.Resources
+
+@model DeanIndexModel
+
+@{
+    ViewBag.Title = RoleNames.MODULE_DEAN;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+    ViewHints.FullContainer = true;
+    ViewHints.HideWiseFooter = true;
+}
+
+@{
+    AlteaRoleProvider roleProvider = (AlteaRoleProvider)Roles.Provider;
+    bool hasAdmin = roleProvider.IsUserInRole(AlteaUser.Name, "Admin");
+    bool hasUserDean = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "User Dean", IsLocal);
+    bool hasGroupDean = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "Group Dean", IsLocal);
+    bool canCreateGroups = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "Create Groups", IsLocal);
+    bool canEditExamCalls = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "Edit Exam Calls", IsLocal);
+    bool hasGroupPlanner = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "Group Planner", IsLocal);
+    bool hasProDean = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "PEC", IsLocal);
+    bool hasWiseNet = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "WiseNet", IsLocal);
+    bool hasLists = roleProvider.IsUserInPermission(AlteaUser.Name, "Dean", "Lists", IsLocal);
+}
+
+@if (hasUserDean || hasGroupDean)
+{
+    <div id="dn-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+    <div id="pgs-w">
+        <div id="pgs-t"><!--
+            --><span id="dn-mct-lv" class="dsk-mct-lv"></span><!--
+            --><span id="dn-mct-hn" class="dsk-mct-hn"></span><!--
+            --><span id="dn-mct-hun" class="dsk-mct-hun"></span><!--
+            -->
+        </div>
+        <div id="pgs-tr"><!--
+            --><div class="dn-tr-sw"><div id="dn-vw-sw" class="switch">
+                <div id="dn-vw-off" class="input input-bl input-nh">@DeanResources.Assign</div>
+                <div id="dn-vw-on" class="input input-gr input-nh" style="opacity: 0.25">@DeanResources.View</div>
+                </div>
+            </div><!--
+            --><div class="dn-tr-sw"><div id="dn-rm-sw" class="switch">
+                <div id="dn-rm-off" class="input input-bl input-nh">@DeanResources.Local</div>
+                <div id="dn-rm-on" class="input input-gr">@DeanResources.Remote</div>
+            </div></div><!--
+            --><span id="dsk-asd-a" class="dn-mct-asd-d dsk-mct-asd-d dsk-mct-asd-a"></span><!--
+            --><span id="dsk-asd-f" class="dn-mct-asd-d dsk-mct-asd-d dsk-mct-asd-f"></span><!--
+            --><span id="dsk-asd-c" class="dn-mct-asd-d dsk-mct-asd-d dsk-mct-asd-c"></span><!--
+        --></div>
+        <div id="pgs-c">
+            <div id="pgs-cww">
+                <div id="pgs-cw" class="clearfix">
+                    @if (hasUserDean)
+                    {
+                        <div id="dn-users" class="pg pg-f">
+                            <div class="pg-fc">
+                                <div id="dn-acu" class="dn-mbrp dn-mbrp-a"></div>
+                                @if (hasProDean)
+                                {
+                                    <div id="dn-pru" class="dn-mbrp"></div>
+                                }
+                            </div>
+                            <div class="pg-ft dn-pgft clearfix">
+                                <div class="pg-ftl">
+                                    @if (hasProDean)
+                                    {
+                                        <div id="dn-prosl" class="dn-lcs dn-alcs">
+                                            <div class="switch">
+                                                <div id="dn-prosl-ac" class="dn-lcsv input input-bl input-nh">@DeanResources.Academic</div>
+                                                <div id="dn-prosl-pr" class="dn-lcsv input input-gr">@DeanResources.Professional</div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <select id="dn-ulcs-ac" class="dn-lcs input"></select>
+                                    <select id="dn-ulcs-pr" class="dn-lcs input" style="display: none;"></select>
+                                </div>
+                                <div class="pg-ftr">
+                                    <div id="dn-uacsl" class="dn-lcs dn-alcs">
+                                        <div class="switch">
+                                            <div id="dn-uacsl-ac" class="dn-lcsv input input-bl input-nh">@DeanResources.PrimaryUsers</div>
+                                            <div id="dn-uacsl-al" class="dn-lcsv input input-gr">@DeanResources.AllUsers</div>
+                                        </div>
+                                    </div>
+                                    <input id="dn-usrc" class="dn-lcs dn-alcs input" type="text" placeholder="@GeneralResources.Search...">
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (hasGroupDean)
+                    {
+                        <div id="dn-groups" class="pg pg-f">
+                            <div class="pg-fc"></div>
+                            <div class="pg-ft dn-pgft clearfix">
+                                <div class="pg-ftl">
+                                    <div id="dn-gacsl" class="dn-lcs dn-alcs">
+                                        <div class="switch">
+                                            <div id="dn-gacsl-ac" class="dn-lcsv input input-bl input-nh">@DeanResources.ActiveGroups</div>
+                                            <div id="dn-gacsl-al" class="dn-lcsv input input-gr">@DeanResources.AllGroups</div>
+                                        </div>
+                                    </div>
+                                    <select id="dn-glcs" class="dn-lcs input"></select>
+                                    @if (canCreateGroups)
+                                    {
+                                        <div id="dn-gnew" class="dn-lcs dn-alcs input input-bl">@DeanResources.NewGroup</div>
+                                    }
+                                    @if (canEditExamCalls)
+                                    {
+                                        <div id="dn-gxcl" class="dn-lcs dn-alcs input input-bl">@DeanResources.EditExamCalls</div>
+                                    }
+                                </div>
+                                <div class="pg-ftr">
+                                    <div id="dn-gapcsl" class="dn-lcs dn-alcs">
+                                        <div class="switch">
+                                            <div id="dn-gapcsl-ac" class="dn-lcsv input input-bl input-nh">@DeanResources.PrimaryGroups</div>
+                                            <div id="dn-gapcsl-al" class="dn-lcsv input input-gr">@DeanResources.AllGroups</div>
+                                        </div>
+                                    </div>
+                                    <input id="dn-gsrc" class="dn-lcs dn-alcs input" type="text" placeholder="@GeneralResources.Search...">
+                                </div>
+                            </div>
+                        </div>
+
+                        if (hasGroupPlanner)
+                        {
+                            <div id="dn-groupplanner" class="pg pg-f"><div class="pg-fc"></div></div>
+                        }
+                    }
+
+                    <div id="dn-desksindex" class="pg">
+                        <div class="pg-fc">
+                            <div id="dn-desksindex-spn" class="app-spinner app-spinner-large app-spinner-active app-spinner-hide"></div>
+                            <div id="dsk-idx" class="dsk-mct dn-mct">
+                                <div id="dsk-idx-c" class="dsk-mct-c"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dn-desksexams" class="pg">
+                        <div class="pg-fc">
+                            <div id="dn-desksexams-spn" class="app-spinner app-spinner-large app-spinner-active app-spinner-hide"></div>
+                            <div id="dsk-exm" class="dsk-mct dn-mct">
+                                <div id="dsk-exm-c" class="dsk-mct-c"><div id="dsk-exm-cc"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (hasGroupDean)
+                    {
+                        <div id="dn-desksextra" class="pg">
+                            <div class="pg-fc">
+                                <div id="dn-desksextra-spn" class="app-spinner app-spinner-large app-spinner-active app-spinner-hide"></div>
+                                <div id="dsk-ext" class="dsk-mct dn-mct">
+                                    <div id="dsk-ext-c" class="dsk-mct-c"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (hasUserDean)
+                    {
+                        <div id="dn-desksbooks" class="pg">
+                            <div class="pg-fc">
+                                <div id="dn-desksbooks-spn" class="app-spinner app-spinner-large app-spinner-active app-spinner-hide"></div>
+                                <div id="dsk-bks" class="dsk-mct dn-mct">
+                                    <div id="dsk-bks-c" class="dsk-mct-c"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        if (hasProDean)
+                        {
+                            <div id="dn-prodesks" class="pg">
+                                <div class="pg-fc">
+                                    <div id="dn-prodesks-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+                                    <div id="pec-cw" class="dsk-mct dn-mct">
+                                        <div id="pec-c" class="dsk-mct-c"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        if (hasWiseNet)
+                        {
+                            <div id="dn-wisenet" class="pg">
+                                <div class="pg-fc">
+                                    <div id="dn-wisenet-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+                                    <div id="dn-lst-slc-w">
+                                        <div id="wnh-up">
+                                            <div id="wnh-se"></div>
+                                        </div>
+                                        <div id="wnh-md" class="dn-wnh-md">
+                                            <div id="dn-wnh-dwcw">
+                                                <select id="dn-wnh-dwcs" class="input"></select>
+                                                <button id="dn-wnh-dwca" class="input input-bl">@GeneralResources.Add</button>
+                                            </div>
+                                        </div>
+                                        <div id="wnh-dw">
+                                            <div id="wnh-dww">
+                                                <div id="wnh-dwc"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        if (hasLists)
+                        {
+                            <div id="dn-lists" class="pg">
+                                <div class="pg-fc">
+                                    <div id="dn-lists-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+                                    <div id="dn-lst-slc-w">
+                                        <div id="dn-lst-slc-h">
+                                            <div id="dn-lst-slc-t">
+                                                @foreach (ListType type in Enum.GetValues(typeof(ListType)).Cast<ListType>().Where(x => x != ListType.All))
+                                                {
+                                                    <button class="dn-lst-slc-t input mini input-gr" data-id="@((int)type)">
+                                                        @ListsResources.ResourceManager.GetString(type.ToString())
+                                                    </button>
+                                                }
+                                            </div>
+                                            <div id="dn-lst-slc-a"></div>
+                                        </div>
+                                        <div id="dn-lst-slc-cw">
+                                            <div id="dn-lst-slc-c" class="dn-lst-slc">
+                                                <div id="dn-lst-slc-ch" class="dn-mrct">
+                                                    <input id="dn-lst-slc-chs" class="dn-mrcti" placeholder="@GeneralResources.Search...">
+                                                    <!--
+                                                    -->
+                                                    <span class="dn-mrctc">@GeneralResources.Categories</span>
+                                                </div>
+                                                <div class="dn-lst-slc-c">
+                                                    <div id="dn-lst-slc-cc" class="dn-lst-slc-cc">
+                                                        <div id="dn-lst-slc-ccc"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="dn-lst-slc-l" class="dn-lst-slc">
+                                                <div id="dn-lst-slc-lh" class="dn-mrct">
+                                                    <input id="dn-lst-slc-lhs" class="dn-mrcti" placeholder="@GeneralResources.Search...">
+                                                    <!--
+                                                    -->
+                                                    <span class="dn-mrctc">@GeneralResources.Lists</span>
+                                                </div>
+                                                <div class="dn-lst-slc-c">
+                                                    <div id="dn-lst-slc-lc" class="dn-lst-slc-cc">
+                                                        <div id="dn-lst-slc-lcc"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="dn-lst">
+                                        <div id="stk-lst-ctn" class="ctn">
+                                            <div id="stk-lst-nlt">@ListsResources.NoLists</div>
+                                            <div id="stk-lst-dc"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div id="pgs-f">
+            <div id="pgn-fl"></div>
+            <div id="pgs-ft"></div>
+            <div id="pgn-fr"></div>
+        </div>
+    </div>
+
+    @section Scripts
+    {
+        <script type="text/javascript">
+            window.model = @Html.Raw(Model.ToJson());
+            window.model.hasAdmin = @hasAdmin.ToJson();
+            window.model.hasUserDean = @hasUserDean.ToJson();
+            window.model.hasGroupDean = @hasGroupDean.ToJson();
+            window.model.canCreateGroups = @canCreateGroups.ToJson();
+            window.model.hasProDean = @hasProDean.ToJson();
+            window.model.hasWiseNet = @hasWiseNet.ToJson();
+            window.model.hasLists = @hasLists.ToJson();
+        </script>
+
+        @if (hasUserDean)
+        {
+            @Scripts.Render("~/Areas/Admin/Content/js/edituser")
+        }
+            
+        @if (hasGroupDean && canCreateGroups)
+        {
+            @Scripts.Render("~/Areas/Admin/Content/js/addgroup")
+            @Scripts.Render("~/Areas/Admin/Content/js/editgroup")
+        }
+        
+        @Scripts.Render("~/Content/js/desks/index")
+        @Scripts.Render("~/Content/js/desks/exams")
+        @Scripts.Render("~/Content/js/desks/extra")
+        @Scripts.Render("~/Content/js/desks/books")
+
+        @Scripts.Render("~/Content/js/prodesks")
+
+        @Scripts.Render("~/Areas/Dean/Content/js/dean")
+    }
+}
+else
+{
+    <div id="dn-nda">@DeanResources.NoDataAvailable</div>
+}

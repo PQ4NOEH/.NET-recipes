@@ -1,0 +1,21 @@
+﻿@using Altea.Common.Classes
+<script type="text/javascript">
+    (function(window, undefined) {
+        "use strict";
+
+        window.i18n.init({
+            lng: @Html.Raw(AlteaUser.From.GetAttribute<LanguagePrefixesAttribute>().Culture.ToJson()),
+            preload: [@Html.Raw(AlteaUser.To.GetAttribute<LanguagePrefixesAttribute>().Culture.ToJson())],
+            resGetPath: "/Content/lng/app-__lng__.json",
+            getAsync: true,
+            fallbackLng: false,
+            useCookie: false
+        }).always(function() {
+            for (var i = 0, l = window.ALTEA_PROMISES.length; i < l; i++) {
+                window.ALTEA_PROMISES[i](window, document, jQuery, undefined);
+            }
+            window.ALTEA_PROMISES = undefined;
+            delete (window.ALTEA_PROMISES);
+        });
+    })(window);
+</script>

@@ -1,0 +1,49 @@
+﻿@using Heracles.Services
+@model Heracles.Models.Stax.StaxStackModel
+
+@{
+    ViewBag.Title = RoleNames.MODULE_WORDSTAX;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+<div id="stk-frm-w">
+    <div id="stk-frm" class="ctn">
+        <div id="stk-frm-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+        <div id="stk-eq-lft" class="stk-eq"></div>
+        <div id="stk-ctn-w" class="ctn @(Model.StackNum == WordStaxService.MaxStack ? "stk-ctn-lft" : "")">
+            <div id="stk-ctn" class="ctn">
+                <div id="stk-hdr">
+                    <div id="stk-hdr-nm">@Model.StackNum</div>
+                    <div id="stk-hdr-ctn">
+                        <span id="stk-hdr-ctn-t">@StackResources.ResourceManager.GetString("Vocabulary" + Model.StackNum + "Statement")</span>
+                        <span id="stk-hdr-ctn-c"></span>
+                    </div>
+                </div>
+                <div id="stk-dta">
+                    <div id="stk-dta-ctn" class="ctn">
+                        @{ Html.RenderPartial("Stack" + Model.StackNum); }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (Model.StackNum < Model.MaxStack)
+        {
+            <div id="stk-eq-rgt" class="stk-eq"></div>
+        }
+    </div>
+</div>
+<div id="stk-frm-eqs">
+    <div id="stk-eqs-ctn" class="ctn">
+        <div id="stk-eqs-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+        <div id="stk-eqs-dc"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        window.model = @Html.Raw(Model.ToJson());
+    </script>
+    @Scripts.Render("~/Content/js/stax")
+    @Scripts.Render("~/Content/js/vocabulary")
+}

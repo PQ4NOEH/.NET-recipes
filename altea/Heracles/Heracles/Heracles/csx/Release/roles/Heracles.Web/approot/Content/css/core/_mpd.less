@@ -1,0 +1,169 @@
+﻿@import '_core.less';
+
+.mb-bg,
+.mb-wpw {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 150000;
+}
+
+.mb-wpw {
+    padding-top: 50px;
+}
+
+body.bn-an .mb-wpw {
+    padding-top: 75px;
+}
+
+.mb-bg {
+    overflow: hidden;
+    background: #000000;
+    opacity: 0;
+    
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+
+    &.mb-visible {
+        display: block;
+        opacity: 0.5;
+    }
+}
+
+.mb-wrap {
+    display: table;
+    width: 100%;
+    height: 100%;
+    z-index: 150000;
+    opacity: 0;
+
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    
+    -webkit-transition: -webkit-transform 0.3s linear, opacity 0.3s linear;
+    -moz-transition: -moz-transform 0.3s linear, opacity 0.3s linear;
+    -o-transition: -o-transform 0.3s linear, opacity 0.3s linear;
+    transition: transform 0.3s linear, opacity 0.3s linear;
+
+    &.mb-visible {
+         opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.mb-bxw {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.mb-box {
+    position: relative;
+    margin: auto;
+    min-height: 64px;
+
+    background-color: @grey5;
+}
+
+.mb-title {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    font-size: 2em;
+    line-height: 3em;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    padding: 0 24px;
+    background: #ffffff;
+    border-bottom: 1px solid @grey10;
+    font-weight: 400;
+
+    h1 {
+        margin: 0;
+        padding-right: 40px;
+        font-size: 1em;
+        font-weight: 400;
+        color: #666666;
+    }
+}
+
+.mb-buttons {
+    position: absolute;
+    top: 1.25em;
+    right: 64px;
+    background-color: @grey20;
+    font-size: 0.5em;
+    line-height: 3em;
+}
+
+.input.mb-button {
+        width: auto;
+    border-radius: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+}
+.mb-close {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    padding: 0;
+    background: none;
+    border: 0;
+    outline: 0;
+    font-size: 26px;
+    color: #999999;
+    line-height: 14px;
+    text-align: right;
+
+    &.mb-inactive {
+        display: none;
+    }
+}
+
+.mb-content {
+    padding: 16px 24px;
+
+    &.mb-overflow {
+        .mCustomScrollBox {
+            overflow: visible;
+        }
+
+        .mCSB_container {
+            overflow: visible;
+        }
+    }
+
+    .mCSB_container {
+        margin-right: 20px;
+    }
+
+    .mCSB_scrollTools_vertical {
+        right: 4px;
+    }
+}
+
+.mb-row-4 {
+    float: left;
+    width: 25%;
+}

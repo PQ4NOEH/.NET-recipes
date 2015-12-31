@@ -1,0 +1,202 @@
+﻿@import '../../core/_core.less';
+@import '../../core/font-face.css';
+@import '../../core/alteaicons.css';
+@import '../../core/_main.less';
+
+@red: #f64646;
+@green: #38c538;
+@blue: #386192;
+@yellow: #f5f545;
+@orange: #f69646;
+@purple: #801251;
+@violet: #b73da0;
+
+@lightred: lighten(@red, 10);
+@darkred: darken(@red, 10);
+@saturatedred: saturate(@red, 50);
+@saturatedlightred: lighten(@saturatedred, 10);
+@saturateddarkred: darken(@saturatedred, 10);
+
+@lightgreen: lighten(@green, 10);
+@darkgreen: darken(@green, 10);
+@saturatedgreen: saturate(@green, 50);
+@saturatedlightgreen: lighten(@saturatedgreen, 10);
+@saturateddarkgreen: darken(@saturatedgreen, 10);
+
+@lightblue: lighten(@blue, 10);
+@darkblue: darken(@blue, 10);
+@saturatedblue: saturate(@blue, 50);
+@saturatedlightblue: lighten(@saturatedblue, 10);
+@saturateddarkblue: darken(@saturatedblue, 10);
+
+@lightyellow: lighten(@yellow, 10);
+@darkyellow: darken(@yellow, 10);
+@saturatedyellow: saturate(@yellow, 50);
+@saturatedlightyellow: lighten(@saturatedyellow, 10);
+@saturateddarkyellow: darken(@saturatedyellow, 10);
+
+@lightorange: lighten(@orange, 10);
+@darkorange: darken(@orange, 10);
+@saturatedorange: saturate(@orange, 50);
+@saturatedlightorange: lighten(@saturatedorange, 10);
+@saturateddarkorange: darken(@saturatedorange, 10);
+
+a {
+    color: @saturatedblue;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: @saturateddarkblue;
+    }
+}
+
+.noty_buttons .input {
+    display: inline-block;
+    width: auto;
+}
+
+.input-bl {
+    border-color: @blue;
+    background: @blue;
+    color: #ffffff;
+
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:not(:disabled):not(.input-nh):hover {
+        border-color: @lightblue;
+        background: @lightblue;
+    }
+
+    &:not(:disabled):not(.input-nh):active {
+        border-color: @darkblue;
+        background: @darkblue;
+    }
+    
+    &:focus {
+        border-color: @darkblue;
+    }
+}
+
+.input-or {
+    border-color: @saturatedorange;
+    background: @saturatedorange;
+    color: #ffffff;
+
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:not(:disabled):not(.input-nh):hover {
+        border-color: @saturatedlightorange;
+        background: @saturatedlightorange;
+    }
+
+    &:not(:disabled):not(.input-nh):active {
+        border-color: @saturateddarkorange;
+        background: @saturateddarkorange;
+    }
+    
+    &:focus {
+        border-color: @saturateddarkorange;
+    }
+}
+
+.input-re {
+    border-color: @saturatedred;
+    background: @saturatedred;
+    color: #ffffff;
+
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:not(:disabled):not(.input-nh):hover {
+        border-color: @saturatedlightred;
+        background: @saturatedlightred;
+    }
+
+    &:not(:disabled):not(.input-nh):active {
+        border-color: @saturateddarkred;
+        background: @saturateddarkred;
+    }
+    
+    &:focus {
+        border-color: @saturateddarkred;
+    }
+}
+
+.input-gn {
+    border-color: @green;
+    background: @green;
+    color: #ffffff;
+
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:not(:disabled):not(.input-nh):hover {
+        border-color: @lightgreen;
+        background: @lightgreen;
+    }
+
+    &:not(:disabled):not(.input-nh):active {
+        border-color: @darkgreen;
+        background: @darkgreen;
+    }
+    
+    &:focus {
+        border-color: @darkgreen;
+    }
+}
+
+.input-gr {
+    border-color: @grey20;
+    background: @grey20;
+    color: #000000;
+
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:not(:disabled):not(.input-nh):hover {
+        border-color: @grey15;
+        background: @grey15;
+    }
+
+    &:not(:disabled):not(.input-nh):active {
+        border-color: @grey25;
+        background: @grey25;
+    }
+    
+    &:focus {
+        border-color: @grey30;
+    }
+}
+
+.noUi-connect {
+  background: @blue;
+}
+
+
+
+/*** PAGINATION  ***/
+#pgs-f {
+    &::before {
+        top: 0;
+        .horizontal-separator(@lightblue);
+    }
+}
+
+.pg-p {
+    color: @blue;
+
+    &.pg-ap {
+        color: @orange;
+    }
+}

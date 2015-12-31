@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = RoleNames.MODULE_DESKSBOOKS;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+<div id="dsk-spn" class="app-spinner app-spinner-large app-spinner-hide app-spinner-active"></div>
+<div id="dsk-exm-w" class="dsk-mct-w">
+    <div id="dsk-exm-h" class="dsk-mct-h clearfix"><!--
+        --><span class="dsk-mct-hn">@AlteaUser.FirstName @AlteaUser.LastName</span><!--
+        --><span class="dsk-mct-hun">@@@AlteaUser.Name</span><!--
+        --><div class="dsk-mct-asd"><!--
+            --><span id="dsk-idx-asd-a" class="dsk-mct-asd-d dsk-mct-asd-a"></span><!--
+            --><span id="dsk-idx-asd-f" class="dsk-mct-asd-d dsk-mct-asd-f"></span><!--
+            --><span id="dsk-idx-asd-c" class="dsk-mct-asd-d dsk-mct-asd-c"></span><!--
+        --></div><!--
+    --></div>
+    <div id="dsk-bks" class="dsk-mct">
+        <div id="dsk-bks-c" class="dsk-mct-c"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/Content/js/desks/books")
+    @Scripts.Render("~/Areas/Desks/Content/js/books")
+}

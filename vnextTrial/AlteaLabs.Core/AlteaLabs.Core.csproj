@@ -40,14 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cqrs\Command.cs" />
+    <Compile Include="Cqrs\CommandHandlerError.cs" />
+    <Compile Include="Cqrs\ICommand.cs" />
+    <Compile Include="Cqrs\ICommandHandler.cs" />
+    <Compile Include="Cqrs\ICommandHandlerError.cs" />
+    <Compile Include="Cqrs\ICommandHandlerResult.cs" />
     <Compile Include="Guards\NotEmptyOrWhiteSpaceString.cs" />
     <Compile Include="Guards\NotNullable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\IHashGenerator.cs" />
     <Compile Include="Security\Sha1Cypher.cs" />
-    <Compile Include="Service\IServiceError.cs" />
-    <Compile Include="Service\ServiceError.cs" />
-    <Compile Include="Service\ServiceResult.cs" />
+    <Compile Include="Types\Media.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

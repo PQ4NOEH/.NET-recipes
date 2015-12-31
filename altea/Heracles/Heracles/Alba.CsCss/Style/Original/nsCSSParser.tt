@@ -1,0 +1,466 @@
+<#@ template hostspecific="true" debug="true" #>
+<#@ output extension="/" #>
+<#@ include file="..\..\T4\Common.ttinclude" #>
+<#
+    Regex reSourceParser = new Regex(@"(?s)CSSParserImpl::~CSSParserImpl.*?}\n(.*)} // anonymous namespace");
+
+    string source = LoadText(ext: "cpp").ReReplace(@"\r", "").ReReplace(@"\\\n", "");
+    string sourceParser = source.ReMatchGet(reSourceParser);
+
+    var T4 = GetT4();
+    T4.GenerateFile("CssParser.conv.cs", () => GenerateCssParser(source, sourceParser));
+    T4.Process();
+#>
+<#+
+    void GenerateCssParser (string source, string sourceParser) {
+#>
+//
+// Generated file. Do not edit manually.
+//
+// ReSharper disable RedundantCast
+// ReSharper disable DoubleNegationOperator
+// ReSharper disable NegativeEqualityExpression
+// ReSharper disable ConvertIfStatementToConditionalTernaryExpression
+// ReSharper disable EmptyStatement
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ConvertToConstant.Local
+// ReSharper disable RedundantArrayCreationExpression
+// ReSharper disable RedundantExplicitArrayCreation
+// ReSharper disable RedundantAssignment
+// ReSharper disable JoinDeclarationAndInitializer
+// ReSharper disable TooWideLocalVariableScope
+// ReSharper disable UseObjectOrCollectionInitializer
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using Alba.CsCss.Gfx;
+using Alba.CsCss.Internal;
+using Alba.CsCss.Internal.Extensions;
+
+using int32_t = System.Int32;
+using uint8_t = System.Byte;
+using uint16_t = System.UInt16;
+using uint32_t = System.Int32; // O RLY?
+using size_t = System.Int32; // O RLY?
+
+namespace Alba.CsCss.Style
+{
+<#+ WriteTypeRenames(); #>
+
+    internal partial class CssParser
+    {
+<#+   foreach (string line in ConvertVariantDefines(source)) { #>
+        <#=line#>
+<#+   } #>
+
+<#=     ConvertCssParser(sourceParser).Indent(8) #>
+    }
+}
+<#+
+    } // GenerateCssParser
+#>
+<#+
+    string ConvertCssParser (string source)
+    {
+        int i = 0;
+        Func<MatchEvaluator, MatchEvaluator, MatchEvaluator> GenerateVarListEvaluator = (evalType, evalValue) =>
+            m => evalType(m) + " " + m.GetAll("Var").Select(v => v+" = "+evalValue(m)).JoinString(", ") + ";";
+        source = source
+
+            // whitespace
+            .ReReplace(@"\r", "")
+            .ReReplace(@"\\\n", "")
+            .ReReplace(@"""\s*\n\s*""", "")
+
+            // common mozilla
+            .ReReplace(@"PRUnichar", "char")
+            .ReReplace(@"arrlen_t", "size_t")
+            .ReReplace(@"(?s)MOZ_STATIC_ASSERT\s*\(" + sArgs + @"\)", "")
+            .ReReplace(@"(?:MOZ_ASSERT|NS_ASSERTION|NS_ABORT_IF_FALSE)\((" + sArgs + @")\)", "Debug.Assert($1)")
+            .ReReplace(@"(?:NS_RUNTIMEABORT|NS_NOTREACHED)\((" + sArgs + @")\)", "Debug.Fail($1)")
+            .ReReplace(@"NS_ENSURE_STATE\((" + sArgs + @")\)", "if (!($1)) return NS_ERROR_UNEXPECTED")
+            .ReReplace(@"(?s)NS_PRECONDITION\((?<Condition>"+sArg+@"),\s*(?<Message>"""+sArg+@""")\)",
+                        "if (!(${Condition})) throw new ArgumentException(${Message})")
+            .ReReplace(@"NS_ERROR\((?<Message>"""+sArg+@""")\)", "throw new Exception(${Message})")
+            .ReReplace(@"NS_FAILED\((?<Expr>"+sArgs+@")\)", "${Expr}.Failed()")
+            .ReReplace(@"NS_SUCCEEDED\((?<Expr>"+sArgs+@")\)", "${Expr}.Succeeded()")
+            .ReReplace(@"NS_RELEASE\((\*?\w+)\)", "$1 = null")
+            .ReReplace(@"(\w+).(?:forget|get)\(\)", "$1")
+            .ReReplace(@"(?:NS_LITERAL_STRING|NS_ADDREF|getter_Transfers|getter_AddRefs)\((.*?)\)", "$1")
+            .ReReplace(@"(?:char)\(('.*?')\)", "$1")
+            .ReReplace(@"(?:char)\(0\)", "'\\0'")
+            .ReReplace(@"(?:nsRefPtr|nsCOMPtr|nsAutoPtr|already_AddRefed|DebugOnly)<([\w:]+)>", "$1")
+            .ReReplace(@"(?:ArrayLength|NS_ARRAY_LENGTH)\(([\w:]+)\)", "$1.Length")
+            .ReReplace(@"InfallibleTArray<([\w:]+)>[*&]?", "List<$1>")
+            .ReReplace(@"(?n)NS_ConvertASCIItoUTF16 (?<Var>\w+)\((?<Value>"+sArgs+@")\);", "string ${Var} = ${Value};")
+            .ReReplace(@"(?n)CopyUTF16toUTF8\((?<Value>"+sArgs+@"), (?<Var>"+sArgs+@")\);", "${Var} = ${Value};")
+            .ReReplace(@"nsContentUtils::ASCIIToLower\((.*)\)", "$1 = $1.ToLower()")
+            .ReReplace(@"mozilla::css::ComputeCalc\((.*)\)", "CommonUtil.ComputeCalc($1)")
+            .ReReplace(@"NSToIntRound\(", "CommonUtil.NSToIntRound(")
+            .ReReplace(@"NS_NewURI\(", "CommonUtil.NS_NewURI(")
+            .ReReplace(@"do_GetAtom", "String.Intern") // "atom" in Mozilla's sense is a string value instance used for all equal values (to compare by reference and lower memory usage)
+            .ReReplace(@"NS_(RGBA?)", "nscolor.$1") // nscolor.*
+            .ReReplace(@"NS_GET_([RGBA])\((\w+)\)", "$2.$1") // nscolor.*
+            .ReReplace(@"NS_(?<Method>HexToRGB|ColorNameToRGB)\((?<Args>"+sArgs+@"), &(?<Result>\w+)\)", "nscolor.${Method}(${Args}, ref ${Result})") // nscolor.*
+            .ReReplace(@"NS_(?<Method>HSL2RGB)\((?<Args>"+sArgs+@")\)", "nscolor.${Method}(${Args})") // nscolor.*
+            .ReReplace(@"(?<Var>\w+)\.Rebind\(\k<Var>, (?<Value>\d+)\);", "${Var} = ${Var}.Substring(${Value});") // nsDependentString.Rebind
+            .ReReplace(@"(?<Var>\w+)(\.|->)Item\((?<Value>"+sArgs+@")\)", "${Var}[${Value}]") // Array.Item
+            .ReReplace(@"GetType\(\)", "GetKind()") // C# Object.GetType conflict
+            .ReReplace(@"(\w+)\.Assign\((\w+)\);", "$1 = $2.ToString();") // nsString.Assign
+            .ReReplace(@"(?n)(?<Var>(\w|\.|->)+)\.Replace\(\k<Var>.Length\(\) - 1, 1, (?<Char>'\w')\);", "${Var} = ${Var}.Substring(0, ${Var}.Length - 1) + ${Char};") // nsString.Replace
+
+            // specific preprocessor
+            .ReReplace(@"REPORT_UNEXPECTED\((\w+)\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected(""$1""); }")
+            .ReReplace(@"REPORT_UNEXPECTED_P\((\w+), ("+sArgs+@")\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected(""$1"", $2); }")
+            .ReReplace(@"REPORT_UNEXPECTED_TOKEN\((\w+)\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected(""$1"", mToken); }")
+            .ReReplace(@"REPORT_UNEXPECTED_TOKEN_CHAR\((\w+), ("+sArgs+@")\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected(""$1"", mToken, $2); }")
+            .ReReplace(@"REPORT_UNEXPECTED_EOF\((\w+)\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected(""$1""); }")
+            .ReReplace(@"REPORT_UNEXPECTED_EOF_CHAR\((\w+)\)",
+                       @"{ if (!mSuppressErrors) mReporter.ReportUnexpected($1); }")
+            .ReReplace(@"OUTPUT_ERROR\(\)",
+                        "mReporter.OutputError()")
+            .ReReplace(@"CLEAR_ERROR\(\)",
+                        "mReporter.ClearError()")
+            .ReReplace(@"NS_FOR_CSS_SIDES ?\((?<Var>\w+)\)", "for (Side ${Var} = nsStyle.SIDE_TOP; ${Var} <= nsStyle.SIDE_LEFT; ${Var}++)")
+            .ReReplace(@"{ STR_WITH_LEN\((""\w+"")\), (\w+), (\w+) }", "new UnitInfo { name = $1, unit = $2, type = $3 }")
+            // specific code removal
+            .ReReplace(@"(?s)struct UnitInfo {.*?\n};\n", "")
+            .ReReplace(@"(?s)struct NS_STACK_CLASS ExtractFirstFamilyData {.*?\n};\n", "")
+            .ReReplace(@"(?s)struct ReduceNumberCalcOps :.*?\n};\n", "")
+            .ReReplace(@"(?s)bool\nCSSParserImpl::ParseMozDocumentRule.*?\n}\n", "") // drop support for @document
+            .ReReplace(@"(?s)else if \(mToken\.mIdent\.LowerCaseEqualsLiteral\(""-moz-document"".*?\n  } ", "\n  // TODO support @document\n  ")
+            .ReReplace(@"(?s)if \(mHashlessColorQuirk\) {.*?\n  }", "// TODO support hashless colors") // drop support for hashless colors
+            .ReReplace(@"(?s)Debug\.Assert\(!\(variantMask.*?""\);", "") // not worth maintaining
+            .ReReplace(@"(?s)Debug\.Assert\(nsCSSProps::kContentKTable.*?""\);", "")
+            .ReReplace(@"(?s)Debug\.Assert\(mViewportUnitsEnabled.*?""\);", "")
+            .ReReplace(@"(?s)Debug\.Assert\("+sArgs+@"""expected location to store pseudo element""\);", "")
+
+            // specific classes
+            .ReReplace(@"(?n)(const )?(mozilla::)?(css::)?(CSSParserImpl::)?\b(?<Name>"+
+                            "nsCSSToken|nsCSSStyleSheet|nsCSSProperty|nsMediaList|nsCSSValue|nsCSSSelectorList|nsMediaQuery|nsIPrincipal|"+
+                            "ErrorReporter|Rule|StyleRule|CharsetRule|GroupRule|MediaRule|DocumentRule|ImportRule|Declaration|BackgroundParseState|"+
+                            "nsMediaExpression|nsMediaFeature|nsCSSSelector|nsSelectorParsingStatus|PriorityParsingStatus|"+
+                            "nsCSSValuePairList|nsCSSValueList|nsCSSRect|nsCSSFontFaceRule|NameSpaceRule|URLValue|nsCSSValueGradient|"+
+                            "nsCSSValueGradientStop|nsCSSTokenType|ExtractFirstFamilyData|nsString|"+
+                            "List<nsCSSValue>|"+
+                            "ComputeCalc"+ // static method
+                       @")(\b|(?<=>))(?<Space> )?[*&]?", "${Name}${Space}")
+            .Replace(@"const int32_t *&", "ref int32_t[]")
+            .Replace(@"nsAtomList**", "object") // unused
+            .ReReplace(@"const int32_t ?\*", "int32_t[] ")
+            .ReReplace(@"(const )?\b(nsString|nsAString|nsSubstring|nsAutoString|nsDependentString|nsStringBuffer|nsI?Atom)\b[*&]?", "string")
+            .ReReplace(@"(?n)(?<!const )\b(?<Name>"+
+                            "u?int\\d+_t|bool|float|string|Rule|StyleRule|Declaration|nsCSSSelectorList|nsMediaQuery|nsCSSValuePair|"+
+                            "nsCSSPseudoElements::Type|nscolor"+
+                       @")\b(?<Space> )?[*&]", "ref ${Name}${Space}")
+            .ReReplace(@"nsIURI\*?", "Uri")
+            .ReReplace(@"(?n)(const )?(char)(?<Space> ?)\*", "string${Space}")
+            .Replace(@"nsCSSScanner&", "nsCSSScanner")
+            .Replace(@"mozilla::css::Loader*", "CssLoader")
+            .Replace(@"css::ErrorReporter&", "ErrorReporter")
+            .ReReplace(@"(?n)(mozilla::)?(css::)?\b(?<Type>ErrorReporter|nsCSSScanner)\b +(?<Var>\w+)\((?<Args>"+sArgs+@")\)", "var ${Var} = new ${Type}(${Args})")
+            .ReReplace(@"nsCSSValue::Array::Create\(("+sArg+@")\)", "new nsCSSValue[$1]")
+            .ReReplace(@"nsCSSValue::Array\*?", "nsCSSValue[]")
+            // specific members access
+            .ReReplace(@"\n(.*)\n(CSSParserImpl)::", "\ninternal $1 ")
+            .ReReplace(@"&?CSSParserImpl::", "")
+            .ReReplace(@"(?n)&\b(?<Name>aScanner|aReporter|aSelector|aValue|mToken|mData|repeatPair|arr|result|dat|[xy](Value|Edge|Offset)\b)", "${Name}")
+            .ReReplace(@"(?n)\*\b(?<Name>aConsumedTokens|aSelectorList|aResult|aChanged|aQuery|aHitStop|aHadFinalWS|aPseudoElement|aPseudoElementType|newSel|slist|selector|storage|ident)\b", "${Name}")
+            .ReReplace(@"(tk|mToken)(\.|\->)mIdent", "$1.mIdentStr")
+            .ReReplace(@"(aPropIDs|kBorderColorsProps|kKeywordTableTable)\[(side|index|aPropID)\]", "$1[(int)$2]")
+
+            // specific enums
+            .ReReplace(@"e(CSSSection|CSSFontDesc|ParseDeclaration|SelectorParsingStatus)_(\w+)", m => "ns"+m.Get(1)+"."+ToId(m.Get(2)))
+            .ReReplace(@"e(CSSProperty|CSSUnit|CSSKeyword)_(\w+)", "ns$1.$2") // converted in Refactor()
+            .ReReplace(@"eCSSToken_(\w+)", "nsCSSTokenType.$1")
+            .ReReplace(@"ePriority_(\w+)", "PriorityParsingStatus.$1")
+            .ReReplace(@"eCSSContext_(\w+)", "nsCSSContextType.$1")
+            .ReReplace(@"eParseAnimationOrTransitionShorthand_(\w+)", "ParseAnimationOrTransitionShorthandResult.$1")
+            .ReReplace(@"eCSSProperty(Alias|Extra)_(\w+)", "nsCSSProperty.$1_$2")
+            .ReReplace(@"\be(And|Or)\b", "SupportsConditionTermOperator.$1")
+            .ReReplace(@"nsCSSPseudoClasses::ePseudoClass_(\w+)", "nsCSSPseudoClass.$1")
+            .ReReplace(@"nsCSSPseudoElements::ePseudo_(\w+)", "nsCSSPseudoElement.$1")
+            .ReReplace(@"nsCSSProps::e(\w+)", "nsCSSProps.EnabledState.$1")
+            .ReReplace(@"kNameSpaceID_(\w+)", "nsNameSpace.$1")
+            .ReReplace(@"nsMediaExpression::e(\w+)", "nsMediaExpression.RangeType.$1")
+            .ReReplace(@"nsMediaFeature::eMinMax(\w+)", "nsMediaFeature.RangeType.MinMax$1")
+            .ReReplace(@"nsMediaFeature::e(\w+)", "nsMediaFeature.ValueType.$1")
+            .ReReplace(@"Rule::(\w+)_RULE", m => "CssRuleKind." + ToPascalId(m))
+            .ReReplace(@"NS_STYLE_(\w+)", "nsStyle.$1")
+            .ReReplace(@"NS_FONT_(\w+)", "nsFont.$1")
+            .ReReplace(@"NS_ATTR_FUNC_(\w+)", "nsAttrFunc.$1")
+            .ReReplace(@"NS_(BOXPROP_\w+)", "nsStyle.$1")
+            .ReReplace(@"NS_(ERROR_\w+)", "nsresult.$1")
+            .ReReplace(@"NS_OK", "nsresult.OK")
+            .ReReplace(@"CSS_PROPERTY_(\w+)", "nsCSSProps.$1")
+            .ReReplace(@"nsCSSPseudoClasses::Type", "nsCSSPseudoClass")
+            .ReReplace(@"nsCSSPseudoElements::Type", "nsCSSPseudoElement")
+            .ReReplace(@"uint32_t parseFlags", "nsParseDeclaration parseFlags")
+            .ReReplace(@"uint8_t func", "nsAttrFunc func")
+
+            // specific expressions
+            .Replace(@"(*aAppendFunc)(", "aAppendFunc(")
+            .Replace(@"bool (*parseFunc)(RuleAppendFunc, void*)", "Func<RuleAppendFunc, object, bool> parseFunc")
+            .Replace(@"(this->*parseFunc)", "parseFunc")
+            .Replace(@"const UnitInfo", "static UnitInfo")
+            .Replace(@"tmp(tk.mIdentStr, 0)", "tmp(tk.mIdentStr)")
+            .Replace(@"string attr;", "var attr = new StringBuilder();")
+            .Replace(@"attr = holdIdent;", "attr.AssignLiteral(holdIdent);")
+            .Replace(@"(wasFirstComponentFlexBasis ? flexBasis : flexGrow) = tmpVal;", "if (wasFirstComponentFlexBasis) flexBasis = tmpVal; else flexGrow = tmpVal;")
+            .Replace(@"mToken.mIdentStr.Truncate(truncAt);", "mToken.mIdentStr = mToken.mIdentStr.Substring(0, truncAt);")
+            .Replace(@"buffer.Append(tk.mIdentStr);", "buffer = tk.mIdentStr;")
+            .Replace(@"aComponent = CommonUtil", "aComponent = (uint8_t)CommonUtil")
+            .Replace(@"isPseudoClass + isPseudoElement + isAnonBox", "(isPseudoClass?1:0) + (isPseudoElement?1:0) + (isAnonBox?1:0)")
+            .Replace(@"uint16_t numElements = ", "uint16_t numElements = (uint16_t)")
+            .ReReplace(@"nsCSSProperty\.\w+\]", "(int)$&")
+            .ReReplace(@"side < \d+", "(int)$&")
+            .ReReplace(@"  nsCSSKeyword\.(\w+),", "  (int32_t)nsCSSKeyword.$1,")
+            .ReReplace(@"(?s)nsMediaFeature feature.*?\n  }\n", "nsMediaFeature feature = nsMediaFeatures.GetFeature(mediaFeatureAtom);\n")
+            .ReReplace(@"(?s)(// pseudo-classes as well as pseudo-elements, start with a single ':').*?}", "$1\n  string pseudo = String.Intern(\":\" + mToken.mIdentStr);")
+            .ReReplace(@"mToken\.mIdentStr \+ (\d+)", "mToken.mIdentStr.Substring($1)")
+            .ReReplace(@"(?<Var>\w+)\.\*\(?nsCSSRect::sides\[(?<Index>\w+)\]\)?", "${Var}.GetSide(${Index})")
+            .ReReplace(@"(?s)for \(nsCSSProperty prop = aSourceProperties;.*?  }", "AppendValues(aSourceProperties, physical);")
+            .ReReplace(@"(?s)for \(nsCSSProperty subprops =\s+([^;]+);.*?  }", "AppendValues($1, color);")
+            .ReReplace(@"(?ns)(?<Type>nsAutoParseCompoundProperty|nsAutoFailingSupportsRule|nsAutoSuppressErrors) "+ // RAII structs
+                       @"(?<Var>\w+)\((?<Args>"+sArgs+@")\);(?<Code>.*?)\n}\n",
+                       m => "using (/*var "+m.Get("Var")+" = */new "+m.Get("Type")+"("+m.Get("Args")+")) {"+m.Get("Code").Indent(2)+"\n  }\n}\n")
+            .ReReplace(@"(?s)\n(?<Space> *)enum {(?<Code>.*?)};", menum => {
+                i = 0;
+                string code = menum.Get("Code"), space = menum.Get("Space");
+                return code.Contains("=")
+                    ? code.ReReplace(
+                        @"(?n)(\s+(?<Expr>\w+\s+=\s+[\w\.]+),?(\s+//.*)?(?=\n|\s+$))+", m =>
+                        "\n" + m.GetAll("Expr").Select(expr => space+"const int "+expr+";\n").ConcatString())
+                    : code.ReReplace(
+                        @"(?n)(\s+(?<Const>\w+),?(\s+//.*)?(?=\n|\s+$))+", m =>
+                        "\n" + m.GetAll("Const").Select(expr => space+"const int "+expr+" = "+(i++)+";\n").ConcatString());
+            })            
+            // specific expressions: constructors
+            .ReReplace(@"(?<Type>nsCSSFontFaceRule|nsCSSSelectorList) (?<Var>\w+)\(new \k<Type>\((?<Args>"+sArgs+@")?\)\);",
+                        "var ${Var} = new ${Type}(${Args});")                               // Type Var(new Type()) -> var Var = new Var(Args)
+            .ReReplace(@"(?<Type>nsCSSValue|BackgroundParseState|nsFont) (?<Var>\w+)\((?<Args>"+sArgs+@")\);",
+                        "var ${Var} = new ${Type}(${Args});")                               // Type Var(Args) -> var Var = new Var(Args)
+            .ReReplace(@"(?<Type>nsCSSValue|nsCSSValueList|int32_t|bool) +(?<Var>\w+)\[(?<Size>[\w\.]+)?\];",
+                        "var ${Var} = new ${Type}[${Size}];")                               // Type Var[Size] -> var Var = new Type[Size]
+            .ReReplace(@"(?<Type>Declaration|string) +(?<Var>\w+)\((?<Args>"+sArgs+@")\);",
+                        "${Type} ${Var} = ${Args};")                                        // Type Var(Args) -> Type Var = Args
+            .ReReplace(@"(?<Type>"+
+                            "nsCSSValue|nsCSSValuePair|nsCSSSelectorList|nscolor|nsCSSRect|ExtractFirstFamilyData|ReduceNumberCalcOps|"+
+                            "List<(?:float|nsCSSValue|uint32_t)>"+
+                       @") +(?<Var>\w+)"+                                                   // 1. Type Var -> var Var = new Type()
+                       @"(, (?<Var>\w+))*;",                                                // 2. Type Var1, Var2 -> Type Var1 = new Type(), Var2 = new Type()
+                       GenerateVarListEvaluator(m => m.Count("Var") > 1 ? m.Get("Type") : "var", m => "new "+m.Get("Type")+"()"))
+            .ReReplace(@"(?<Type>nsCSSUnit|u?int\d+_t|float) (?<Var>\w+)(, (?<Var>\w+))*;",
+                       GenerateVarListEvaluator(m => m.Get("Type"), m => "0"))              // int Var -> int Var = 0
+            .ReReplace(@"bool (conditionMet|hitStop|rv|haveWS|useCommas|single|is3D|changed);",
+                        "bool $1 = false;")                                                 // bool Var -> bool Var = false
+            .ReReplace(@"string +\b(str|valueStr|prefix|url|urlString)\b;",
+                        "string $1 = \"\";")                                                // string Var -> string Var = ""
+            .ReReplace(@"\b(nsAtomList|string)\b +\b(pseudoElementArgs|pseudoElement)\b;",
+                        "$1 $2 = null;")                                                    // Type Var -> Type Var = null
+            .ReReplace(@"(?<!new )(?<Type>nsCSSValue)\(",
+                        "new ${Type}(")                                                     // Type Var[Size] -> Type(...) -> new Type(...)
+            .Replace(@"nsAutoTArray<char, 16> stack;", "var stack = new List<char>(16);")
+            .Replace(@"combinator = 0", @"combinator = '\0'")
+            .Replace(@"int32_t numbers[2] = { 0, 0 };", "int32_t[] numbers = { 0, 0 };")
+            .Replace(@"int32_t[]  variantMask;", "var variantMask = new int32_t[0];")
+            .Replace(@"string stopSymbolChars", "char[] stopSymbolChars")
+            // specific expressions: boolean
+            .ReReplace(@"(?nx)!\b(?<Var>
+                            mediaFeatureAtom|declaration|mediaType|prefix|aTail->mNext|newSel->(\w+)|feature->mName|
+                            mScanner|mSheetPrincipal|mNameSpaceMap|aResult|aTail|aPseudoElementArgs|aPseudoElement|aSelectorList
+                        )\b(?!\.)",
+                        "${Var} == null")                                                                   // !var -> var == null
+            .ReReplace(@"(?nx)(?<Op>if|while)\ \(\b(?<Var>
+                            mSheet|mChildLoader|mNameSpaceMap|lastRule|declaration|pseudoElement|query|kid|aConsumedTokens|sliceConsumedTokens|
+                            negations->mNegations|selector->mNext
+                        )\b\)",
+                        "${Op} (${Var} != null)")                                                           // if (var) -> if (var != null)
+            .ReReplace(@"if \(!\((mSheet|aSheetPrincipal|aBaseURI|aSheetURI|aNodePrincipal|aDeclaration)\)\)", "if ($1 == null)")
+            .ReReplace(@"!(dataMask|combinator)", "$1 == 0")                                                // !var -> var == 0
+            .ReReplace(@"if \((aResult|s->mNext|selector->mNext) (&&|\|\|)", "if ($1 != null $2")           // if (var OP -> if (var != null OP
+            .ReReplace(@"(?nx)
+                            (?<! ,\ )                                                                       # do not match if among arguments
+                            (?>                                                                             # no backtracking: disallow skipping openning bracket
+                                (?<o> \( )?                                                                 # opening bracket
+                                (?<Var> aVariantMask | yVal | mask )                                        # A & B expression: A
+                                \ &\                                                                        # A & B expression: &
+                                (?<Const> VARIANT_\w+ | BG_\w+ )                                            # A & B expression: B
+                            )
+                            (?<-o> \) )?                                                                    # closing bracket
+                            (?!\)?\ !=\ 0)                                                                  # do not match if comparison with 0 is already present
+                        (?(o)(?!))                                                                          # do not match if opening and closing brackets don't match",
+                        "((${Var} & ${Const}) != 0)")                                                       // A & B -> ((A & B) != 0)
+            .ReReplace(@"!\(([xy]Value)\.GetIntValue\(\)", "0 == ($1.GetIntValue()")
+            .ReReplace(@"if \(\((BG_\w+ \| BG_\w+)\) & value\[(\d+)\]\.GetIntValue\(\)\)", "if ((($1) & value[$2].GetIntValue()) != 0)")
+            .ReReplace(@"([xy]EdgeEnum) & \((BG_\w+ \| BG_\w+)\)", "(($1 & ($2)) != 0)")
+            .Replace(@"Debug.Assert(aSelectorList,", "Debug.Assert(aSelectorList != null,")
+            .Replace(@"&& aConsumedTokens", "&& aConsumedTokens != null")
+            .Replace(@"; l;", "; l != null;")
+            .Replace(@"!!l->mNext", "l.mNext != null")
+            .Replace(@"while ((l = l->mNext))", "while ((l = l.mNext) != null)")
+            .Replace(@"seen & (1 << component)", "((seen & (1 << component)) != 0)")
+            .Replace(@"while ((htmlAttr = caseInsensitiveHTMLAttribute[i++]))", "while ((htmlAttr = caseInsensitiveHTMLAttribute[i++]) != null)")
+            .Replace(@"if (mask & (bit & ~BG_CENTER))", "if ((mask & (bit & ~BG_CENTER)) != 0)")
+            .Replace(@"(xEdgeEnum & yEdgeEnum & ~BG_CENTER)", "((xEdgeEnum & yEdgeEnum & ~BG_CENTER) != 0)")
+            .Replace(@"(aPseudoElement && aPseudoElementArgs)", "(aPseudoElement != null && aPseudoElementArgs != null)")
+            .Replace(@"newValue & intValue", "((newValue & intValue) != 0)")
+            // specific expressions: declarations
+            .ReReplace(@"(?nx)static(\ const)?\ (?<Type>\w+)\ (?<Var>
+                            caseInsensitiveHTMLAttribute|kBorderColorSources|kBorderSources|kBorderColorsProps|kBorderStyleSources|kBorderWidthSources|
+                            columnIDs|fontIDs|listStyleIDs|kMarginSideIDs|kMarginSources|kOutlineIDs|kPaddingSideIDs|kPaddingSources|
+                            kTransitionProperties|kAnimationProperties|
+                            kPaintOrderKTable|kContentListKWs|kContentSolitaryKWs|kTextDecorationKTable
+                        )\[\]",
+                        "/*TODO: static*/ ${Type}[] ${Var}")
+            .Replace(@"static const uint8_t kVariantMaskLengths[eNumVariantMasks]", "/*TODO: static*/ uint8_t[] kVariantMaskLengths")
+            .Replace(@"static const int32_t kVariantMasks[eNumVariantMasks][kMaxElemsPerFunction]", "/*TODO: static*/ int32_t[][] kVariantMasks")
+            .Replace(@"{VARIANT_", "new[] {VARIANT_")
+            .ReReplace(@"(static |const )+u?int32_t numProps", "uint32_t numProps")
+            // specific expressions: arg declarations
+            .ReReplace(@"bool (aInsideBraces)", "bool $1 = false")
+            .ReReplace(@"bool (aAllowExplicitCenter)", "bool $1 = true")
+            .Replace(@"ref bool aConsumedTokens", "ref bool? aConsumedTokens")
+            .Replace(@"nsCSSContextType aContext", "nsCSSContextType aContext = nsCSSContextType.General")
+            .Replace(@"uint32_t aFlags", "nsParseDeclaration aFlags")
+            .ReReplace(@"\b(nsCSSProperty|nsCSSValue)\b \b(subprops|aSourceProperties|aProperties|aValues|aInitialValues)\b(?!\[\])", "$1[] $2")
+            .Replace(@"string aStopSymbolChars", "char[] aStopSymbolChars")
+            .Replace(@"(string aURL)", "(ref string aURL)")
+            .ReReplace(@"\bnsCSSValue (aValue|aImage|aOut|aContainer)\b", "ref nsCSSValue $1") // majority (~30) are ref, so listing exceptions is easier
+            .ReReplace(@"(?s)(AppendValue|AppendValueToList)\(([^\)]+) ref nsCSSValue aValue\)", "$1($2 nsCSSValue aValue)")//;WriteLine(source);source=source
+            .ReReplace(@"\bnsCSSValue(\[\])? aValues(\[\])?", "ref nsCSSValue[] aValues")
+            .Replace(@"ParseOneFamily(string aFamily", "ParseOneFamily(StringBuilder aFamily")
+            // specific expressions: arg values
+            .ReReplace(@"nsMediaQuery query;", "nsMediaQuery query = null;")
+            .ReReplace(@"string (condition|family|nextFamily);", "var $1 = new StringBuilder();")
+            .Replace(@"bool sliceConsumedTokens = false;", "bool? sliceConsumedTokens = false;")
+            // specific expressions: arg calls
+            .ReReplace(@"&(equal)", "out $1")
+            .ReReplace(@"&(hitStop|changed|sliceConsumedTokens|haveWS|pseudoElementType)", "ref $1")
+            .ReReplace(@"(lastRule|junk|dummy)\)", "ref $1)")
+            .ReReplace(@"(ParseURLOrString)\((\w+)\)", "$1(ref $2)")
+            .ReReplace(@"(?i)\((\w*conditionMet)", "(ref $1")
+            .ReReplace(@"(pseudoElement),", "ref $1,")
+            .ReReplace(@", (query),", ", ref $1,")
+            .ReReplace(@"true, aChanged\)", "true, ref aChanged)")
+            .ReReplace(@"(?<Method>"+
+                            "ParseBoxPositionValues|ParseTransitionTimingFunctionValueComponent|ParseSelectorList|ParseSelectorGroup|"+
+                            "ParseNegatedSimpleSelector|ParseHSLColor|ParseColorOpacity|ParseBackgroundRepeatValues|"+
+                            "ParseBackgroundSizeValues|ParseBoxPositionValues|ParseIDSelector|ParseClassSelector|ParsePseudoSelector|"+
+                            "ParseColor|ParseCounter|ParseAttr|ParseTransitionTimingFunctionValues|ParseTransitionStepTimingFunctionValues|"+
+                            "ParseCalc|SetValueToURL|ParseNonNegativeVariant|ParseOneOrLargerVariant|ParseSingleValueProperty|"+
+                            "ParseFamily|ParseFontFeatureSettings|ParseFontWeight|ParseMarks|ParseTextDecorationLine|ParseTextOverflow|"+
+                            "ParseFontSrc|ParseFontRanges|ParseFontFeatureSettings|ParseEnum|ParseShadowItem|TranslateDimension|"+
+                            "ParseLinearGradient|ParseRadialGradient|ParseImageRect|ParseElement|ParseBackgroundPositionValues|"+
+                            "ParseChoice|AppendValueToList|"+
+                            "ParseAttributeSelector|ParseTypeOrUniversalSelector|ParseVariant|aValue\\.GetStringValue"+
+                       @")\((?<Arg1>(\w|\.|->|\[|\])+[,\)])", @"${Method}(ref ${Arg1}")
+            .ReReplace(@"("+
+                            "ParseOneFamily|ParseGradientColorStops|ParseGroupedBoxProperty|ParseFontDescriptorValue"+
+                       @")\(([^, ]+),\s+(\w+)", @"$1($2, ref $3")
+            .ReReplace(@"("+
+                            "ParseColorComponent|ParseCalcAdditiveExpression|ParseCalcMultiplicativeExpression|ParseCalcTerm"+
+                       @")\(([^, ]+),\s+(\w+)", @"$1(ref $2, ref $3")
+            .ReReplace(@"(?<Method>"+"NS_NewURI"+@")\((?<Arg1>(\w|\.|->)+[,\)])", @"${Method}(out ${Arg1}")
+            .ReReplace(@"parsingStatus = ParsePseudoSelector\(ref aDataMask, newSel, true,\s+nullptr, nullptr, nullptr\);",
+                        "{ string _1 = null; nsCSSPseudoElement _2 = 0; parsingStatus = ParsePseudoSelector(ref aDataMask, newSel, true, ref _1, null, ref _2); }")
+            .Replace(@"return ParseBorderImageSlice(true, nullptr);", "{ bool? _ = null; return ParseBorderImageSlice(true, ref _); }")
+            .ReReplace(@"(FindKeyword|ParseAnimationOrTransitionShorthand)\((\w+),\s+([\w:]+),\s+(?!ref )(\w+)", @"$1($2, $3, ref $4")
+            .ReReplace(@"GetFunctionParseInformation\((\w+),\s+(\w+),\s+(\w+),\s+(\w+),\s+(\w+),\s+(\w+)\)", @"GetFunctionParseInformation($1, $2, ref $3, ref $4, ref $5, ref $6)")
+            .ReReplace(@"TryReplaceValue\((\w+),\s+(\w+),\s+(\w+),\s+(\w+)\)", @"TryReplaceValue($1, $2, $3, ref $4)")
+            .ReReplace(@"ParseSingleTransform\((\w+),\s+([^,]+),\s+(\w+)\)", @"ParseSingleTransform($1, ref $2, ref $3)")
+            .ReReplace(@"ParseFunction\(([\w\.]+),\s+(\w+),\s+(\w+),\s+(\w+),\s+(\w+)\)", @"ParseFunction($1, $2, $3, $4, ref $5)")
+            .ReReplace(@"(?<Method>ParseVariant|ParseNonNegativeVariant)\((?<Var>\w+)->Get(?<Prop>\w+)\(\),",
+                        "${Method}(${Var}.Get${Prop}(), ${Var}.Set${Prop},") // C# doesn't support methods returning refs, so workaround by using delegates
+            .ReReplace(@"(?<Method>ParseVariant|ParseNonNegativeVariant|ParseSingleValueProperty)\((?<Var>\w+)\.Get(?<Prop>\w+)\((?<PropArg>\w+)\),",
+                        "${Method}(${Var}.Get${Prop}(${PropArg}), v => ${Var}.Set${Prop}(${PropArg}, v),")
+            .ReReplace(@"\(AppendRuleToSheet, this", "((rule, _) => AppendRule(rule), this")
+            .ReReplace(@"(?<Method>\w+)\(AssignRuleToPointer, (?<Args>[^\)]+)\);", "Rule result = null; ${Method}((rule, _) => result = rule, ${Args}); aResult = result;")
+
+            // common c++ functions
+            .ReReplace(@"(?n)(?<Var1>(\w|\.|->)+)\.swap\((?<Var2>(\w|\.|->)+)\)", "{ var t = ${Var1}; ${Var1} = ${Var2}; ${Var2} = t; }")
+            .Replace(@"fabs", "Math.Abs")
+            .Replace(@"floor", "(float)Math.Floor")
+            // common c++
+            .ReReplace(@"nullptr", "null")
+            .ReReplace(@"void\*", "object")
+            .ReReplace(@"new (\w+);", "new $1();")
+            .ReReplace(@"(?<Spec>const|static) (?<Type>\w+) (?<Var>\w+)\[\] = {", "${Spec} ${Type}[] ${Var} = new ${Type}[] {") // create arrays
+            .ReReplace(@"(?<Spec>const) (?<Type>\w+) (?<Var>\w+)\[\]", "${Type}[] ${Var}") // array args
+            .ReReplace(@"(?<Type>\w+) (?<Var>a\w+)\[\]", "${Type}[] ${Var}") // array args
+            .ReReplace(@"static const", "const")
+            .ReReplace(@"if \((\w+) & (\w+)\)", "if (($1 & $2) != 0)")
+            .ReReplace(@"(?nx)
+                            (?<!(
+                                switch\ ?\(.*\)\ ?{(\ *//.*)? | case\ .*: | default: | break; | return\ [^;]*;
+                            )\s+)
+                            (?<Space> \ + )
+                            (?<Case> default | case\ .* ):",
+                        "${Space}  goto ${Case};\n${Space}${Case}:") // add explicit goto statements to switch fall-throughs
+            .ReReplace(@"(?nx)
+                            (?<Space> \ + )
+                            (?<Switch>
+                                switch\ ?\(.*\)\ ?{
+                                    "+sBlock+@"
+                                    (?<!( break; | return\ [^;]*; )\s+)
+                            )
+                                }",
+                        "${Space}${Switch}${Space}break;\n${Space}}") // force break as last instruction inside switch
+            .ReReplace(@"(u?int\d+_t|double|bool)\((" + sArgs + @")\)", "(($1)($2))") // casts in functional style
+            .ReReplace(@"static_cast<(u?int\d+_t|size_t)>\((" + sArgs + @")\)", "(($1)($2))")
+            .ReReplace(@"(?i)\b(\d)+u\b", "$1") // no suffix for ushort
+            .Replace(@"(void)", "") // pointless cast to void
+            .Replace(@"->", ".")
+            .Replace(@"::", ".")
+
+            // specific common fixes
+            .ReReplace(@"goto case nsCSSFontDesc.Family;", "")
+
+            // common preprocessor
+            .ReReplace(@"#(include|define|undef|pragma) .*", "")
+            .ReReplace(@"#ifdef (\w+)", "#if $1")
+            .ReReplace(@"\n *delete .*;\n", "\n")
+            .ReReplace(@"\n *typedef .*;\n", "\n")
+            .ReReplace(@"(?s)#if 0\n.*?#endif", "")
+            //.ReReplace(@"using .*", "")
+
+            // whitespace
+            .ReReplace(@"\n\s*;\n", "\n")
+            .ReReplace(@"\n{3,}", "\n\n")
+            .ReReplace(@"\n", "\r\n")
+            .Trim()
+            ;
+        return Refactor(source);
+    }
+
+    IEnumerable<string> ConvertVariantDefines (string source)
+    {
+        foreach (Match m in source.ReMatches(
+            @"(?imnx)^
+                \#define \ +
+                (?<Name>\w+) \ +                                          # constant name as-is
+                (?<IntValue>\(? (-?\d+ | 0x[0-9a-f]+ | \d<<\d+) \)?) \ *? # NN or 0xHH or N<<N in optional brackets
+                (?<Remainder>\ ? (//.* | /\*.*)? )$                       # one-line or block comment"))
+            yield return m.Result("internal const int ${Name} = ${IntValue};${Remainder}");
+
+        foreach (Match m in source.ReMatches(
+            @"(?imnx)^
+                \#define \ +
+                (?<Name>\w+) \ +                                          # constant name as-is
+                \(? (                                                     # aliased constant name(s)
+                    (?<NamesValue>[a-z]\w+ (\ *\|\ *)? )                  # aliased constant name ending with optional | operator
+                )+ \)? \ *?
+                (?<Remainder>\ ? (//.* | /\*.*)? )$                       # one-line or block comment")) {
+            string name = m.Get("Name"), namesValue = m.GetConcat("NamesValue"), remainder = m.Get("Remainder");
+            namesValue = namesValue.ReReplace(@"^NS_STYLE_", "nsStyle.");
+            yield return "internal const int {0} = {1};{2}".Fmt(name, namesValue, remainder);
+        }
+    }
+#>

@@ -1,0 +1,456 @@
+﻿/* Based on http://www.cssflow.com/ui-kits/flat/demo */
+@import '../../img/nav-sprites.png.less';
+@import '_mpd.less';
+@import '_pagination.less';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    font-weight: 500;
+    font-size: 62.5%;
+    line-height: 1.2em;
+    .font-family();
+}
+
+.spinner {
+    height: 28px;
+    width: 28px;
+    border: 8px solid #ffffff;
+    border-right-color: transparent!important;
+    border-radius: 50%;
+    
+    -webkit-animation: spinner-rotate 0.8s infinite linear;
+    -moz-animation: spinner-rotate 0.8s infinite linear;
+    -o-animation: spinner-rotate 0.8s infinite linear;
+    animation: spinner-rotate 0.8s infinite linear;
+}
+
+@-webkit-keyframes spinner-rotate {
+  0%    { -webkit-transform: rotate(0deg); }
+  100%  { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spinner-rotate {
+  0%    { -moz-transform: rotate(0deg); }
+  100%  { -moz-transform: rotate(360deg); }
+}
+
+@keyframes spinner-rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+
+.grid {
+    width: 944px;
+    margin: auto;
+}
+
+.grid::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.alt-err-w {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+}
+
+.alt-err {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.618em;
+    line-height: 1.2em;
+}
+
+.field {
+    position: relative;
+    max-width: 100%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    font-size: 1.6em;
+    overflow: hidden;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.field:last-child {
+    margin-right: 0;
+}
+
+input,
+button,
+textarea {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 1.6em;
+    box-shadow: none;    
+}
+
+.input,
+.option {
+    background: #ffffff;
+    border: 1px solid @inputgrey;
+    border-radius: 2px;
+    outline: 0;
+
+    &:not(:disabled):not(:read-only):focus {
+        border-color: @focusedinputgrey;
+    }
+}
+
+.input {
+    position: relative;
+    height: 36px;
+    padding: 0 10px;
+
+    font-size: 1.6em;
+    line-height: 2.125em;
+
+    &:disabled {
+        color: @grey40;
+    }
+}
+
+.input.mini {
+    height: 28px;
+    font-size: 1.28em;
+    line-height: 2.03125em;
+}
+
+.input.input-nc {
+    cursor: default;
+}
+
+select.input {
+    padding: 0 6px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    & + .option {
+        position: relative;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-left: -18px;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &.mini {
+        position: relative;
+        width: 14px;
+        height: 14px;
+
+        & + .option {
+            width: 14px;
+            height: 14px;
+            margin-left: -14px;
+        }
+    }
+}
+
+input[type="checkbox"] + .option::after {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    display: block;
+    content: '';
+    width: 13px;
+    height: 7px;
+    border: solid @inputgrey;
+    border-width: 0 0 3px 3px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    opacity: 0.5;
+}
+
+input[type="checkbox"].mini + .option::after {
+    top: 2px;
+    left: 1px;
+    width: 10px;
+    height: 6px;
+}
+
+input[type="checkbox"]:not(:disabled):hover + .option::after {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked + .option::after {
+    border-color: #737373;
+    opacity: 1;
+}
+
+input[type="radio"] + .option {
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+input[type="radio"] + .option::after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: @inputgrey;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+input[type="radio"]:not(:disabled):hover + .option::after {
+    opacity: 1;
+}
+
+input[type="radio"]:checked + .option::after {
+    background-color: #737373;
+    opacity: 1;
+}
+
+.input-search {
+    input[type="text"] {
+        padding-right: 45px;
+
+        &:focus + .search {
+            border-color: #a6a6a6;
+        }
+    }
+
+    .search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 36px;
+        height: 36px;
+        background: @inputgrey;
+        border: 1px solid @inputgrey;
+        border-left-width: 0;
+        border-radius: 0 2px 2px 0;
+        text-align: center;
+        line-height: 32px;
+        cursor: pointer;
+
+        &:hover {
+            border-color: #a6a6a6;
+            background: #a6a6a6;
+        }
+
+        &:not(.disabled):active {
+            border-color: #737373;
+            background: #737373;
+        }
+
+        input[type="submit"] {
+            background: transparent;
+            vertical-align: middle;
+    
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            
+            font-size: 18px;
+            color: #ffffff;
+            //.sprite-mini-search-white();
+        }
+    }
+
+    &.input-search-2 {
+        .search {
+            &,
+            &:hover,
+            &:active {
+                background: none;
+                border-color: @inputgrey;
+            }
+
+            &::before {
+                content: '\0a0000';
+                display: block;
+                position: absolute;
+                top: 5px;
+                left: -1px;
+                width: 1px;
+                height: 26px;
+                background: @inputgrey;
+            }
+
+            input[type="submit"] {
+                font-size: 22px;
+                color: #a6a6a6;
+                //.sprite-mini-search-black();
+            }
+        }
+    }
+}
+    
+.input-search form.disabled .search {
+    cursor: default;
+
+    input {
+        cursor: default;
+    }
+
+    &:hover,
+    &:active {
+        border-color: @inputgrey;
+        background: @inputgrey;
+    }
+}
+
+.selectize-control.input {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+
+    .selectize-input {
+        padding: 6px 9px;
+        font-size: inherit;
+        border-color: @inputgrey;
+        border-radius: 2px;
+        box-shadow: none;
+        background-image: none;
+        background-color: white;
+        background-repeat: no-repeat;
+
+        &.focus {
+            border-color: @focusedinputgrey;
+        }
+
+        &.dropdown-active {
+            border-radius: 2px 2px 0 0;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        input {
+            font-size: inherit;
+            line-height: 22px !important;
+        }
+
+        .item {
+            padding: 2px 0;
+        }
+    }
+
+    .selectize-dropdown {
+        position: absolute;
+        height: auto;
+        padding: 0;
+        font-size: 1em;
+        border-color: @focusedinputgrey;
+        border-radius: 0 0 2px 2px;
+        box-shadow: none;
+
+        [data-selectable] {
+            padding: 2px 10px;
+            border: 0;
+        }
+    }
+}
+
+.switch {
+    display: table;
+    background: #d8d8d8;
+    border-radius: 2px;
+    overflow: hidden;
+
+    .input {
+        display: table-cell;
+        width: 50%;
+        border-radius: 0;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.vertical-separator(@color: @grey25) {
+    content: "\0000a0";
+    display: block;
+
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+
+    background: transparent;
+    background: -moz-linear-gradient(top, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, fadeout(#ffffff, 100%)), colorstop(30%, fadeout(@color, 50%)), colorstop(70%, fadeout(@grey25, 50%)), colorstop(95%, fadeout(#ffffff, 100%))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* Chrome10+,Safari5.1+ */
+    background: -ms-linear-gradient(top, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* IE10+ */
+    background: -o-linear-gradient(top, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* Opera11.10+ */
+    background: linear-gradient(top, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* W3C */
+}
+
+
+.horizontal-separator(@color: @grey25) {
+    content: "\0000a0";
+    display: block;
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+    background: transparent;
+    background: -moz-linear-gradient(left, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(5%, fadeout(#ffffff, 100%)), colorstop(30%, fadeout(@color, 50%)), colorstop(70%, fadeout(@color, 50%)), colorstop(95%, fadeout(#ffffff, 100%))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* Chrome10+,Safari5.1+ */
+    background: -ms-linear-gradient(left, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* IE10+ */
+    background: -o-linear-gradient(left, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* Opera11.10+ */
+    background: linear-gradient(left, fadeout(#ffffff, 100%) 5%, fadeout(@color, 50%) 30%, fadeout(@color, 50%) 70%, fadeout(#ffffff, 100%) 95%); /* W3C */
+}

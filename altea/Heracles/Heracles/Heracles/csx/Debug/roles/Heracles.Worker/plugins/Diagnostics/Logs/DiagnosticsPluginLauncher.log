@@ -1,0 +1,17 @@
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Emulator config file set to C:\Projects\Heracles\Heracles\Heracles\csx\Debug\roles\Heracles.Worker\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] DiagnosticsStoreRootPath set to: C:\Users\borja\AppData\Local\dftmp\Resources\79ea118c-42ac-4c52-80ba-963fe369559f
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Loading config file: C:\Projects\Heracles\Heracles\Heracles\csx\Debug\roles\Heracles.Worker\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Config file to read: C:\Projects\Heracles\Heracles\Heracles\csx\Debug\roles\Heracles.Worker\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Checking VM Type
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Emulator config file set to C:\Projects\Heracles\Heracles\Heracles\csx\Debug\roles\Heracles.Worker\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Extension set to Emulator Mode
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Reading XML configuration file
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Bypassing private config decryption
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Stopping the running plugin, if any
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] No DiagnosticsPlugin is running.
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Killing any DiagnosticsPlugin that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Killing any MonAgentHost that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Diagnostics plugin stopped successfully
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:49:21] Resetting DiagnosticPlugin
+DiagnosticsPluginLauncher.exe Error: 0 : [31/12/2015 12:50:23] DiagnosticsPlugin launch failed with exit code -1
+DiagnosticsPluginLauncher.exe Information: 0 : [31/12/2015 12:50:23] DiagnosticPlugin exited with code -1

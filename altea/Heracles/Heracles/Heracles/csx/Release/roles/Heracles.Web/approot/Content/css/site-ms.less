@@ -1,0 +1,165 @@
+﻿@import 'core/_main.less';
+@import 'themes/ms/_ms.less';
+
+html {
+    background-color: #ffffff;
+}
+
+#tp {
+    width: 100%;
+}
+
+#tp-l {
+    height: 50px;
+    margin: 20px 0;
+    line-height: 50px;
+    font-size: 2.4em;
+}
+
+#login {
+    position: relative;
+    width: 395px;
+    margin: 20px 0;
+
+    .field {
+        float: left;
+        margin-bottom: 4px;
+        font-size: 1.28em;
+        line-height: 1.40625em;
+
+        input {
+            font-size: 1em;
+        }
+    }
+}
+
+#login-user,
+#login-pass,
+#login-remember,
+#login-recover {
+    width: 150px;
+}
+
+#login-submit {
+    width: 75px;
+
+    input:disabled {
+        cursor: default;
+        color: transparent;
+        font-size: 0;
+        text-transform: capitalize;
+    }
+}
+
+#login-remember {
+    input,
+    .option {
+        top: 2px;
+    }
+}
+
+#login-spinner {
+    position: absolute;
+    display: none;
+    top: 6px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    border-color: #ffffff;
+    border-width: 3px;
+}
+
+#login-validation {
+    height: 1em;
+    color: @red;
+    font-size: 1.28em;
+    font-weight: 700;
+}
+
+#login-noscript {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    font-size: 1.4em;
+    line-height: 1.3em;
+    color: #826200;
+    font-weight: 600;
+    text-align: center;
+    background: #ffeaa8;
+    border: 1px solid #ffc237;
+    border-radius: 2px;
+
+    div {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+
+    p {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 964px) {
+    .grid {
+        width: auto;
+    }
+    
+    header {
+        .fl,
+        .fr {
+            float: none;
+        }
+    }
+    
+    #logo {
+        margin: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    #login {
+        margin: 20px auto;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+    #login {
+        width: 200px;
+        text-align: center;
+
+        .field {
+            float: none;
+        }
+    }
+
+    #login-user,
+    #login-pass,
+    #login-submit,
+    #login-remember,
+    #login-recover {
+        width: 200px;
+    }
+
+    #login-validation {
+        min-height: 1em;
+        height: auto;
+    }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width: 320px) {
+
+}

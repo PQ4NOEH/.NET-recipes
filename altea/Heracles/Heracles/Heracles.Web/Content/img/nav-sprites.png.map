@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "name": "/Content/img/nav-sprites/mini-user-black.png",
+      "width": 20,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 10
+    },
+    {
+      "name": "/Content/img/nav-sprites/mini-user-white.png",
+      "width": 20,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 44
+    },
+    {
+      "name": "/Content/img/nav-sprites/mini-logout-black.png",
+      "width": 20,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 78
+    },
+    {
+      "name": "/Content/img/nav-sprites/mini-logout-white.png",
+      "width": 20,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 112
+    },
+    {
+      "name": "/Content/img/nav-sprites/mini-search-black.png",
+      "width": 24,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 146
+    },
+    {
+      "name": "/Content/img/nav-sprites/mini-search-white.png",
+      "width": 24,
+      "height": 24,
+      "offsetX": 10,
+      "offsetY": 180
+    }
+  ]
+}

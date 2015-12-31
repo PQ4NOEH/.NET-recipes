@@ -1,0 +1,194 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Atenea", "Atenea\Atenea.ccproj", "{00205986-D075-493B-8464-2C41F2AFC8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atenea.Worker", "Atenea.Worker\Atenea.Worker.csproj", "{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}"
+	ProjectSection(ProjectDependencies) = postProject
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C} = {407CCB4A-E78D-4639-8368-5DA3E1C3A35C}
+		{E308675A-E938-430B-9A98-F18EA6EB43AF} = {E308675A-E938-430B-9A98-F18EA6EB43AF}
+		{105053AD-A65D-443A-BF30-1B49878AD399} = {105053AD-A65D-443A-BF30-1B49878AD399}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atenea.Worker.ThreadedRole", "Atenea.Worker.ThreadedRole\Atenea.Worker.ThreadedRole.csproj", "{9F02545C-DD52-438A-A076-9A90536B84E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Classes", "Altea.Classes\Altea.Classes.csproj", "{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C} = {407CCB4A-E78D-4639-8368-5DA3E1C3A35C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Contracts", "Altea.Contracts\Altea.Contracts.csproj", "{105053AD-A65D-443A-BF30-1B49878AD399}"
+	ProjectSection(ProjectDependencies) = postProject
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD} = {970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9} = {62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Models", "Altea.Models\Altea.Models.csproj", "{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C} = {407CCB4A-E78D-4639-8368-5DA3E1C3A35C}
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9} = {62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Services", "Altea.Services\Altea.Services.csproj", "{E308675A-E938-430B-9A98-F18EA6EB43AF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD} = {970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C} = {407CCB4A-E78D-4639-8368-5DA3E1C3A35C}
+		{105053AD-A65D-443A-BF30-1B49878AD399} = {105053AD-A65D-443A-BF30-1B49878AD399}
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9} = {62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE} = {F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Services.Tests", "Altea.Services.Tests\Altea.Services.Tests.csproj", "{91AAEB4F-D16E-41DF-A251-405326AAB20F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD} = {970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}
+		{E308675A-E938-430B-9A98-F18EA6EB43AF} = {E308675A-E938-430B-9A98-F18EA6EB43AF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Database", "Altea.Database\Altea.Database.csproj", "{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altea.Common.Classes", "Altea.Common.Classes\Altea.Common.Classes.csproj", "{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atenea.AllYouCanReadUpdater", "Atenea.AllYouCanReadUpdater\Atenea.AllYouCanReadUpdater.csproj", "{33F220A7-7244-4B34-8370-5491543F5DEE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://altea.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Atenea.Worker\\Atenea.Worker.csproj
+		SccProjectName1 = Atenea.Worker
+		SccLocalPath1 = Atenea.Worker
+		SccProjectUniqueName2 = Atenea\\Atenea.ccproj
+		SccProjectName2 = Atenea
+		SccLocalPath2 = Atenea
+		SccProjectUniqueName3 = Atenea.Worker.ThreadedRole\\Atenea.Worker.ThreadedRole.csproj
+		SccProjectName3 = Atenea.Worker.ThreadedRole
+		SccLocalPath3 = Atenea.Worker.ThreadedRole
+		SccProjectUniqueName4 = Altea.Classes\\Altea.Classes.csproj
+		SccProjectName4 = Altea.Classes
+		SccLocalPath4 = Altea.Classes
+		SccProjectUniqueName5 = Altea.Contracts\\Altea.Contracts.csproj
+		SccProjectName5 = Altea.Contracts
+		SccLocalPath5 = Altea.Contracts
+		SccProjectUniqueName6 = Altea.Models\\Altea.Models.csproj
+		SccProjectName6 = Altea.Models
+		SccLocalPath6 = Altea.Models
+		SccProjectUniqueName7 = Altea.Database\\Altea.Database.csproj
+		SccProjectName7 = Altea.Database
+		SccLocalPath7 = Altea.Database
+		SccProjectUniqueName8 = Altea.Common.Classes\\Altea.Common.Classes.csproj
+		SccProjectName8 = Altea.Common.Classes
+		SccLocalPath8 = Altea.Common.Classes
+		SccProjectUniqueName9 = Altea.Services\\Altea.Services.csproj
+		SccProjectName9 = Altea.Services
+		SccLocalPath9 = Altea.Services
+		SccProjectUniqueName10 = Altea.Services.Tests\\Altea.Services.Tests.csproj
+		SccProjectName10 = Altea.Services.Tests
+		SccLocalPath10 = Altea.Services.Tests
+		SccProjectUniqueName11 = Atenea.AllYouCanReadUpdater\\Atenea.AllYouCanReadUpdater.csproj
+		SccProjectName11 = Atenea.AllYouCanReadUpdater
+		SccLocalPath11 = Atenea.AllYouCanReadUpdater
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Debug|x64.Build.0 = Debug|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{00205986-D075-493B-8464-2C41F2AFC8AD}.Release|x64.Build.0 = Release|Any CPU
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Debug|x64.ActiveCfg = Debug|x64
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Debug|x64.Build.0 = Debug|x64
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Release|x64.ActiveCfg = Release|x64
+		{3DDE1C86-0BAF-417E-80B0-B9EFA390D251}.Release|x64.Build.0 = Release|x64
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Debug|x64.ActiveCfg = Debug|x64
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Debug|x64.Build.0 = Debug|x64
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Release|x64.ActiveCfg = Release|x64
+		{9F02545C-DD52-438A-A076-9A90536B84E0}.Release|x64.Build.0 = Release|x64
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Debug|x64.ActiveCfg = Debug|x64
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Debug|x64.Build.0 = Debug|x64
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Release|x64.ActiveCfg = Release|x64
+		{62E3C9D0-347A-43E2-BEB9-29F1139F0AA9}.Release|x64.Build.0 = Release|x64
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Debug|x64.ActiveCfg = Debug|x64
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Debug|x64.Build.0 = Debug|x64
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Release|x64.ActiveCfg = Release|x64
+		{105053AD-A65D-443A-BF30-1B49878AD399}.Release|x64.Build.0 = Release|x64
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Debug|x64.ActiveCfg = Debug|x64
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Debug|x64.Build.0 = Debug|x64
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Release|x64.ActiveCfg = Release|x64
+		{970D4438-7CAD-42E5-B152-AF5FEAB4A9CD}.Release|x64.Build.0 = Release|x64
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Debug|x64.ActiveCfg = Debug|x64
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Debug|x64.Build.0 = Debug|x64
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Release|x64.ActiveCfg = Release|x64
+		{E308675A-E938-430B-9A98-F18EA6EB43AF}.Release|x64.Build.0 = Release|x64
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Debug|x64.ActiveCfg = Debug|x64
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Debug|x64.Build.0 = Debug|x64
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Release|x64.ActiveCfg = Release|x64
+		{91AAEB4F-D16E-41DF-A251-405326AAB20F}.Release|x64.Build.0 = Release|x64
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Debug|x64.ActiveCfg = Debug|x64
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Debug|x64.Build.0 = Debug|x64
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Release|x64.ActiveCfg = Release|x64
+		{F4BAF8E6-47BC-4FCC-8181-4C4AB30876EE}.Release|x64.Build.0 = Release|x64
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Debug|x64.ActiveCfg = Debug|x64
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Debug|x64.Build.0 = Debug|x64
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Release|x64.ActiveCfg = Release|x64
+		{407CCB4A-E78D-4639-8368-5DA3E1C3A35C}.Release|x64.Build.0 = Release|x64
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Debug|x64.ActiveCfg = Debug|x64
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Debug|x64.Build.0 = Debug|x64
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Release|x64.ActiveCfg = Release|x64
+		{33F220A7-7244-4B34-8370-5491543F5DEE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

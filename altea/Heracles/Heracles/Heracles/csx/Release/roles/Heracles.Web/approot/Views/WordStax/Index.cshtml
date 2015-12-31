@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = RoleNames.MODULE_WORDSTAX;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@{ Html.RenderPartial("_StaxIndex"); }
+
+@section Scripts
+{
+    @Scripts.Render("~/Content/js/stax")
+    @Scripts.Render("~/Content/js/staxindex")
+    @Scripts.Render("~/Content/js/listmanager")
+    @Scripts.Render("~/Content/js/vocabularyindex")
+}

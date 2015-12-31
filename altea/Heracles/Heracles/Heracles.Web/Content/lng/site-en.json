@@ -1,0 +1,5 @@
+﻿{
+    "login-empty-data-error": "Enter your username and password.",
+    "login-invalid-password-error": "The password you entered is incorrect.",
+    "login-error": "An unexpected error has occurred. Please try again."
+}

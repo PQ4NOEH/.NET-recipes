@@ -1,0 +1,34 @@
+﻿@using Heracles.Web.Areas.WiseReader.Resources
+@model WiseReaderTextEditorModel
+
+@{
+    ViewBag.Title = "WiseReader";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@{ AlteaModuleRoute route = AlteaModuleRouteDictionary.GetRoute("WiseReader"); }
+
+<div id="wr-te-wrapper">
+    <div id="wr-te-content">
+        <div id="wr-te-mh">
+            <div id="wr-te-mt">
+                <div id="wr-te-mtd"></div>
+                <input id="wr-te-mti" type="text">
+            </div>
+            <div id="wr-te-cn" class="documents"><a class="fa fa-folder-open" title="@WiseReaderResources.GoBackFolders"></a></div>
+        </div>
+        <div id="wr-te-lw">
+            <textarea id="wr-te"></textarea>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        window.model = @Html.Raw(Model.ToJson());
+    </script>
+
+    @Scripts.Render("~/Content/js/lib/ckeditor/ckeditor")
+    @Scripts.Render("~/Areas/WiseReader/Content/js/texteditor")
+}

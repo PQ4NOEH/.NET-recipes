@@ -1,0 +1,116 @@
+﻿@using Heracles.Web.Areas.WiseTank.Resources
+
+@{
+    ViewBag.Title = RoleNames.MODULE_WISETANK;
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+    ViewHints.FullContainer = true;
+}
+
+<div id="wt-str-spn" class="app-spinner app-spinner-large app-spinner-active"></div>
+<div id="wt-str-lb">
+    <span id="wt-str-lb-str" class="wt-str-lb-ic wt-str-lb-ic-act fa fa-paper-plane" title="@WiseTankResources.Streams"></span>
+    <span id="wt-str-lb-grp" class="wt-str-lb-ic fa fa-users" title="@WiseTankResources.Timelines"></span>
+</div>
+<div id="wt-str-rb">
+    <div id="wt-str" class="wt-bct wt-bct-act">
+        <div id="wt-str-rbc">
+            <div id="wt-str-h">
+                <ul id="wt-str-l"><!--
+                    --><li id="wt-str-ln" class="wt-str-ld" title="@WiseTankResources.AddTab"><span class="wt-str-ldc">+</span></li><!--
+                --></ul>
+            </div>
+            <div id="wt-str-sh">
+                <div id="wt-str-sh-bt"><!--
+                    --><span id="wt-str-sh-rfs" class="wt-sh-inc"><span class="fa fa-refresh"></span></span><!--
+                    --><div id="wt-str-sh-atr" class="wt-sh-inc">
+                        <span>@WiseTankResources.AutoRefresh</span><span id="wt-str-sh-atr-tm"></span><span id="wt-str-sh-atr-dd"></span>
+                        <div id="wt-str-sh-atr-lst">
+                            <span data-value="0">@WiseTankResources.Disabled</span>
+                            <span data-value="2">2 @WiseTankResources.Minutes</span>
+                            <span data-value="5">5 @WiseTankResources.Minutes</span>
+                            <span data-value="10">10 @WiseTankResources.Minutes</span>
+                            <span data-value="15">15 @WiseTankResources.Minutes</span>
+                            <span data-value="30">30 @WiseTankResources.Minutes</span>
+                        </div>
+                    </div><!--
+                    --><span id="wt-str-sh-add" class="wt-sh-inc"><span>@WiseTankResources.AddStream</span></span><!--
+                    --><span id="wt-str-sh-etn" class="wt-sh-inc"><span>@WiseTankResources.EditTabName</span></span><!--
+                --></div>
+                <div id="wt-str-sh-bwsw" class="wt-sh-inc">
+                    <div id="wt-str-sh-bws">
+                        <a id="wt-str-sh-bw"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="wt-str-cw">
+                <div id="wt-str-c">
+                    <div id="wt-str-no-tab">@WiseTankResources.NoTabs</div>
+                    <div id="wt-str-no-bxs">@WiseTankResources.NoBoxes</div>
+                    <div id="wt-str-bxs" class="wt-bxs">
+                        <div id="wt-str-bxs-w" class="wt-bxs-w"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wt-grp" class="wt-bct">
+        <div id="wt-grp-rbc">
+            <div id="wt-grp-h">
+                <ul id="wt-grp-l"><!--
+                    --><li id="wt-grp-la" class="wt-grp-ld">
+                        <div id="wt-grp-laart"><!--
+                            --><span id="wt-grp-laat">@WiseTankResources.Area: </span><!--
+                            --><span id="wt-grp-ldan">@WiseTankResources.None</span><!--
+                            --><span id="wt-grp-ldaarr"></span>
+                        </div>
+                        <div id="wt-grp-laars"></div>
+                    </li><!--
+                    --><li id="wt-grp-lac" class="wt-grp-ld">
+                        <ul id="wt-grp-ls"><!--
+                            --><li id="wt-grp-ln" class="wt-grp-ld" title="@WiseTankResources.AddTimeline"><span class="wt-grp-ldc">+</span></li><!--
+                        --></ul>
+                    </li><!--
+                --></ul>
+            </div>
+            <div id="wt-grp-sh">
+                <div id="wt-grp-sh-bt"><!--
+                    --><span id="wt-grp-sh-rfs" class="wt-sh-inc"><span class="fa fa-refresh"></span></span><!--
+                    --><div id="wt-grp-sh-atr" class="wt-sh-inc">
+                        <span>@WiseTankResources.AutoRefresh</span><span id="wt-grp-sh-atr-tm"></span><span id="wt-grp-sh-atr-dd"></span>
+                        <div id="wt-grp-sh-atr-lst">
+                            <span data-value="0">@WiseTankResources.Disabled</span>
+                            <span data-value="2">2 @WiseTankResources.Minutes</span>
+                            <span data-value="5">5 @WiseTankResources.Minutes</span>
+                            <span data-value="10">10 @WiseTankResources.Minutes</span>
+                            <span data-value="15">15 @WiseTankResources.Minutes</span>
+                            <span data-value="30">30 @WiseTankResources.Minutes</span>
+                        </div>
+                    </div><!--
+                    --><span id="wt-grp-sh-add" class="wt-sh-inc"><span>@WiseTankResources.AddColumn</span></span><!--
+                    --><span id="wt-grp-sh-egr" class="wt-sh-inc"><span>@WiseTankResources.EditGroup</span></span><!--
+                    --><span id="wt-grp-sh-usr" class="wt-sh-inc"><span>@WiseTankResources.Users</span></span><!--
+                --></div>
+                <div id="wt-grp-sh-bwsw" class="wt-sh-inc">
+                    <div id="wt-grp-sh-bws">
+                        <a id="wt-grp-sh-bw"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="wt-grp-cw">
+                <div id="wt-grp-c">
+                    <div id="wt-grp-sl-are" class="wt-grp-sl-are-act">@WiseTankResources.SelectArea</div>
+                    <div id="wt-grp-no-tml">@WiseTankResources.NoTimelines</div>
+                    <div id="wt-grp-sl-tml">@WiseTankResources.SelectTimeline</div>
+                    <div id="wt-grp-bxs" class="wt-bxs">
+                        <div id="wt-grp-bxs-w" class="wt-bxs-w"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/Areas/WiseTank/Content/js/wisetank")
+}

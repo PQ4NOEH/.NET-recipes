@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Heracles" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="Heracles.Web">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.ServiceBus.SharedAccessKeyName" value="HeraclesSharedAccessKey" />
+      <Setting name="Microsoft.ServiceBus.SharedAccessKey" value="TQwXrT8zTLUCe4N7rovNg55Ogrb1VDTpExAdB+QwmVk=" />
+      <Setting name="Microsoft.ServiceBus.ServiceNamespace" value="alteabus" />
+      <Setting name="Altea.ApplicationName" value="academia georgetown" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" value="1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.NamedCaches" value="{&quot;caches&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:10,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;medium&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:30,&quot;isExpirable&quot;:true,&quot;type&quot;:2},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;large&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:1440,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;largest&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:10080,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0}]}" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.DiagnosticLevel" value="1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.CacheSizePercentage" value="30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ConfigStoreConnectionString" value="DefaultEndpointsProtocol=https;AccountName=alteaconfig;AccountKey=ouYaihL1mxxkq3W4nI1ssh17tQST9sVNvSRkheqrdZhObGfvIGpw1Sy3nYZSpns1Q+/77l0BdsWDm/oyfG27dA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="heracles" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEBYKDY8f66qqRdqMUHD+iHowDQYJKoZIhvcNAQEBBQAEggEAmgGxjxyTED0T2T090+DaT6lL9OfZhSOKQ9fmg7UKSPlS7LLCzr/VL0hkmvYdOKxOlTeRjU1QSNOo13RKlLtiPRCCdySAMYrjRXHYSg30GPLcGoijqaDr6ZhYugrW5KGuMnibbIMYJHZWDCjrm7d8mIZcHCyvRdWPpbg0FhA35C7o+/iL15stjCKa48kmii44uFrF/dWdj7Nj7netNBexvcLQU49sKP2qxwi/x66HzuIPwgxObEeRwkQMx89KFbR6WyQgWhduFR1qugB6bAm9TVpFXl2dwOZ4VsCRqqIjic9zSD0YQKkEgS/Z8eeKHCXV7XUSslIhmKrKiV2bJWb2HTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECDgTCL5V6yA1gBAQlT3l0Tzpd7IrxiOxReBc" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-04-24T23:59:59.0000000+02:00" />
+      <Setting name="MicrosoftTranslator.Id" value="0V8oPBlwRVCm0xa" />
+      <Setting name="MicrosoftTranslator.Secret" value="izNN1OX0Mz3fF9nU6o7TinjTIkP90NS3ktp/R3Tnfv0=" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=alteaconfig;AccountKey=ouYaihL1mxxkq3W4nI1ssh17tQST9sVNvSRkheqrdZhObGfvIGpw1Sy3nYZSpns1Q+/77l0BdsWDm/oyfG27dA==" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="BADD7810D0D2C9C5C44A27F0D54F0338AD0EA729" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="Heracles.Worker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Altea.ApplicationName" value="academia georgetown" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="heracles" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEBYKDY8f66qqRdqMUHD+iHowDQYJKoZIhvcNAQEBBQAEggEAmgGxjxyTED0T2T090+DaT6lL9OfZhSOKQ9fmg7UKSPlS7LLCzr/VL0hkmvYdOKxOlTeRjU1QSNOo13RKlLtiPRCCdySAMYrjRXHYSg30GPLcGoijqaDr6ZhYugrW5KGuMnibbIMYJHZWDCjrm7d8mIZcHCyvRdWPpbg0FhA35C7o+/iL15stjCKa48kmii44uFrF/dWdj7Nj7netNBexvcLQU49sKP2qxwi/x66HzuIPwgxObEeRwkQMx89KFbR6WyQgWhduFR1qugB6bAm9TVpFXl2dwOZ4VsCRqqIjic9zSD0YQKkEgS/Z8eeKHCXV7XUSslIhmKrKiV2bJWb2HTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECDgTCL5V6yA1gBAQlT3l0Tzpd7IrxiOxReBc" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-04-24T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=alteaconfig;AccountKey=ouYaihL1mxxkq3W4nI1ssh17tQST9sVNvSRkheqrdZhObGfvIGpw1Sy3nYZSpns1Q+/77l0BdsWDm/oyfG27dA==" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="BADD7810D0D2C9C5C44A27F0D54F0338AD0EA729" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

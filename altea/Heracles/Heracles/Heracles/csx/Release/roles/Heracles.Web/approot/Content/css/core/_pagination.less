@@ -1,0 +1,186 @@
+﻿@import '_core.less';
+
+#pgs-w {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#pgs-t {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1em;
+    font-size: 2.5em;
+    line-height: 1em;
+    text-align: left;
+    padding: 0 15px;
+    margin-top: 15px;
+    margin-bottom: 0.5em;
+    z-index: 1;
+
+    &.pgs-th {
+        display: none;
+    }
+    
+    &.pg-psd {
+        opacity: 0.5;
+        z-index: -1;
+    }
+}
+
+#pgs-tr {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 2.5em;
+    line-height: 2.5em;
+    z-index: 3;
+    overflow: hidden;
+
+    &.pgs-tr-act {
+        display: block;
+    }
+
+    .input {
+        font-size: 1.25em;
+        height: 25px;
+        line-height: 23px;
+    }
+}
+
+#pgs-c {
+    position: absolute;
+    top: 0;
+    bottom: 3.5em;
+    left: 0;
+    right: 0;
+    margin: 15px 0;
+    padding: 0 15px;
+    z-index: 2;
+    text-align: left;
+    
+    &.pg-psd {
+        opacity: 0.5;
+        z-index: -1;
+    }
+}
+
+#pgs-cww {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#pgs-cw {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+}
+
+.pg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    float: left;
+    height: 100%;
+    width: 100%;
+    padding-top: 3.9em;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.2em;
+
+    &.pg-in {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.pg-f {
+    padding-top: 0;
+}
+
+.pg-fc {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #ffffff;
+
+    & ~ .pg-ft {
+        margin-top: 0.5em;
+    }
+}
+
+.pg-ft {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    & ~ .pg-fc {
+        margin-top: 0.5em;
+    }
+}
+
+.pg-ftl {
+    float: left;
+}
+
+.pg-ftr {
+    float: right;
+}
+
+#pgs-f {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.5em;
+    line-height: 3.5em;
+    z-index: 2;
+}
+
+#pgn-fl {
+    position: absolute;
+    left: 15px;
+    height: 3.5em;
+}
+
+#pgs-ft {
+    display: inline-block;
+    height: 100%;
+
+    &.pg-psd {
+        opacity: 0.5;
+
+        .pg-p {
+            cursor: default;
+        }
+    }
+}
+
+.pg-p {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0.25em;
+    cursor: pointer;
+
+    &.inactive {
+        font-weight: normal;
+        opacity: 0.2;
+        cursor: default;
+    }
+
+    &.pg-ap {
+        cursor: default;
+    }
+}
+
+#pgn-fr {
+}

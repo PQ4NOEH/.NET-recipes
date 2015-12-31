@@ -1,0 +1,39 @@
+﻿@model WiseReaderFileViewerModel
+
+@{
+    ViewBag.Title = "WiseReader";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@{ AlteaModuleRoute route = AlteaModuleRouteDictionary.GetRoute("WiseReader"); }
+
+<div id="wr-flv">
+    <div id="wr-fif">
+        <span id="wr-nme"></>@Html.ActionLink(RoleNames.MODULE_WISEREADER, route.Action, route.RouteValues)</span>
+        @if (Model.FolderLevel > 0)
+        {
+            <span class="wr-spr">»</span>
+            if (Model.FolderLevel > 1)
+            {
+                <span class="wr-ell">⋯</span>
+                <span class="wr-spr">»</span>
+            }
+            <span class="wr-fld">@Html.ActionLink(Model.FolderName, route.Action, controllerName: null, protocol: null, hostName: null, fragment: Model.FolderId.ToString("n"), routeValues: route.RouteValues, htmlAttributes: null)</span>
+        }
+        <span class="wr-spr">»</span>
+        <span id="wr-flnm">@Model.FileName</span>
+    </div>
+    <div id="wr-fliw">
+        
+        <iframe id="wr-fli" src="@Url.Action(null, AlteaModuleRouteDictionary.GetRouteValues("WiseReader", "FileViewer", "Files", Model.FileId.ToString("n")))"></iframe>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        window.model = @Html.Raw(Model.ToJson());
+    </script>
+
+    @Scripts.Render("~/Areas/WiseReader/Content/js/viewer")
+}

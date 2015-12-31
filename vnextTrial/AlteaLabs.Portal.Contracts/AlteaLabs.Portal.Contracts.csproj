@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ChangeUserPassword.cs" />
+    <Compile Include="Commands\LogOutUser.cs" />
+    <Compile Include="Commands\LoginUser.cs" />
+    <Compile Include="Commands\RegisterUser.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserCredentials.cs" />
-    <Compile Include="Model\UserRegistration.cs" />
     <Compile Include="Persitence\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IUserService.cs" />

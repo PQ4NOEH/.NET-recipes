@@ -1,0 +1,26 @@
+﻿<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    (window.jQuery) || document.write("<script type=\"text/javascript\" src=\"/Content/js/lib/jquery.min.js\"><\/script>");
+</script>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    if (window.jQuery.ui) {
+        document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/ui-lightness/jquery-ui.min.css\">");
+    } else {
+        document.write("<script type=\"text/javascript\" src=\"/Content/js/lib/jquery-ui.min.js\"><\/script>");
+        document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"/Content/css/lib/ui-lightness/jquery-ui.min.css\">");
+    }
+</script>
+
+<script>
+    window.SM2_DEFER = true;
+    window.ALTEA_PROMISES = [];
+</script>
+
+@Scripts.Render("~/Content/js/libs")
+@Scripts.Render("~/Content/js/core")
+
+@Scripts.Render("~/Content/js/themes/" + AppCore.Setting_ThemeName + ".js")
+@Scripts.Render("~/Content/js/wiselab")
+@Scripts.Render("~/Content/js/wisetank")

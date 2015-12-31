@@ -1,0 +1,21 @@
+﻿/*
+This is an example of how to use the image sprite in your own CSS files
+*/
+.wisenet-back {
+/* You may have to set 'display: block' */
+	width: 26px;
+	height: 26px;
+	background: url('wisenet-sprites.png') -1px -1px;
+}
+.wisenet-forward {
+/* You may have to set 'display: block' */
+	width: 26px;
+	height: 26px;
+	background: url('wisenet-sprites.png') -1px -28px;
+}
+.wisenet-menu {
+/* You may have to set 'display: block' */
+	width: 26px;
+	height: 26px;
+	background: url('wisenet-sprites.png') -1px -55px;
+}

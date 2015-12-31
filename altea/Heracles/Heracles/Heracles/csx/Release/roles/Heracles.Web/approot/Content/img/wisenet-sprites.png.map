@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "name": "/Content/img/wisenet-sprites/wisenet-back.png",
+      "width": 26,
+      "height": 26,
+      "offsetX": 1,
+      "offsetY": 1
+    },
+    {
+      "name": "/Content/img/wisenet-sprites/wisenet-forward.png",
+      "width": 26,
+      "height": 26,
+      "offsetX": 1,
+      "offsetY": 28
+    },
+    {
+      "name": "/Content/img/wisenet-sprites/wisenet-menu.png",
+      "width": 26,
+      "height": 26,
+      "offsetX": 1,
+      "offsetY": 55
+    }
+  ]
+}
